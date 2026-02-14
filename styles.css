@@ -35,7 +35,7 @@ body{
 
 /* HERO BANNER */
 .hero-banner{
-  min-height:75vh;
+  min-height:35vh;                           /* tällä muutetaan kuvan kokoa */
   background-image:url("./hero.jpg");
   background-size:cover;
   background-position:center;
