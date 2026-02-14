@@ -78,17 +78,19 @@ a{ color:inherit; }
   gap: 22px;
   padding: 42px 0 46px;
   align-items: start;
-  
-  .hero-image{
+}
+
+/* Hero-kuva (img class="hero-image") */
+.hero-image{
   width: 100%;
-  max-width: 1px;   /* muuta pienemmäksi jos haluat */
+  max-width: 320px;   /* kokeile 320px jos haluat pienemmäksi */
   height: auto;
   display: block;
   margin: 0 0 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
 }
-}
-}
-}
+
 .eyebrow{
   color: var(--muted);
   margin:0 0 10px;
