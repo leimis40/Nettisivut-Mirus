@@ -79,7 +79,7 @@ a{ color:inherit; }
   padding: 42px 0 46px;
   align-items: start;
   
-  .mirus logo{
+  .hero{
   width: 100%;
   max-width: 520px;   /* säädä jos haluat isommaksi/pienemmäksi */
   height: auto;
