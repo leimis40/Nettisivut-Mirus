@@ -80,8 +80,8 @@ a{ color:inherit; }
   align-items: start;
   
   .hero{
-  width: 100%;
-  max-width: 0.1px;   /* säädä jos haluat isommaksi/pienemmäksi */
+  width: 20%;
+  max-width: 520px;   /* säädä jos haluat isommaksi/pienemmäksi */
   height: auto;
   display: block;
   margin: 0 0 14px;   /* tilaa kuvan alle */
