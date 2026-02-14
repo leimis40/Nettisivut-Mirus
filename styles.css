@@ -78,6 +78,16 @@ a{ color:inherit; }
   gap: 22px;
   padding: 42px 0 46px;
   align-items: start;
+  
+  .mirus logo{
+  width: 100%;
+  max-width: 520px;   /* säädä jos haluat isommaksi/pienemmäksi */
+  height: auto;
+  display: block;
+  margin: 0 0 14px;   /* tilaa kuvan alle */
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
 }
 .eyebrow{
   color: var(--muted);
