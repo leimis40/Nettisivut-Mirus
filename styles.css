@@ -81,7 +81,7 @@ a{ color:inherit; }
   
   .hero-image{
   width: 100%;
-  max-width: 50px;   /* muuta pienemmäksi jos haluat */
+  max-width: 1px;   /* muuta pienemmäksi jos haluat */
   height: auto;
   display: block;
   margin: 0 0 14px;
