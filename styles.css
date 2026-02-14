@@ -79,14 +79,14 @@ a{ color:inherit; }
   padding: 42px 0 46px;
   align-items: start;
   
-  .hero{
-  width: 20%;
-  max-width: 520px;   /* säädä jos haluat isommaksi/pienemmäksi */
+  .hero-image{
+  width: 100%;
+  max-width: 420px;   /* muuta pienemmäksi jos haluat */
   height: auto;
   display: block;
-  margin: 0 0 14px;   /* tilaa kuvan alle */
-  border-radius: 16px;
-  border: 1px solid var(--line);
+  margin: 0 0 14px;
+}
+}
 }
 }
 .eyebrow{
