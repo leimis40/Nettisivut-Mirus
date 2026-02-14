@@ -83,7 +83,7 @@ a{ color:inherit; }
 /* Hero-kuva (img class="hero-image") */
 .hero-image{
   width: 100%;
-  max-width: 320px;   /* kokeile 320px jos haluat pienemmäksi */
+  max-width: 380px;   /* kokeile 320px jos haluat pienemmäksi */
   height: auto;
   display: block;
   margin: 0 0 14px;
