@@ -403,3 +403,31 @@ input:focus, textarea:focus{
 @media (prefers-reduced-motion: reduce){
   .atom, .carrier{ animation:none !important; }
 }
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.footer-link{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.footer-link:hover{
+  text-decoration:underline;
+  color:var(--text);
+}
+
+.divider-dot{
+  color:var(--line);
+}
