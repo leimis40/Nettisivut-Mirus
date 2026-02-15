@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Elektronisymboli">
+  <defs>
+    <style>
+      .orbit { fill:none; stroke:#0f172a; stroke-width:14; stroke-linecap:round; }
+      .nucleus { fill:#0f172a; }
+      .electron { fill:#2563eb; }
+    </style>
+  </defs>
+
+  <!-- Orbits -->
+  <ellipse class="orbit" cx="256" cy="256" rx="170" ry="110"/>
+  <ellipse class="orbit" cx="256" cy="256" rx="170" ry="110" transform="rotate(60 256 256)"/>
+  <ellipse class="orbit" cx="256" cy="256" rx="170" ry="110" transform="rotate(-60 256 256)"/>
+
+  <!-- Nucleus -->
+  <circle class="nucleus" cx="256" cy="256" r="16"/>
+
+  <!-- Larger blue electrons -->
+  <circle class="electron" cx="256" cy="146" r="18"/>
+  <circle class="electron" cx="380" cy="300" r="18"/>
+  <circle class="electron" cx="132" cy="300" r="18"/>
+</svg>
