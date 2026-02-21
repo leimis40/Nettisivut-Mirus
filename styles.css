@@ -240,8 +240,9 @@ h1{
 .contact-row{
   display:grid;
   grid-template-columns: 120px 1fr;
-   gap: 10px;
   align-items:start;
+  gap: 10px;
+  
 }
 
 .contact-row .value{
@@ -258,8 +259,6 @@ h1{
     text-align:left;      /* tai right jos haluat, mutta left yleensä luettavampi */
     font-weight: 700;     /* jos haluat korostuksen pysyvän */
   }
-  
-  
 
 .label{ color: var(--muted); }
 .value{ text-decoration:none; }
