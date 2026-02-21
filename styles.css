@@ -452,7 +452,8 @@ input:focus, textarea:focus{
 .contact-card .value {
   font-weight: 700;
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
 }
 
 .contact-card .value:hover {
