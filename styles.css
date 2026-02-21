@@ -258,7 +258,7 @@ h1{
     text-align:left;      /* tai right jos haluat, mutta left yleensä luettavampi */
     font-weight: 700;     /* jos haluat korostuksen pysyvän */
   }
-  }
+  
   
 
 .label{ color: var(--muted); }
