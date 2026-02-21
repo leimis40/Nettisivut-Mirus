@@ -450,8 +450,8 @@ input:focus, textarea:focus{
 
 /* yhteystietojen korostus */
 .contact-card .value {
-  font-weight: 700;
-  color: var(--text);
+  font-weight: 700 !important;
+  color: var(--text) !important;
   font-size: 1.1rem;
   letter-spacing: 0.3px;
 }
