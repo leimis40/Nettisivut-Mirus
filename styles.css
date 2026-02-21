@@ -447,3 +447,14 @@ input:focus, textarea:focus{
   overflow-wrap: anywhere;
   word-break: break-word;
 }
+
+/* yhteystietojen korostus */
+.contact-card .value {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.contact-card .value:hover {
+  text-decoration: underline;
+}
