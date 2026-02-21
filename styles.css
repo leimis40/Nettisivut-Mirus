@@ -236,12 +236,19 @@ h1{
   align-items:start;
 }
 .contact-card{ box-shadow: var(--shadow); }
+
 .contact-row{
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  align-items:start;
   gap: 10px;
-  padding: 8px 0;
 }
+
+.contact-row .value{
+  text-align:right;
+}
+
+
 .label{ color: var(--muted); }
 .value{ text-decoration:none; }
 .value:hover{ text-decoration: underline; }
@@ -458,7 +465,4 @@ input:focus, textarea:focus{
 
 .contact-card .value:hover {
   text-decoration: underline;
-}
-.contact-row .value {
-  text-align: right;
 }
