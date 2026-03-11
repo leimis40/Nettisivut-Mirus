@@ -18,5 +18,10 @@
   <loc>https://mirus-electrum.fi/blog/sfs6002-2025.html</loc>
   <priority>0.6</priority>
 </url>
+
+  <url>
+  <loc>https://mirus-electrum.fi/lomakkeet/</loc>
+  <priority>0.7</priority>
+</url>
   
 </urlset>
