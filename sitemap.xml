@@ -7,16 +7,16 @@
 
 <url>
   <loc>https://mirus-electrum.fi/mittaukset/</loc>
-  <priority>0.8</priority>
+  <priority>0.6</priority>
 </url>
 
   <url>
   <loc>https://mirus-electrum.fi/blog/</loc>
-  <priority>0.7</priority>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://mirus-electrum.fi/blog/sfs6002-2025.html</loc>
-  <priority>0.6</priority>
+  <priority>0.4</priority>
 </url>
 
   <url>
@@ -26,8 +26,17 @@
 
 <url>
   <loc>https://mirus-electrum.fi/koulutukset/</loc>
+  <priority>0.7</priority>
+</url>
+
+  <url>
+  <loc>https://mirus-electrum.fi/varmennustarkastus/</loc>
+  <priority>0.8</priority>
+</url>
+
+  <url>
+  <loc>https://mirus-electrum.fi/maaraaikaistarkastus/</loc>
   <priority>0.9</priority>
 </url>
-  
   
 </urlset>
