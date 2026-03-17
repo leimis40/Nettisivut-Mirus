@@ -478,3 +478,44 @@ input:focus, textarea:focus{
 .contact-card .value:hover {
   text-decoration: underline;
 }
+
+.dropdown{
+  position: relative;
+}
+
+.dropdown-menu{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px;
+  box-shadow: var(--shadow);
+  flex-direction:column;
+  min-width:220px;
+  z-index:999;
+}
+
+.dropdown-menu a{
+  padding:8px 10px;
+  text-decoration:none;
+  color: var(--muted);
+  display:block;
+}
+
+.dropdown-menu a:hover{
+  background:var(--alt);
+  color:var(--text);
+}
+
+.dropdown:hover .dropdown-menu{
+  display:flex;
+}
+.cta-nav{
+  background:#0f172a;
+  color:#fff !important;
+  padding:8px 12px;
+  border-radius:10px;
+}
