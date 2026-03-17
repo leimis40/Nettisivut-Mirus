@@ -379,6 +379,25 @@ input:focus, textarea:focus{
 }
 
 .electron{
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+  from{
+    box-shadow:
+      0 0 0 6px rgba(37,99,235,.2),
+      0 0 15px rgba(37,99,235,.5);
+  }
+  to{
+    box-shadow:
+      0 0 0 6px rgba(37,99,235,.3),
+      0 0 30px rgba(37,99,235,.8);
+  }
+}
+
+
+
+.electron{
   position:absolute;
   width:8px;
   height:8px;
@@ -405,21 +424,8 @@ input:focus, textarea:focus{
   transform:translate(-50%, -50%);
 }
 
-.electron{
-  position:absolute;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--electron);
 
-  animation: glow 2s ease-in-out infinite alternate;
 
-  box-shadow:
-    0 0 0 6px rgba(37,99,235,.25),
-    0 0 20px rgba(37,99,235,.6),
-    0 0 35px rgba(37,99,235,.4);
-}
-}
 
 @keyframes spin{
   from{ transform:rotate(0deg); }
