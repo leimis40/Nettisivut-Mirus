@@ -405,10 +405,18 @@ input:focus, textarea:focus{
   transform:translate(-50%, -50%);
 }
 
+.electron{
+  box-shadow:
+    0 0 0 6px rgba(37,99,235,.18),
+    0 0 12px rgba(37,99,235,.35);
+}
+
 @keyframes spin{
   from{ transform:rotate(0deg); }
   to{ transform:rotate(360deg); }
 }
+
+
 
 @keyframes float{
   0%,100%{ transform:translateY(0px); }
