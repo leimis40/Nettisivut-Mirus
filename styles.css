@@ -406,9 +406,19 @@ input:focus, textarea:focus{
 }
 
 .electron{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--electron);
+
+  animation: glow 2s ease-in-out infinite alternate;
+
   box-shadow:
-    0 0 0 6px rgba(37,99,235,.18),
-    0 0 12px rgba(37,99,235,.35);
+    0 0 0 6px rgba(37,99,235,.25),
+    0 0 20px rgba(37,99,235,.6),
+    0 0 35px rgba(37,99,235,.4);
+}
 }
 
 @keyframes spin{
