@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Alumiiniliitoksen tekeminen ja resistanssi – mittaustulokset | Mirus Electrum Oy</title>
+  <meta name="description" content="Mittauspöytäkirjaan perustuva tarkastelu alumiiniliitoksen tekemisestä, harjauksen, rasvauksen ja kiristysmomentin vaikutuksesta liitoksen resistanssiin." />
+
+  <link rel="canonical" href="https://mirus-electrum.fi/blog/alumiiniliitos-mittaus.html" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="/">Mirus Electrum Oy</a>
+
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" data-nav>
+          <a href="/">Etusivu</a>
+          <div class="dropdown">
+            <a href="#">Palvelut ▾</a>
+            <div class="dropdown-menu">
+              <a href="/varmennustarkastus/">Varmennustarkastus</a>
+              <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
+              <a href="/mittaukset/">Mittaukset</a>
+            </div>
+          </div>
+          <a href="/koulutukset/">Koulutukset</a>
+          <a href="/lomakkeet/">Lomakkeet</a>
+          <a href="/blog/">Blogi</a>
+          <a href="/#miksi">Miksi me</a>
+          <a href="/#yhteys" class="cta-nav">Yhteys</a>
+        </div>
+      </nav>
+
+      <section class="section" style="padding: 34px 0 10px;">
+        <p class="muted tiny" style="margin:0 0 10px;">22.3.2026</p>
+        <h1 style="margin:0 0 10px;">Alumiiniliitoksen tekeminen ja resistanssi – mittaustulokset</h1>
+        <p class="muted" style="margin:0; max-width: 75ch;">
+          Mittauspöytäkirjaan perustuva tarkastelu siitä, miten harjaus, rasvaus ja kiristysmomentti vaikuttavat alumiiniliitoksen resistanssiin ja häviötehoon.
+        </p>
+
+        <div class="cta" style="margin-top: 16px;">
+          <a class="btn ghost" href="/blog/">← Takaisin blogiin</a>
+          <a class="btn" href="/#yhteys">Pyydä yhteydenotto</a>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <article class="card" style="max-width: 80ch;">
+
+          <h2 style="margin-top: 18px;">Tutkimuksen tausta</h2>
+          <p class="muted">
+            Tässä kirjoituksessa käydään läpi mittauspöytäkirjaan perustuva tutkimus alumiiniliitoksen tekemisestä.
+            Mittausten tavoitteena oli selvittää, miten oikeaoppinen liitoksen valmistelu verrattuna puutteellisesti
+            tehtyyn liitokseen vaikuttaa resistanssiin ja sitä kautta häviötehoon.
+          </p>
+
+          <p class="muted">
+            Aihe on käytännön sähkötarkastustyössä tärkeä, koska tarkastuksilla tulee säännöllisesti vastaan tilanteita,
+            joissa alumiiniliitosta ei ole harjattu ennen liittimen asentamista. Samalla on punnittava, onko kyseessä
+            sellainen puute, joka tulee merkitä korjattavaksi, vai riittääkö opastava huomio tulevia asennuksia varten.
+          </p>
+
+          <h2 style="margin-top: 18px;">Mitä mitattiin?</h2>
+          <p class="muted">
+            Tutkimuksessa käytettiin kolmea yhtä pitkää, 0,92 m pituista 70 mm² alumiinijohdinta.
+            Molempiin päihin oli liitetty ruuvikaapelikenkä mallia Ouneva OL 25–95 Al/Cu.
+            Kiristysmomentti oli 20 Nm, ellei toisin mainita. Johtimille tehtiin esipyöristys.
+          </p>
+
+          <p class="muted">
+            Mitattavat kaapeli- ja liitinyhdistelmät olivat:
+          </p>
+
+          <ul class="list">
+            <li>Harjattu + rasvattu (oikeaoppinen liitos)</li>
+            <li>Johdinta ei ole harjattu, liittimessä valmistajan rasvaus (väärin tehty liitos)</li>
+            <li>Liitoksia pidetty pari päivää suolaliuoksessa ja pari päivää ulkona, johtimeen ei tehty rasvausta</li>
+          </ul>
+
+          <h2 style="margin-top: 18px;">Mittausolosuhteet ja mittalaitteet</h2>
+          <p class="muted">
+            Mittaukset tehtiin sähkölaboratoriossa, jossa ympäristön lämpötila oli 22 °C.
+            Mittaus suoritettiin testauspenkillä syöttämällä näytteeseen 100 A testivirta kolmen sekunnin ajan.
+            Jännitehäviö mitattiin yhden sekunnin jälkeen, eli mittausikkunana käytettiin viimeisiä kahta sekuntia,
+            jotta mittaus ehti stabiloitua. Näytteenottoväli oli noin 50 Hz.
+          </p>
+
+          <ul class="list">
+            <li>Virtalähde: Agilent Technologies N5741A</li>
+            <li>Jännitemittari: Owon XDM3051, 5½ digit</li>
+            <li>Tuloksista laskettiin resistanssi</li>
+          </ul>
+
+          <p class="muted">
+            Ennen varsinaisia mittauksia testauspenkki validoitiin käyttämällä 100 µΩ, 0,5 % vastusta.
+          </p>
+
+          <h2 style="margin-top: 18px;">Miksi harjausta ja rasvausta haluttiin tutkia?</h2>
+          <p class="muted">
+            Liitinvalmistajat vaativat ohjeissaan yleensä alumiinijohtimen harjaamista ja rasvaamista ennen liitoksen tekemistä.
+            Tavoitteena on poistaa alumiinipinnan oksidikerros, jolla on resistanssia kasvattava vaikutus.
+            Kun resistanssi kasvaa, myös kuormitusvirralla syntyvä häviöteho kasvaa.
+          </p>
+
+          <p class="muted">
+            Kirjallisuudessa harjausta pidetään tärkeänä, jotta liitos ei lämpene käytössä.
+            Käytännössä tarkastuksilla törmää kuitenkin usein tilanteisiin, joissa harjaus on jäänyt tekemättä.
+            Tämän vuoksi haluttiin selvittää, kuinka suuri todellinen vaikutus harjauksella on liitoksen resistanssiin.
+          </p>
+
+          <p class="muted">
+            Samalla on tärkeä painottaa, että rasvaus on alumiiniliitoksissa aina erittäin tärkeä.
+            Rasva vähentää ajan myötä tapahtuvaa korroosiota ja suojaa liitosta ympäristön vaikutuksilta.
+          </p>
+
+          <h2 style="margin-top: 18px;">Tulokset ja johtopäätökset</h2>
+          <p class="muted">
+            Mittaustulosten perusteella oikein tehtyyn liitokseen verrattuna lisäresistanssia syntyi seuraavasti:
+          </p>
+
+          <ul class="list">
+            <li>Ei harjattu, mutta liittimen valmistajan oma rasva: +11,25 µΩ</li>
+            <li>Suolaliuoksessa ja ulkona pidetty johdin ilman rasvausta: +14,98 µΩ</li>
+          </ul>
+
+          <p class="muted">
+            Tyypillisessä tämän kokoisen johtimen piirissä, jossa etusulake on esimerkiksi 125 A gG,
+            tarkoittaa +11,25 µΩ lisäresistanssi noin 0,09 W lisähäviötehoa. Vastaavasti +14,98 µΩ
+            lisäresistanssi tarkoittaa noin 0,12 W lisälämpötehoa.
+          </p>
+
+          <p class="muted">
+            Käytännössä todellinen kuormitusvirta on usein paljon pienempi kuin mitoituksen yläraja.
+            Jos virta on esimerkiksi 50 A, jää lisähäviöteho hyvin pieneksi, noin 0,01 W tasolle.
+          </p>
+
+          <h2 style="margin-top: 18px;">Mitä tuloksista voidaan päätellä?</h2>
+          <p class="muted">
+            Tulosten perusteella harjauksella on resistanssin kannalta hyvin pieni vaikutus.
+            Käytännössä vaikutus on tässä tutkimuksessa lähes mitätön. Tämä ei kuitenkaan tarkoita,
+            että liitos voitaisiin tehdä huolimattomasti.
+          </p>
+
+          <h2 style="margin-top: 24px;">Mittaustulokset</h2>
+
+<div style="overflow-x:auto;">
+<table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
+  <thead>
+    <tr style="background:#f8fafc; text-align:left;">
+      <th style="padding:8px; border-bottom:1px solid #e5e7eb;">ID</th>
+      <th style="padding:8px; border-bottom:1px solid #e5e7eb;">Näyte</th>
+      <th style="padding:8px; border-bottom:1px solid #e5e7eb;">V_mean (V)</th>
+      <th style="padding:8px; border-bottom:1px solid #e5e7eb;">R (mΩ)</th>
+      <th style="padding:8px; border-bottom:1px solid #e5e7eb;">Huomio</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr><td>1</td><td>100 µΩ 0,5% R</td><td>0.00998587</td><td>0.099858699</td><td>Validointi</td></tr>
+
+    <tr><td>2</td><td>Harjattu + rasvattu</td><td>0.039926896</td><td>0.399268964</td><td></td></tr>
+    <tr><td>3</td><td>Harjattu + rasvattu 2</td><td>0.040379929</td><td>0.403799291</td><td></td></tr>
+    <tr><td>4</td><td>Harjattu + rasvattu 3</td><td>0.04038181</td><td>0.4038181</td><td></td></tr>
+
+    <tr><td>5</td><td>Ei harjausta, liittimen rasva</td><td>0.041352965</td><td>0.413529645</td><td></td></tr>
+    <tr><td>6</td><td>Ei harjausta, liittimen rasva 2</td><td>0.041351925</td><td>0.413519245</td><td></td></tr>
+    <tr><td>7</td><td>Ei harjausta, liittimen rasva 3</td><td>0.04135897</td><td>0.4135897</td><td></td></tr>
+
+    <tr><td>8</td><td>Suolavesi, ilman rasvaa</td><td>0.041703135</td><td>0.417031345</td><td></td></tr>
+    <tr><td>9</td><td>Suolavesi, ilman rasvaa 2</td><td>0.041735047</td><td>0.417350473</td><td></td></tr>
+    <tr><td>10</td><td>Suolavesi, ilman rasvaa 3</td><td>0.041743051</td><td>0.417430509</td><td></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="muted" style="margin-top:10px;">
+Taulukossa esitetään mitatut jännitehäviöt ja niistä lasketut resistanssit eri liitostavoilla.
+</p>
+
+          <p class="muted">
+            Liitoksen oikeaoppiseen tekemiseen vaikuttavat myös muut tekijät:
+          </p>
+
+          <ul class="list">
+            <li>sektorimuotoisen johtimen esipyöristys</li>
+            <li>oikea kiristysmomentti</li>
+            <li>valmistajan ohjeen mukainen rasvaus</li>
+          </ul>
+
+          <p class="muted">
+            Jos näitä ei tehdä oikein, kasvaa riski siihen, että liitos löystyy ajan myötä.
+            Tämä on käytännössä selvästi merkittävämpi riski kuin harjauksen vaikutus yksinään.
+          </p>
+
+          <h2 style="margin-top: 18px;">Lisähavainto: rasvan vaikutus säikeiden järjestymiseen</h2>
+          <p class="muted">
+            Mittauksissa havaittiin myös, että kun liitinvalmistajan lisäämän rasvan lisäksi käytettiin lisärasvaa,
+            johtimen säikeet järjestyivät liittimen sisällä paremmin. Tämä johtui säikeiden välisen kitkan pienentymisestä.
+          </p>
+
+          <h2 style="margin-top: 18px;">Tärkeysjärjestys käytännön työssä</h2>
+          <p class="muted">
+            Tutkimuksen perusteella alumiiniliitoksen tekemisen tärkeimmät asiat ovat:
+          </p>
+
+          <ol class="list">
+            <li>Esipyöristys + rasvaus + oikea momentti</li>
+            <li>Johtimen harjaaminen</li>
+          </ol>
+
+          <h2 style="margin-top: 18px;">Liittimen resistanssi ja löysän kiristyksen vaikutus</h2>
+          <p class="muted">
+            Testijohtimen resistanssiksi laskettiin 348,29 µΩ. Tämän perusteella oikein tehdyn yhden liittimen
+            resistanssiksi saatiin 27 µΩ.
+          </p>
+
+          <p class="muted">
+            Lisäksi testattiin suolaliuoksessa ja ulkona ollutta liitosta niin, että se avattiin ja kiristettiin
+            selvästi löysemmälle kuin vaadittu 20 Nm. Kiristys tehtiin lyhyellä kuusiokoloavaimella.
+            Tällöin resistanssi huononi vielä 10,73 µΩ, jolloin liitoksen kokonaisresistanssiksi tuli 52,71 µΩ.
+          </p>
+
+          <p class="muted">
+            Tämäkin aiheutti vielä vain kohtalaisen pienen häviön: liittimen kokonaishäviö oli noin 0,41 W.
+            Jos johtoa kuormitettaisiin 271 A virralla, liitos lämpenisi noin 1,94 W teholla.
+            Vertailuksi itse 0,92 m pitkän johtimen häviö olisi tällöin 12,79 W.
+          </p>
+
+          <h2 style="margin-top: 18px;">Yhteenveto</h2>
+          <p class="muted">
+            Tämän tutkimuksen perusteella alumiiniliitosta on vaikea tehdä resistanssin kannalta pahasti väärin.
+            Suurin käytännön merkitys on sillä, että liitos tehdään niin, ettei se myöhemmin löysty.
+            Harjaus parantaa liitosta jonkin verran, mutta jos se jää tekemättä, ei tämän tutkimuksen perusteella
+            synny suurta vaaraa.
+          </p>
+
+          <p class="muted">
+            Tästä huolimatta alumiiniliitokset tulee aina tehdä liitinvalmistajan ohjeiden mukaisesti.
+            Tarkastuksilla on syytä käyttää harkintaa: merkitäänkö puute korjattavaksi vai riittääkö opastava huomio.
+            Turhaa haittaa ei haluta aiheuttaa, mutta turvallisuudesta ei myöskään tingitä.
+          </p>
+
+          <h2 style="margin-top: 18px;">Mittauksen tekijät</h2>
+          <p class="muted">
+            Mittauksen on tehnyt Mirus Electrum Oy:n Riku Leimola, VTS 271, yhdessä
+            Sähköliike M Minkkinen Oy:n valtuutetun tarkastajan Teemu Minkkisen kanssa.
+          </p>
+
+          <div class="cta" style="margin-top: 18px;">
+            <a class="btn" href="/#yhteys">Ota yhteyttä</a>
+            <a class="btn ghost" href="/blog/">Takaisin blogiin</a>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-left">
+        <small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+        <small class="muted">Sähkölaitteistojen tarkastukset</small>
+      </div>
+
+      <div class="footer-right">
+        <a href="/sopimusehdot.pdf" target="_blank" class="footer-link">Sopimusehdot</a>
+        <span class="divider-dot">|</span>
+        <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
