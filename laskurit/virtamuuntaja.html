@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Virtamuuntajan taakkalaskuri | Mirus Electrum Oy</title>
+  <meta name="description" content="Virtamuuntajan taakkalaskuri sähköalan käyttöön." />
+
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/favicon.svg">
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a class="brand" href="/">Mirus Electrum Oy</a>
+
+      <div class="nav-links">
+        <a href="/">Etusivu</a>
+        <a href="/laskurit/">Laskurit</a>
+        <a href="/#yhteys" class="cta-nav">Yhteys</a>
+      </div>
+    </nav>
+
+    <section class="section" style="padding:34px 0 10px;">
+      <h1>Virtamuuntajan taakkalaskuri</h1>
+      <p class="muted">
+        Tarkista täyttyykö vaatimus: 25–100 % nimellistaakasta
+      </p>
+
+      <div class="cta">
+        <a class="btn ghost" href="/laskurit/">← Takaisin laskureihin</a>
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtamuuntajan taakkalaskuri</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #d1d5db;
+      --primary: #0f62fe;
+      --good: #15803d;
+      --warn: #b45309;
+      --bad: #b91c1c;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 { margin-top: 0; }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: -8px;
+      margin-bottom: 24px;
+    }
+
+    .grid, .grid-3, .results {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .results { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 16px;
+      background: #fff;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 98, 254, 0.15);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .result-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      background: #fafafa;
+    }
+
+    .result-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .result-value {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .status {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .status.good {
+      background: rgba(21, 128, 61, 0.12);
+      color: var(--good);
+      border: 1px solid rgba(21, 128, 61, 0.25);
+    }
+
+    .status.warn {
+      background: rgba(180, 83, 9, 0.12);
+      color: var(--warn);
+      border: 1px solid rgba(180, 83, 9, 0.25);
+    }
+
+    .status.bad {
+      background: rgba(185, 28, 28, 0.12);
+      color: var(--bad);
+      border: 1px solid rgba(185, 28, 28, 0.25);
+    }
+
+    .formula {
+      background: #f9fafb;
+      border-left: 4px solid var(--primary);
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-top: 12px;
+      overflow-x: auto;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th { background: #f9fafb; }
+
+    @media (max-width: 800px) {
+      .grid, .grid-3, .results {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="card">
+      <h1>Virtamuuntajan taakkalaskuri</h1>
+      <p class="subtitle">
+        Tarkista täyttyykö vaatimus: kokonais­taakan tulee olla 25–100 % virtamuuntajan nimellistaakasta.
+      </p>
+
+      <div class="grid">
+        <div class="field">
+          <label for="secondaryCurrent">Virtamuuntajan toisiovirta</label>
+          <select id="secondaryCurrent">
+            <option value="1">1 A</option>
+            <option value="5" selected>5 A</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="ratedBurden">Virtamuuntajan nimellistaakka (VA)</label>
+          <input id="ratedBurden" type="number" value="5" min="0" step="0.1" />
+        </div>
+      </div>
+
+      <h2>Johdotus</h2>
+      <div class="grid-3">
+        <div class="field">
+          <label for="length">Johdon pituus, yhteen suuntaan (m)</label>
+          <input id="length" type="number" value="20" min="0" step="0.1" />
+        </div>
+
+        <div class="field">
+          <label for="area">Johdinpoikkipinta-ala (mm²)</label>
+          <input id="area" type="number" value="2.5" min="0.1" step="0.1" />
+        </div>
+
+        <div class="field">
+          <label for="resistivity">Johtimen resistiivisyys (Ω·mm²/m)</label>
+          <input id="resistivity" type="number" value="0.0175" min="0" step="0.0001" />
+        </div>
+      </div>
+
+      <h2>Muut huomioitavat taakat</h2>
+      <div class="grid-3">
+        <div class="field">
+          <label for="relayBurden">Mahdollinen rele / muu laite (VA)</label>
+          <input id="relayBurden" type="number" value="0" min="0" step="0.1" />
+        </div>
+
+        <div class="field">
+          <label for="otherBurden">Muut taakat yhteensä (VA)</label>
+          <input id="otherBurden" type="number" value="0" min="0" step="0.1" />
+        </div>
+
+        <div class="field">
+          <label for="meterBurden">Mittarin taakka (VA)</label>
+          <input id="meterBurden" type="number" value="0" min="0" step="0.01" />
+        </div>
+      </div>
+
+      <h2>Lisävastus</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="extraResistanceInput">Lisävastus (Ω)</label>
+          <input id="extraResistanceInput" type="number" value="0" min="0" step="0.001" />
+        </div>
+
+        <div class="field">
+          <label for="extraResistanceBurdenDisplay">Lisävastuksen aiheuttama taakka (VA)</label>
+          <input id="extraResistanceBurdenDisplay" type="text" value="0,000 VA" readonly />
+        </div>
+      </div>
+
+      <p class="small">
+        Huom.: Nykyaikaisten staattisten energiamittareiden virtapiirin taakka on yleensä hyvin pieni, joten sen voi monissa tapauksissa jättää käytännössä huomioimatta.
+      </p>
+
+      <div class="actions">
+        <button class="btn-primary" onclick="calculateBurden()">Laske</button>
+        <button class="btn-secondary" onclick="resetForm()">Palauta oletukset</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Tulokset</h2>
+
+      <div class="results">
+        <div class="result-box">
+          <div class="result-label">Johtimien silmukkaresistanssi</div>
+          <div class="result-value" id="loopResistance">0.000 Ω</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Johtimien aiheuttama taakka</div>
+          <div class="result-value" id="cableBurdenResult">0.000 VA</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Laitteiden taakka yhteensä</div>
+          <div class="result-value" id="devicesBurdenResult">0.000 VA</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Lisävastuksen taakka</div>
+          <div class="result-value" id="extraResistanceBurdenResult">0.000 VA</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Kokonais­taakka</div>
+          <div class="result-value" id="totalBurdenResult">0.000 VA</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Osuus nimellistaakasta</div>
+          <div class="result-value" id="utilizationResult">0.0 %</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Hyväksytty alue</div>
+          <div class="result-value" id="targetRangeResult">0.000–0.000 VA</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Tarvittava lisätaakka minimiin</div>
+          <div class="result-value" id="extraBurdenNeededResult">0.000 VA</div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Tarvittava lisävastus minimiin</div>
+          <div class="result-value" id="extraResistanceNeededResult">0.000 Ω</div>
+        </div>
+      </div>
+
+      <div id="statusBox" class="status good">
+        Tulos odottaa laskentaa.
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Suure</th>
+            <th>Arvo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alaraja (25 % nimellistaakasta)</td>
+            <td id="minBurdenResult">0.000 VA</td>
+          </tr>
+          <tr>
+            <td>Yläraja (100 % nimellistaakasta)</td>
+            <td id="maxBurdenResult">0.000 VA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Käytetyt kaavat</h2>
+
+      <div class="formula">
+        <strong>Johtimien silmukkaresistanssi:</strong><br>
+        R = 2 × L × ρ / A
+      </div>
+
+      <div class="formula">
+        <strong>Johtimien taakka:</strong><br>
+        S = I² × R
+      </div>
+
+      <div class="formula">
+        <strong>Lisävastuksen taakka:</strong><br>
+        S<sub>lisävastus</sub> = I² × R<sub>lisä</sub>
+      </div>
+
+      <div class="formula">
+        <strong>Kokonais­taakka:</strong><br>
+        S<sub>kok</sub> = S<sub>johdot</sub> + S<sub>laitteet</sub> + S<sub>lisävastus</sub>
+      </div>
+
+      <div class="formula">
+        <strong>Hyväksyttävä alue tarkkuusluokan säilymiselle:</strong><br>
+        0,25 × S<sub>n</sub> ≤ S<sub>kok</sub> ≤ 1,00 × S<sub>n</sub>
+      </div>
+
+      <div class="formula">
+        <strong>Tarvittava lisävastus, jos taakka on liian pieni:</strong><br>
+        R<sub>tarv</sub> = S<sub>puuttuva</sub> / I²
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function formatNumber(value, decimals = 3) {
+      return Number(value).toFixed(decimals).replace(".", ",");
+    }
+
+    function calculateBurden() {
+      const secondaryCurrent = parseFloat(document.getElementById("secondaryCurrent").value);
+      const ratedBurden = parseFloat(document.getElementById("ratedBurden").value) || 0;
+      const length = parseFloat(document.getElementById("length").value) || 0;
+      const area = parseFloat(document.getElementById("area").value) || 0;
+      const resistivity = parseFloat(document.getElementById("resistivity").value) || 0;
+      const relayBurden = parseFloat(document.getElementById("relayBurden").value) || 0;
+      const otherBurden = parseFloat(document.getElementById("otherBurden").value) || 0;
+      const meterBurden = parseFloat(document.getElementById("meterBurden").value) || 0;
+      const extraResistanceInput = parseFloat(document.getElementById("extraResistanceInput").value) || 0;
+
+      if (area <= 0) {
+        alert("Johdinpoikkipinta-alan täytyy olla suurempi kuin 0.");
+        return;
+      }
+
+      if (ratedBurden <= 0) {
+        alert("Virtamuuntajan nimellistaakan täytyy olla suurempi kuin 0.");
+        return;
+      }
+
+      const loopResistance = (2 * length * resistivity) / area;
+      const cableBurden = Math.pow(secondaryCurrent, 2) * loopResistance;
+      const devicesBurden = relayBurden + otherBurden + meterBurden;
+      const extraResistanceBurden = Math.pow(secondaryCurrent, 2) * extraResistanceInput;
+      const totalBurden = cableBurden + devicesBurden + extraResistanceBurden;
+
+      const minBurden = 0.25 * ratedBurden;
+      const maxBurden = 1.00 * ratedBurden;
+      const utilization = (totalBurden / ratedBurden) * 100;
+
+      let extraBurdenNeeded = 0;
+      let extraResistanceNeeded = 0;
+
+      if (totalBurden < minBurden) {
+        extraBurdenNeeded = minBurden - totalBurden;
+        extraResistanceNeeded = extraBurdenNeeded / Math.pow(secondaryCurrent, 2);
+      }
+
+      document.getElementById("loopResistance").textContent = formatNumber(loopResistance) + " Ω";
+      document.getElementById("cableBurdenResult").textContent = formatNumber(cableBurden) + " VA";
+      document.getElementById("devicesBurdenResult").textContent = formatNumber(devicesBurden) + " VA";
+      document.getElementById("extraResistanceBurdenResult").textContent = formatNumber(extraResistanceBurden) + " VA";
+      document.getElementById("extraResistanceBurdenDisplay").value = formatNumber(extraResistanceBurden) + " VA";
+      document.getElementById("totalBurdenResult").textContent = formatNumber(totalBurden) + " VA";
+      document.getElementById("utilizationResult").textContent = formatNumber(utilization, 1) + " %";
+      document.getElementById("targetRangeResult").textContent =
+        formatNumber(minBurden) + "–" + formatNumber(maxBurden) + " VA";
+      document.getElementById("minBurdenResult").textContent = formatNumber(minBurden) + " VA";
+      document.getElementById("maxBurdenResult").textContent = formatNumber(maxBurden) + " VA";
+      document.getElementById("extraBurdenNeededResult").textContent = formatNumber(extraBurdenNeeded) + " VA";
+      document.getElementById("extraResistanceNeededResult").textContent = formatNumber(extraResistanceNeeded) + " Ω";
+
+      const statusBox = document.getElementById("statusBox");
+      statusBox.className = "status";
+
+      if (totalBurden < minBurden) {
+        statusBox.classList.add("warn");
+        statusBox.textContent =
+          "Taakka on liian pieni. Lisää lisävastusta tai valitse pienempi nimellistaakka.";
+      } else if (totalBurden > maxBurden) {
+        statusBox.classList.add("bad");
+        statusBox.textContent =
+          "Taakka on liian suuri. Pienennä lisävastusta, lyhennä johdotusta, kasvata poikkipintaa tai valitse suurempi nimellistaakka.";
+      } else {
+        statusBox.classList.add("good");
+        statusBox.textContent =
+          "OK: kokonais­taakka on 25–100 % nimellistaakasta.";
+      }
+    }
+
+    function resetForm() {
+      document.getElementById("secondaryCurrent").value = "5";
+      document.getElementById("ratedBurden").value = "5";
+      document.getElementById("length").value = "20";
+      document.getElementById("area").value = "2.5";
+      document.getElementById("resistivity").value = "0.0175";
+      document.getElementById("relayBurden").value = "0";
+      document.getElementById("otherBurden").value = "0";
+      document.getElementById("meterBurden").value = "0";
+      document.getElementById("extraResistanceInput").value = "0";
+      calculateBurden();
+    }
+
+    calculateBurden();
+  </script>
+</body>
+</html>
+        
+      </div>
+    </section>
+  </div>
+</header>
