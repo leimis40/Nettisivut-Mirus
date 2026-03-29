@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yksijohdinkaapeleiden oikosulkuvoimalaskuri</title>
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d7deea;
+      --primary: #1d4ed8;
+      --primary-soft: #dbeafe;
+      --ok: #15803d;
+      --ok-bg: #ecfdf3;
+      --warn: #b45309;
+      --warn-bg: #fff7ed;
+      --bad: #b91c1c;
+      --bad-bg: #fef2f2;
+      --shadow: 0 12px 30px rgba(18, 35, 66, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eff4fb 0%, #f7f9fc 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px 40px;
+    }
+
+    .hero, .card {
+      background: var(--card);
+      border: 1px solid rgba(215, 222, 234, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      padding: 24px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+    }
+
+    h3 {
+      margin: 20px 0 12px;
+      font-size: 17px;
+    }
+
+    .subtle {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid-2, .grid-3, .results {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .segment {
+      display: inline-flex;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 14px;
+      background: #eef3fb;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .segment button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .segment button.active {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(16, 24, 40, 0.08);
+      color: var(--primary);
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-soft {
+      background: #e8edf6;
+      color: var(--text);
+    }
+
+    .status {
+      margin-top: 16px;
+      padding: 15px 16px;
+      border-radius: 14px;
+      font-weight: 700;
+    }
+
+    .status.ok {
+      background: var(--ok-bg);
+      color: var(--ok);
+      border: 1px solid rgba(21, 128, 61, 0.18);
+    }
+
+    .status.warn {
+      background: var(--warn-bg);
+      color: var(--warn);
+      border: 1px solid rgba(180, 83, 9, 0.18);
+    }
+
+    .status.bad {
+      background: var(--bad-bg);
+      color: var(--bad);
+      border: 1px solid rgba(185, 28, 28, 0.18);
+    }
+
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #fafcff 100%);
+    }
+
+    .kpi-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-note {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .mini {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .mini .box {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fbfdff;
+    }
+
+    .mini .box .label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .mini .box .value {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .formula {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--primary);
+      background: #f8fbff;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 11px 10px;
+      border-bottom: 1px solid #e9eef6;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 700;
+      background: #fbfdff;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .svg-wrap {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfdff;
+      padding: 14px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 960px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .grid-2, .grid-3, .results, .mini {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Parempi versio · voimat kN</div>
+      <h1>Kolmivaihejärjestelmän yksijohdinkaapeleiden voimlaskuri</h1>
+      <p>
+        Suuntaa-antava laskuri suurvirtajärjestelmien yksijohdinkaapeleiden sähködynaamisille voimille oikosulussa.
+        Laskuri näyttää voiman pituusyksikköä kohti, voiman per kiinnike, arvioidun suurimman kiinnitysvälin sekä tarvittavan kiinnikkeiden määrän annetulle reittipituudelle.
+      </p>
+    </section>
+
+    <div class="layout">
+      <section class="card">
+        <h2>Lähtötiedot</h2>
+
+        <div class="field">
+          <label>Asennusmuoto</label>
+          <div class="segment" id="arrangementSegment">
+            <button type="button" data-value="flat" class="active">Flat / taso</button>
+            <button type="button" data-value="trefoil">Trefoil</button>
+          </div>
+          <input type="hidden" id="arrangement" value="flat" />
+          <div class="hint">Flat antaa yleensä suuremman sivuttaisvoiman vierekkäisten kaapeleiden välillä. Trefoil on kompaktimpi muodostelma.</div>
+        </div>
+
+        <h3>Sähköiset tiedot</h3>
+        <div class="grid-2">
+          <div class="field">
+            <label for="inputMode">Syöttötapa</label>
+            <select id="inputMode">
+              <option value="peak" selected>Huippuoikosulkuvirta iₚ</option>
+              <option value="rms">Alkusymmetrinen oikosulkuvirta Iₖ'' + kerroin</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="peakCurrent">Huippuoikosulkuvirta iₚ (kA)</label>
+            <input id="peakCurrent" type="number" value="120" min="0" step="0.1" />
+          </div>
+        </div>
+
+        <div class="grid-2" id="rmsInputs" style="display:none; margin-top: 14px;">
+          <div class="field">
+            <label for="rmsCurrent">Alkusymmetrinen oikosulkuvirta Iₖ'' (kA)</label>
+            <input id="rmsCurrent" type="number" value="50" min="0" step="0.1" />
+          </div>
+          <div class="field">
+            <label for="peakFactor">Huippukerroin k</label>
+            <input id="peakFactor" type="number" value="2.5" min="1" step="0.05" />
+            <div class="hint">iₚ = k × Iₖ''</div>
+          </div>
+        </div>
+
+        <h3>Geometria ja asennus</h3>
+        <div class="grid-3">
+          <div class="field">
+            <label for="spacing">Johtimien keskiöetäisyys a (mm)</label>
+            <input id="spacing" type="number" value="120" min="1" step="1" />
+          </div>
+          <div class="field">
+            <label for="cableDiameter">Kaapelin ulkohalkaisija (mm)</label>
+            <input id="cableDiameter" type="number" value="40" min="1" step="0.1" />
+          </div>
+          <div class="field">
+            <label for="routeLength">Tarkasteltava reittipituus (m)</label>
+            <input id="routeLength" type="number" value="12" min="0.1" step="0.1" />
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 14px;">
+          <div class="field">
+            <label for="currentSpan">Nykyinen kiinnitysväli (m)</label>
+            <input id="currentSpan" type="number" value="0.35" min="0.01" step="0.01" />
+          </div>
+          <div class="field">
+            <label for="cleatForce">Kiinnikkeen / tuennan sallittu voima (kN)</label>
+            <input id="cleatForce" type="number" value="8" min="0.01" step="0.01" />
+          </div>
+          <div class="field">
+            <label for="safetyFactor">Varmuuskerroin</label>
+            <input id="safetyFactor" type="number" value="1.5" min="1" step="0.1" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" type="button" onclick="calculate()">Laske</button>
+          <button class="btn btn-soft" type="button" onclick="resetForm()">Palauta oletukset</button>
+        </div>
+
+        <div id="statusBox" class="status ok">Tulos odottaa laskentaa.</div>
+
+        <div class="formula">
+          <strong>Perusmalli:</strong> F/L = C × iₚ² / a, missä a on johtimien keskiöetäisyys metreinä ja iₚ huippuoikosulkuvirta ampeereina.<br>
+          Flat-muodolle käytetään konservatiivista kerrointa C = 2 × 10⁻⁷, trefoilille symmetristä arviota C = √3 × 10⁻⁷.
+        </div>
+
+        <div class="formula">
+          <strong>Kiinnitysväli:</strong> F<sub>kiinnike</sub> = (F/L) × s ja s<sub>max</sub> = F<sub>sallittu</sub> / (F/L)
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Tulokset</h2>
+        <div class="results">
+          <div class="kpi">
+            <div class="kpi-label">Voima per metri</div>
+            <div class="kpi-value" id="forcePerMeter">0,000 kN/m</div>
+            <div class="kpi-note">Laskennallinen sähködynaaminen voima pituusyksikköä kohti</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Voima per kiinnike</div>
+            <div class="kpi-value" id="forcePerCleat">0,000 kN</div>
+            <div class="kpi-note">Nykyisellä kiinnitysvälillä</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Sallittu voima</div>
+            <div class="kpi-value" id="allowableForce">0,000 kN</div>
+            <div class="kpi-note">Kiinnikkeen sallittu voima / varmuuskerroin</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Suurin kiinnitysväli</div>
+            <div class="kpi-value" id="maxSpan">0,000 m</div>
+            <div class="kpi-note">Arvioitu enimmäisväli valitulla kiinnikkeellä</div>
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="box">
+            <div class="label">Suositeltu väli</div>
+            <div class="value" id="recommendedSpan">0,000 m</div>
+          </div>
+          <div class="box">
+            <div class="label">Kiinnikkeitä reitille</div>
+            <div class="value" id="requiredCleats">0 kpl</div>
+          </div>
+          <div class="box">
+            <div class="label">Laskettu iₚ</div>
+            <div class="value" id="usedPeak">0,0 kA</div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Suure</th>
+              <th>Arvo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Käytetty muodostelma</td>
+              <td id="arrangementText">—</td>
+            </tr>
+            <tr>
+              <td>Keskiöetäisyys</td>
+              <td id="usedSpacing">—</td>
+            </tr>
+            <tr>
+              <td>Kaapelihalkaisija</td>
+              <td id="usedDiameter">—</td>
+            </tr>
+            <tr>
+              <td>Nykyinen käyttöaste sallitusta voimasta</td>
+              <td id="utilizationText">—</td>
+            </tr>
+            <tr>
+              <td>Arviomallin huomio</td>
+              <td id="modelNote">—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="svg-wrap">
+          <svg id="arrangementSvg" viewBox="0 0 420 180" aria-label="Kaapeleiden muodostelma">
+            <rect x="0" y="0" width="420" height="180" rx="16" fill="#fbfdff"></rect>
+            <text x="210" y="24" text-anchor="middle" font-size="14" fill="#667085" font-family="Arial">Muodostelma</text>
+            <circle cx="110" cy="95" r="26" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"></circle>
+            <circle cx="210" cy="95" r="26" fill="#dcfce7" stroke="#15803d" stroke-width="2"></circle>
+            <circle cx="310" cy="95" r="26" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"></circle>
+            <text x="110" y="100" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L1</text>
+            <text x="210" y="100" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L2</text>
+            <text x="310" y="100" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L3</text>
+            <line x1="136" y1="95" x2="184" y2="95" stroke="#667085" stroke-width="2" stroke-dasharray="4 4"></line>
+            <line x1="236" y1="95" x2="284" y2="95" stroke="#667085" stroke-width="2" stroke-dasharray="4 4"></line>
+            <text x="160" y="82" text-anchor="middle" font-size="12" fill="#667085" font-family="Arial">a</text>
+            <text x="260" y="82" text-anchor="middle" font-size="12" fill="#667085" font-family="Arial">a</text>
+          </svg>
+        </div>
+
+        <p class="subtle" style="margin-top: 14px;">
+          Tämä on esimitoituslaskuri. Lopullinen kiinnikevalinta kannattaa aina varmistaa käytetyn kiinnike- tai cleat-valmistajan testidatasta ja kohdekohtaisista vaatimuksista.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const arrangementSegment = document.getElementById('arrangementSegment');
+    arrangementSegment.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-value]');
+      if (!button) return;
+      document.querySelectorAll('#arrangementSegment button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      document.getElementById('arrangement').value = button.dataset.value;
+      updateArrangementSvg();
+      calculate();
+    });
+
+    document.getElementById('inputMode').addEventListener('change', () => {
+      const mode = document.getElementById('inputMode').value;
+      document.getElementById('rmsInputs').style.display = mode === 'rms' ? 'grid' : 'none';
+      calculate();
+    });
+
+    [
+      'peakCurrent', 'rmsCurrent', 'peakFactor', 'spacing', 'cableDiameter',
+      'routeLength', 'currentSpan', 'cleatForce', 'safetyFactor'
+    ].forEach(id => {
+      document.getElementById(id).addEventListener('input', calculate);
+    });
+
+    function f(value, decimals = 3) {
+      return Number(value).toFixed(decimals).replace('.', ',');
+    }
+
+    function ceilToPracticalSpan(value) {
+      if (!isFinite(value) || value <= 0) return 0;
+      const step = 0.05;
+      return Math.floor(value / step) * step;
+    }
+
+    function getPeakCurrentKA() {
+      const mode = document.getElementById('inputMode').value;
+      if (mode === 'peak') {
+        return parseFloat(document.getElementById('peakCurrent').value) || 0;
+      }
+      const rms = parseFloat(document.getElementById('rmsCurrent').value) || 0;
+      const factor = parseFloat(document.getElementById('peakFactor').value) || 0;
+      return rms * factor;
+    }
+
+    function updateArrangementSvg() {
+      const arrangement = document.getElementById('arrangement').value;
+      const svg = document.getElementById('arrangementSvg');
+
+      if (arrangement === 'flat') {
+        svg.innerHTML = `
+          <rect x="0" y="0" width="420" height="180" rx="16" fill="#fbfdff"></rect>
+          <text x="210" y="24" text-anchor="middle" font-size="14" fill="#667085" font-family="Arial">Flat / taso</text>
+          <circle cx="110" cy="95" r="26" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"></circle>
+          <circle cx="210" cy="95" r="26" fill="#dcfce7" stroke="#15803d" stroke-width="2"></circle>
+          <circle cx="310" cy="95" r="26" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"></circle>
+          <text x="110" y="100" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L1</text>
+          <text x="210" y="100" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L2</text>
+          <text x="310" y="100" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L3</text>
+          <line x1="136" y1="95" x2="184" y2="95" stroke="#667085" stroke-width="2" stroke-dasharray="4 4"></line>
+          <line x1="236" y1="95" x2="284" y2="95" stroke="#667085" stroke-width="2" stroke-dasharray="4 4"></line>
+          <text x="160" y="82" text-anchor="middle" font-size="12" fill="#667085" font-family="Arial">a</text>
+          <text x="260" y="82" text-anchor="middle" font-size="12" fill="#667085" font-family="Arial">a</text>`;
+      } else {
+        svg.innerHTML = `
+          <rect x="0" y="0" width="420" height="180" rx="16" fill="#fbfdff"></rect>
+          <text x="210" y="24" text-anchor="middle" font-size="14" fill="#667085" font-family="Arial">Trefoil</text>
+          <circle cx="170" cy="105" r="26" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"></circle>
+          <circle cx="250" cy="105" r="26" fill="#dcfce7" stroke="#15803d" stroke-width="2"></circle>
+          <circle cx="210" cy="55" r="26" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"></circle>
+          <text x="170" y="110" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L1</text>
+          <text x="250" y="110" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L2</text>
+          <text x="210" y="60" text-anchor="middle" font-size="15" font-family="Arial" fill="#172033">L3</text>
+          <line x1="193" y1="89" x2="225" y2="71" stroke="#667085" stroke-width="2" stroke-dasharray="4 4"></line>
+          <line x1="197" y1="105" x2="223" y2="105" stroke="#667085" stroke-width="2" stroke-dasharray="4 4"></line>
+          <text x="212" y="98" text-anchor="middle" font-size="12" fill="#667085" font-family="Arial">a</text>
+          <text x="210" y="122" text-anchor="middle" font-size="12" fill="#667085" font-family="Arial">a</text>`;
+      }
+    }
+
+    function calculate() {
+      const arrangement = document.getElementById('arrangement').value;
+      const peakCurrentKA = getPeakCurrentKA();
+      const spacingMm = parseFloat(document.getElementById('spacing').value) || 0;
+      const cableDiameterMm = parseFloat(document.getElementById('cableDiameter').value) || 0;
+      const routeLength = parseFloat(document.getElementById('routeLength').value) || 0;
+      const currentSpan = parseFloat(document.getElementById('currentSpan').value) || 0;
+      const cleatForceKN = parseFloat(document.getElementById('cleatForce').value) || 0;
+      const safetyFactor = parseFloat(document.getElementById('safetyFactor').value) || 1;
+
+      if (peakCurrentKA <= 0 || spacingMm <= 0 || currentSpan <= 0 || cleatForceKN <= 0 || safetyFactor < 1 || cableDiameterMm <= 0 || routeLength <= 0) {
+        return;
+      }
+
+      const ipA = peakCurrentKA * 1000;
+      const spacingM = spacingMm / 1000;
+      const allowableForceKN = cleatForceKN / safetyFactor;
+      const coefficient = arrangement === 'flat' ? 2e-7 : Math.sqrt(3) * 1e-7;
+      const forcePerMeterKN = (coefficient * ipA * ipA / spacingM) / 1000;
+      const forcePerCleatKN = forcePerMeterKN * currentSpan;
+      const maxSpan = allowableForceKN / forcePerMeterKN;
+      const recommendedSpan = ceilToPracticalSpan(maxSpan * 0.8);
+      const requiredCleats = recommendedSpan > 0 ? Math.ceil(routeLength / recommendedSpan) + 1 : 0;
+      const utilization = allowableForceKN > 0 ? (forcePerCleatKN / allowableForceKN) * 100 : 0;
+
+      document.getElementById('forcePerMeter').textContent = `${f(forcePerMeterKN, 3)} kN/m`;
+      document.getElementById('forcePerCleat').textContent = `${f(forcePerCleatKN, 3)} kN`;
+      document.getElementById('allowableForce').textContent = `${f(allowableForceKN, 3)} kN`;
+      document.getElementById('maxSpan').textContent = `${f(maxSpan, 3)} m`;
+      document.getElementById('recommendedSpan').textContent = `${f(recommendedSpan, 3)} m`;
+      document.getElementById('requiredCleats').textContent = `${requiredCleats} kpl`;
+      document.getElementById('usedPeak').textContent = `${f(peakCurrentKA, 1)} kA`;
+      document.getElementById('arrangementText').textContent = arrangement === 'flat' ? 'Flat / taso' : 'Trefoil';
+      document.getElementById('usedSpacing').textContent = `${f(spacingMm, 0)} mm (${f(spacingM, 3)} m)`;
+      document.getElementById('usedDiameter').textContent = `${f(cableDiameterMm, 1)} mm`;
+      document.getElementById('utilizationText').textContent = `${f(utilization, 1)} %`;
+      document.getElementById('modelNote').textContent = arrangement === 'flat'
+        ? 'Flat-muodolle käytetään konservatiivista vierekkäisten johtimien voimamallia.'
+        : 'Trefoil-muodolle käytetään symmetristä kolmen johtimen arviota; todellinen kiinnikekuorma riippuu myös cleatin geometriasta.';
+
+      const statusBox = document.getElementById('statusBox');
+      statusBox.className = 'status';
+      if (utilization <= 70) {
+        statusBox.classList.add('ok');
+        statusBox.textContent = 'OK: nykyinen kiinnitysväli alittaa sallitun voiman selvästi.';
+      } else if (utilization <= 100) {
+        statusBox.classList.add('warn');
+        statusBox.textContent = 'Lähellä rajaa: nykyinen kiinnitysväli on mahdollinen, mutta pienempi väli on turvallisempi.';
+      } else {
+        statusBox.classList.add('bad');
+        statusBox.textContent = 'Ei OK: nykyinen kiinnitysväli ylittää annetun sallitun voiman. Pienennä väliä tai valitse vahvempi kiinnike.';
+      }
+    }
+
+    function resetForm() {
+      document.getElementById('arrangement').value = 'flat';
+      document.querySelectorAll('#arrangementSegment button').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('#arrangementSegment button[data-value="flat"]').classList.add('active');
+      document.getElementById('inputMode').value = 'peak';
+      document.getElementById('peakCurrent').value = '120';
+      document.getElementById('rmsCurrent').value = '50';
+      document.getElementById('peakFactor').value = '2.5';
+      document.getElementById('spacing').value = '120';
+      document.getElementById('cableDiameter').value = '40';
+      document.getElementById('routeLength').value = '12';
+      document.getElementById('currentSpan').value = '0.35';
+      document.getElementById('cleatForce').value = '8';
+      document.getElementById('safetyFactor').value = '1.5';
+      document.getElementById('rmsInputs').style.display = 'none';
+      updateArrangementSvg();
+      calculate();
+    }
+
+    updateArrangementSvg();
+    calculate();
+  </script>
+</body>
+</html>
