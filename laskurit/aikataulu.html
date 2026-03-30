@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aikatauluohjelma – viivaesitys</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #d1d5db;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --danger: #dc2626;
+      --line: #cbd5e1;
+      --slot: 72px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3 { margin-top: 0; }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: -8px;
+      margin-bottom: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: end;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font: inherit;
+      background: white;
+    }
+
+    textarea {
+      min-height: 42px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      background: var(--accent);
+      color: white;
+    }
+
+    button:hover { background: var(--accent-hover); }
+
+    button.secondary { background: #475569; }
+    button.secondary:hover { background: #334155; }
+
+    button.danger { background: var(--danger); }
+    button.danger:hover { background: #b91c1c; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+
+    .search-box {
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .view-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .timeline-wrapper {
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .day-section {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .day-header {
+      padding: 14px 16px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .day-title {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .day-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .timeline {
+      min-width: 1100px;
+      padding: 20px 16px 24px;
+    }
+
+    .time-axis,
+    .event-row {
+      display: grid;
+      grid-template-columns: 120px repeat(16, minmax(var(--slot), 1fr));
+      align-items: stretch;
+    }
+
+    .time-axis {
+      border-bottom: 2px solid var(--line);
+      margin-bottom: 16px;
+    }
+
+    .time-label-spacer {
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .time-cell {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 0 6px 10px;
+      border-right: 1px dashed #e5e7eb;
+    }
+
+    .event-row {
+      min-height: 82px;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .event-row:last-child { border-bottom: none; }
+
+    .event-time {
+      padding: 14px 10px;
+      font-size: 14px;
+      font-weight: 700;
+      border-right: 1px solid #e5e7eb;
+      background: #fcfdff;
+    }
+
+    .event-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(16, minmax(var(--slot), 1fr));
+      align-items: center;
+    }
+
+    .event-track::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 3px;
+      background: var(--line);
+      transform: translateY(-50%);
+    }
+
+    .event-track-bg {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(16, minmax(var(--slot), 1fr));
+      pointer-events: none;
+    }
+
+    .event-track-bg span {
+      border-right: 1px dashed #e5e7eb;
+    }
+
+    .event-box {
+      position: relative;
+      z-index: 1;
+      align-self: center;
+      margin: 8px 6px;
+      background: #dbeafe;
+      border: 1px solid #93c5fd;
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
+      min-height: 52px;
+    }
+
+    .event-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .event-meta {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.35;
+    }
+
+    .event-notes {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .row-actions {
+      margin-top: 8px;
+    }
+
+    .row-actions button {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+    }
+
+    @media print {
+      body { background: white; }
+      .no-print { display: none !important; }
+      .container { max-width: 100%; padding: 0; }
+      .card { box-shadow: none; border: none; padding: 0; }
+      .day-section {
+        break-inside: avoid;
+        border: 1px solid #d1d5db;
+        margin-bottom: 18px;
+      }
+      .timeline {
+        min-width: 0;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card no-print">
+      <h1>Aikatauluohjelma – viivaesitys</h1>
+      <p class="subtitle">Tapahtumat näytetään aikajanalla päivän mukaan. Voit muuttaa näkyvän aikavälin ja tuoda tai viedä CSV-tiedoston.</p>
+
+      <form id="scheduleForm">
+        <div class="form-grid">
+          <div>
+            <label for="timelineStart">Näkymä alkaa</label>
+            <input type="time" id="timelineStart" value="06:00" />
+          </div>
+          <div>
+            <label for="timelineEnd">Näkymä päättyy</label>
+            <input type="time" id="timelineEnd" value="22:00" />
+          </div>
+          <div>
+            <label for="date">Päivä</label>
+            <input type="date" id="date" required />
+          </div>
+          <div>
+            <label for="startTime">Alkaa</label>
+            <input type="time" id="startTime" required />
+          </div>
+          <div>
+            <label for="endTime">Päättyy</label>
+            <input type="time" id="endTime" required />
+          </div>
+          <div>
+            <label for="eventName">Tapahtuma</label>
+            <input type="text" id="eventName" placeholder="Esim. Asiakaspalaveri" required />
+          </div>
+          <div>
+            <label for="location">Paikka</label>
+            <input type="text" id="location" placeholder="Esim. Neuvotteluhuone A" />
+          </div>
+          <div>
+            <label for="owner">Vastuuhenkilö</label>
+            <input type="text" id="owner" placeholder="Esim. Matti Meikäläinen" />
+          </div>
+        </div>
+
+        <div style="margin-top: 12px;">
+          <label for="notes">Lisätiedot</label>
+          <textarea id="notes" placeholder="Esim. Muista materiaalit mukaan"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Lisää aikatauluun</button>
+          <button type="button" class="secondary" id="clearFormBtn">Tyhjennä lomake</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="toolbar no-print">
+        <div>
+          <h2 style="margin-bottom: 4px;">Viivaesitys</h2>
+          <div class="view-note">Aikajanan alkamis- ja päättymisaika ovat muokattavat. Tiedot tallentuvat selaimen localStorageen.</div>
+        </div>
+        <div class="search-box">
+          <label for="search">Hae tapahtumista</label>
+          <input type="text" id="search" placeholder="Hae nimellä, paikalla tai henkilöllä" />
+        </div>
+      </div>
+
+      <div class="actions no-print" style="margin-top: 0; margin-bottom: 16px;">
+        <button type="button" id="printBtn">Tulosta / Tallenna PDF</button>
+        <button type="button" class="secondary" id="exportCsvBtn">Vie CSV</button>
+        <button type="button" class="secondary" id="importCsvBtn">Tuo CSV</button>
+        <input type="file" id="csvFileInput" accept=".csv,text/csv" style="display:none;" />
+        <button type="button" class="danger" id="clearAllBtn">Poista kaikki</button>
+      </div>
+
+      <div class="timeline-wrapper" id="timelineContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'aikatauluohjelma_timeline_data';
+    const SETTINGS_KEY = 'aikatauluohjelma_timeline_settings';
+    const DEFAULT_DAY_START = '06:00';
+    const DEFAULT_DAY_END = '22:00';
+
+    const form = document.getElementById('scheduleForm');
+    const timelineStartInput = document.getElementById('timelineStart');
+    const timelineEndInput = document.getElementById('timelineEnd');
+    const searchInput = document.getElementById('search');
+    const timelineContainer = document.getElementById('timelineContainer');
+
+    const dateInput = document.getElementById('date');
+    const startTimeInput = document.getElementById('startTime');
+    const endTimeInput = document.getElementById('endTime');
+    const eventNameInput = document.getElementById('eventName');
+    const locationInput = document.getElementById('location');
+    const ownerInput = document.getElementById('owner');
+    const notesInput = document.getElementById('notes');
+
+    const printBtn = document.getElementById('printBtn');
+    const exportCsvBtn = document.getElementById('exportCsvBtn');
+    const importCsvBtn = document.getElementById('importCsvBtn');
+    const csvFileInput = document.getElementById('csvFileInput');
+    const clearAllBtn = document.getElementById('clearAllBtn');
+    const clearFormBtn = document.getElementById('clearFormBtn');
+
+    let scheduleItems = loadItems();
+    let timelineSettings = loadSettings();
+
+    function loadItems() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveItems() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(scheduleItems));
+    }
+
+    function loadSettings() {
+      try {
+        return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {
+          timelineStart: DEFAULT_DAY_START,
+          timelineEnd: DEFAULT_DAY_END
+        };
+      } catch (error) {
+        return {
+          timelineStart: DEFAULT_DAY_START,
+          timelineEnd: DEFAULT_DAY_END
+        };
+      }
+    }
+
+    function saveSettings() {
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(timelineSettings));
+    }
+
+    function toMinutes(timeStr) {
+      if (!timeStr) return 0;
+      const parts = timeStr.split(':').map(Number);
+      const hours = Number.isFinite(parts[0]) ? parts[0] : 0;
+      const minutes = Number.isFinite(parts[1]) ? parts[1] : 0;
+      return hours * 60 + minutes;
+    }
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function getTimelineBounds() {
+      const startMinutes = toMinutes(timelineSettings.timelineStart);
+      const endMinutes = toMinutes(timelineSettings.timelineEnd);
+      const safeEndMinutes = endMinutes > startMinutes ? endMinutes : startMinutes + 60;
+      return {
+        startMinutes,
+        endMinutes: safeEndMinutes,
+        totalHours: Math.max(1, Math.ceil((safeEndMinutes - startMinutes) / 60))
+      };
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return '';
+      const date = new Date(dateString + 'T00:00:00');
+      return date.toLocaleDateString('fi-FI', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric'
+      });
+    }
+
+    function sortItems(items) {
+      return [...items].sort((a, b) => {
+        const aKey = `${a.date} ${a.startTime}`;
+        const bKey = `${b.date} ${b.startTime}`;
+        return aKey.localeCompare(bKey);
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function groupByDate(items) {
+      return items.reduce((acc, item) => {
+        if (!acc[item.date]) acc[item.date] = [];
+        acc[item.date].push(item);
+        return acc;
+      }, {});
+    }
+
+    function buildHourLabels() {
+      const { startMinutes, totalHours } = getTimelineBounds();
+      let html = '<div class="time-label-spacer"></div>';
+      const startHour = Math.floor(startMinutes / 60);
+
+      for (let i = 0; i < totalHours; i++) {
+        const hour = (startHour + i) % 24;
+        html += `<div class="time-cell">${String(hour).padStart(2, '0')}:00</div>`;
+      }
+
+      return html;
+    }
+
+    function buildTrackBackground() {
+      const { totalHours } = getTimelineBounds();
+      return Array.from({ length: totalHours }, () => '<span></span>').join('');
+    }
+
+    function getEventPlacement(item) {
+      const { startMinutes: dayStartMinutes, endMinutes: dayEndMinutes, totalHours } = getTimelineBounds();
+      const startMinutes = toMinutes(item.startTime);
+      const endMinutes = toMinutes(item.endTime);
+
+      const start = clamp(startMinutes, dayStartMinutes, dayEndMinutes);
+      const end = clamp(endMinutes, dayStartMinutes, dayEndMinutes);
+      const startRatio = (start - dayStartMinutes) / 60;
+      const endRatio = Math.max(startRatio + 0.5, (end - dayStartMinutes) / 60);
+
+      return {
+        gridColumnStart: Math.floor(startRatio) + 1,
+        gridColumnEnd: Math.min(totalHours + 1, Math.ceil(endRatio) + 1)
+      };
+    }
+
+    function updateTimelineGridStyles() {
+      const { totalHours } = getTimelineBounds();
+      const mainTemplate = `120px repeat(${totalHours}, minmax(var(--slot), 1fr))`;
+      const subTemplate = `repeat(${totalHours}, minmax(var(--slot), 1fr))`;
+
+      document.querySelectorAll('.time-axis, .event-row').forEach((el) => {
+        el.style.gridTemplateColumns = mainTemplate;
+      });
+
+      document.querySelectorAll('.event-track, .event-track-bg').forEach((el) => {
+        el.style.gridTemplateColumns = subTemplate;
+      });
+    }
+
+    function renderTimeline() {
+      const term = searchInput.value.trim().toLowerCase();
+      const filtered = sortItems(scheduleItems).filter((item) => {
+        const haystack = [
+          item.date,
+          item.startTime,
+          item.endTime,
+          item.eventName,
+          item.location,
+          item.owner,
+          item.notes
+        ].join(' ').toLowerCase();
+        return haystack.includes(term);
+      });
+
+      if (filtered.length === 0) {
+        timelineContainer.innerHTML = '<div class="empty">Ei hakua vastaavia tapahtumia.</div>';
+        return;
+      }
+
+      const groups = groupByDate(filtered);
+      const dates = Object.keys(groups).sort();
+
+      timelineContainer.innerHTML = dates.map((date) => {
+        const items = sortItems(groups[date]);
+
+        const rows = items.map((item) => {
+          const placement = getEventPlacement(item);
+          const locationText = item.location ? `Paikka: ${escapeHtml(item.location)}` : '';
+          const ownerText = item.owner ? `Vastuuhenkilö: ${escapeHtml(item.owner)}` : '';
+          const metaText = [locationText, ownerText].filter(Boolean).join('<br>');
+
+          return `
+            <div class="event-row">
+              <div class="event-time">${escapeHtml(item.startTime)}–${escapeHtml(item.endTime)}</div>
+              <div class="event-track">
+                <div class="event-track-bg">${buildTrackBackground()}</div>
+                <div class="event-box" style="grid-column: ${placement.gridColumnStart} / ${placement.gridColumnEnd};">
+                  <strong>${escapeHtml(item.eventName)}</strong>
+                  ${metaText ? `<div class="event-meta">${metaText}</div>` : ''}
+                  ${item.notes ? `<div class="event-notes">${escapeHtml(item.notes)}</div>` : ''}
+                  <div class="row-actions no-print">
+                    <button type="button" class="danger" onclick="removeItem('${item.id}')">Poista</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <section class="day-section">
+            <div class="day-header">
+              <div class="day-title">${formatDate(date)}</div>
+              <div class="day-subtitle">${items.length} tapahtuma(a)</div>
+            </div>
+            <div class="timeline">
+              <div class="time-axis">${buildHourLabels()}</div>
+              ${rows}
+            </div>
+          </section>
+        `;
+      }).join('');
+
+      updateTimelineGridStyles();
+    }
+
+    function clearForm() {
+      form.reset();
+      timelineStartInput.value = timelineSettings.timelineStart;
+      timelineEndInput.value = timelineSettings.timelineEnd;
+      eventNameInput.focus();
+    }
+
+    function removeItem(id) {
+      scheduleItems = scheduleItems.filter((item) => item.id !== id);
+      saveItems();
+      renderTimeline();
+    }
+
+    function exportCsv() {
+      const rows = sortItems(scheduleItems);
+      if (rows.length === 0) {
+        alert('Ei vietävää dataa.');
+        return;
+      }
+
+      const header = ['Päivä', 'Alkaa', 'Päättyy', 'Tapahtuma', 'Paikka', 'Vastuuhenkilö', 'Lisätiedot'];
+      const csvRows = [header, ...rows.map((item) => [
+        item.date,
+        item.startTime,
+        item.endTime,
+        item.eventName,
+        item.location,
+        item.owner,
+        item.notes
+      ])];
+
+      const csvContent = csvRows
+        .map((row) => row.map((value) => `"${String(value ?? '').replace(/"/g, '""')}"`).join(';'))
+        .join('\n');
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'aikataulu_viivaesitys.csv';
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function parseCsvLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        const next = line[i + 1];
+
+        if (char === '"') {
+          if (inQuotes && next === '"') {
+            current += '"';
+            i += 1;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === ';' && !inQuotes) {
+          result.push(current);
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+
+      result.push(current);
+      return result;
+    }
+
+    function importCsvText(csvText) {
+      const lines = csvText.split(/\r?\n/).filter((line) => line.trim());
+      if (lines.length < 2) {
+        alert('CSV-tiedostossa ei ole tuotavaa dataa.');
+        return;
+      }
+
+      const imported = lines.slice(1).map(parseCsvLine).map((columns) => ({
+        id: crypto.randomUUID(),
+        date: (columns[0] || '').trim(),
+        startTime: (columns[1] || '').trim(),
+        endTime: (columns[2] || '').trim(),
+        eventName: (columns[3] || '').trim(),
+        location: (columns[4] || '').trim(),
+        owner: (columns[5] || '').trim(),
+        notes: (columns[6] || '').trim()
+      })).filter((item) => item.date && item.startTime && item.endTime && item.eventName);
+
+      if (imported.length === 0) {
+        alert('CSV-tiedoston rivit eivät olleet oikeassa muodossa.');
+        return;
+      }
+
+      scheduleItems = imported;
+      saveItems();
+      renderTimeline();
+      alert(`Tuotiin ${imported.length} tapahtumaa.`);
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (timelineEndInput.value <= timelineStartInput.value) {
+        alert('Näkymän päättymisajan pitää olla alkamisajan jälkeen.');
+        return;
+      }
+
+      if (endTimeInput.value <= startTimeInput.value) {
+        alert('Päättymisaika ei voi olla ennen tai sama kuin alkamisaika.');
+        return;
+      }
+
+      timelineSettings.timelineStart = timelineStartInput.value;
+      timelineSettings.timelineEnd = timelineEndInput.value;
+      saveSettings();
+
+      const newItem = {
+        id: crypto.randomUUID(),
+        date: dateInput.value,
+        startTime: startTimeInput.value,
+        endTime: endTimeInput.value,
+        eventName: eventNameInput.value.trim(),
+        location: locationInput.value.trim(),
+        owner: ownerInput.value.trim(),
+        notes: notesInput.value.trim()
+      };
+
+      scheduleItems.push(newItem);
+      saveItems();
+      renderTimeline();
+      clearForm();
+    });
+
+    searchInput.addEventListener('input', renderTimeline);
+
+    timelineStartInput.addEventListener('change', () => {
+      if (timelineEndInput.value <= timelineStartInput.value) {
+        alert('Näkymän päättymisajan pitää olla alkamisajan jälkeen.');
+        timelineStartInput.value = timelineSettings.timelineStart;
+        return;
+      }
+      timelineSettings.timelineStart = timelineStartInput.value;
+      saveSettings();
+      renderTimeline();
+    });
+
+    timelineEndInput.addEventListener('change', () => {
+      if (timelineEndInput.value <= timelineStartInput.value) {
+        alert('Näkymän päättymisajan pitää olla alkamisajan jälkeen.');
+        timelineEndInput.value = timelineSettings.timelineEnd;
+        return;
+      }
+      timelineSettings.timelineEnd = timelineEndInput.value;
+      saveSettings();
+      renderTimeline();
+    });
+
+    printBtn.addEventListener('click', () => window.print());
+    exportCsvBtn.addEventListener('click', exportCsv);
+    importCsvBtn.addEventListener('click', () => csvFileInput.click());
+    clearFormBtn.addEventListener('click', clearForm);
+
+    csvFileInput.addEventListener('change', async (event) => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      const text = await file.text();
+      importCsvText(text);
+      csvFileInput.value = '';
+    });
+
+    clearAllBtn.addEventListener('click', () => {
+      if (!confirm('Haluatko varmasti poistaa kaikki tapahtumat?')) return;
+      scheduleItems = [];
+      saveItems();
+      renderTimeline();
+    });
+
+    window.removeItem = removeItem;
+
+    timelineStartInput.value = timelineSettings.timelineStart;
+    timelineEndInput.value = timelineSettings.timelineEnd;
+    renderTimeline();
+  </script>
+</body>
+</html>
