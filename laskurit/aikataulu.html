@@ -295,6 +295,11 @@
       <h1>Aikatauluohjelma – viivaesitys</h1>
       <p class="subtitle">Tapahtumat näytetään aikajanalla päivän mukaan. Voit muuttaa näkyvän aikavälin ja tuoda tai viedä CSV-tiedoston.</p>
 
+      <div style="margin-bottom: 16px;">
+        <label for="scheduleTitle">Aikataulun otsikko</label>
+        <input type="text" id="scheduleTitle" placeholder="Esim. sähköyöaikataulu KOy merikallio" />
+      </div>
+
       <form id="scheduleForm">
         <div class="form-grid">
           <div>
@@ -344,6 +349,11 @@
     </div>
 
     <div class="card">
+      <div style="margin-bottom: 16px;">
+        <h2 id="printedScheduleTitle" style="margin: 0 0 6px 0;">Aikataulu</h2>
+        <div id="printedScheduleSubtitle" class="view-note">Tulostettava otsikko näkyy myös PDF:ssä.</div>
+      </div>
+
       <div class="toolbar no-print">
         <div>
           <h2 style="margin-bottom: 4px;">Viivaesitys</h2>
@@ -372,10 +382,14 @@
     const SETTINGS_KEY = 'aikatauluohjelma_timeline_settings';
     const DEFAULT_DAY_START = '06:00';
     const DEFAULT_DAY_END = '22:00';
+    const DEFAULT_SCHEDULE_TITLE = 'Aikataulu';
 
     const form = document.getElementById('scheduleForm');
     const timelineStartInput = document.getElementById('timelineStart');
     const timelineEndInput = document.getElementById('timelineEnd');
+    const searchTitleInput = document.getElementById('scheduleTitle');
+    const printedScheduleTitle = document.getElementById('printedScheduleTitle');
+    const printedScheduleSubtitle = document.getElementById('printedScheduleSubtitle');
     const searchInput = document.getElementById('search');
     const timelineContainer = document.getElementById('timelineContainer');
 
@@ -413,12 +427,14 @@
       try {
         return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {
           timelineStart: DEFAULT_DAY_START,
-          timelineEnd: DEFAULT_DAY_END
+          timelineEnd: DEFAULT_DAY_END,
+          scheduleTitle: DEFAULT_SCHEDULE_TITLE
         };
       } catch (error) {
         return {
           timelineStart: DEFAULT_DAY_START,
-          timelineEnd: DEFAULT_DAY_END
+          timelineEnd: DEFAULT_DAY_END,
+          scheduleTitle: DEFAULT_SCHEDULE_TITLE
         };
       }
     }
@@ -520,6 +536,12 @@
       };
     }
 
+    function updatePrintedHeader() {
+      const title = (timelineSettings.scheduleTitle || '').trim() || DEFAULT_SCHEDULE_TITLE;
+      printedScheduleTitle.textContent = title;
+      printedScheduleSubtitle.textContent = `Tulostettava otsikko: ${title}`;
+    }
+
     function updateTimelineGridStyles() {
       const { totalHours } = getTimelineBounds();
       const mainTemplate = `120px repeat(${totalHours}, minmax(var(--slot), 1fr))`;
@@ -605,6 +627,7 @@
       form.reset();
       timelineStartInput.value = timelineSettings.timelineStart;
       timelineEndInput.value = timelineSettings.timelineEnd;
+      searchTitleInput.value = timelineSettings.scheduleTitle || DEFAULT_SCHEDULE_TITLE;
       eventNameInput.focus();
     }
 
@@ -717,7 +740,9 @@
 
       timelineSettings.timelineStart = timelineStartInput.value;
       timelineSettings.timelineEnd = timelineEndInput.value;
+      timelineSettings.scheduleTitle = searchTitleInput.value.trim() || DEFAULT_SCHEDULE_TITLE;
       saveSettings();
+      updatePrintedHeader();
 
       const newItem = {
         id: crypto.randomUUID(),
@@ -747,6 +772,12 @@
       timelineSettings.timelineStart = timelineStartInput.value;
       saveSettings();
       renderTimeline();
+    });
+
+    searchTitleInput.addEventListener('input', () => {
+      timelineSettings.scheduleTitle = searchTitleInput.value.trim() || DEFAULT_SCHEDULE_TITLE;
+      saveSettings();
+      updatePrintedHeader();
     });
 
     timelineEndInput.addEventListener('change', () => {
@@ -784,6 +815,8 @@
 
     timelineStartInput.value = timelineSettings.timelineStart;
     timelineEndInput.value = timelineSettings.timelineEnd;
+    searchTitleInput.value = timelineSettings.scheduleTitle || DEFAULT_SCHEDULE_TITLE;
+    updatePrintedHeader();
     renderTimeline();
   </script>
 </body>
