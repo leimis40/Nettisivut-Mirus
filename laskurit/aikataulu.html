@@ -508,7 +508,7 @@
         .replace(/'/g, '&#039;');
     }
 
-    function buildScaleHtml() {
+    function buildScaleHtml(showLabels = true) {
       const { totalHours, startMinutes } = getTimelineBounds();
       const scaleWidth = getScaleWidthPx();
       let html = `<div class="timeline-scale" style="width:${scaleWidth}px">`;
@@ -517,7 +517,7 @@
         const left = (i / totalHours) * 100;
         const labelHour = Math.floor(startMinutes / 60) + i;
         html += `<div class="scale-line" style="left:${left}%">`;
-        if (i < totalHours) {
+        if (showLabels && i < totalHours) {
           html += `<span class="scale-label">${String(labelHour % 24).padStart(2, '0')}:00</span>`;
         }
         html += `</div>`;
@@ -571,7 +571,7 @@
             <div class="timeline-row">
               <div class="event-time">${escapeHtml(item.startTime)}–${escapeHtml(item.endTime)}</div>
               <div class="event-track" style="width:${scaleWidth}px">
-                <div class="track-grid">${buildScaleHtml().replace('timeline-scale', 'timeline-scale').replace(/scale-label/g, 'scale-label').replace(/border-bottom: 2px solid var\(--line\);/g, '')}</div>
+                <div class="track-grid">${buildScaleHtml(false)}</div>
                 <div class="track-line"></div>
                 <div class="event-box" style="left:${placement.leftPercent}%; width:${placement.widthPercent}%">
                   <strong>${escapeHtml(item.eventName)}</strong>
