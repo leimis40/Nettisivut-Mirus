@@ -15,7 +15,8 @@
       --accent-hover: #1d4ed8;
       --danger: #dc2626;
       --line: #cbd5e1;
-      --slot: 72px;
+      --hour-width: 90px;
+      --time-col-width: 140px;
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +29,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       padding: 24px;
     }
@@ -42,7 +43,7 @@
       margin-bottom: 20px;
     }
 
-    h1, h2, h3 { margin-top: 0; }
+    h1, h2 { margin-top: 0; }
 
     .subtitle {
       color: var(--muted);
@@ -96,10 +97,8 @@
     }
 
     button:hover { background: var(--accent-hover); }
-
     button.secondary { background: #475569; }
     button.secondary:hover { background: #334155; }
-
     button.danger { background: var(--danger); }
     button.danger:hover { background: #b91c1c; }
 
@@ -155,39 +154,54 @@
     }
 
     .timeline {
-      min-width: 1100px;
       padding: 20px 16px 24px;
     }
 
-    .time-axis,
-    .event-row {
+    .timeline-header,
+    .timeline-row {
       display: grid;
-      grid-template-columns: 120px repeat(16, minmax(var(--slot), 1fr));
-      align-items: stretch;
+      grid-template-columns: var(--time-col-width) auto;
     }
 
-    .time-axis {
-      border-bottom: 2px solid var(--line);
-      margin-bottom: 16px;
-    }
-
-    .time-label-spacer {
+    .time-header-cell {
       border-right: 1px solid #e5e7eb;
+      border-bottom: 2px solid var(--line);
+      min-height: 34px;
     }
 
-    .time-cell {
+    .timeline-scale {
+      position: relative;
+      min-height: 34px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .scale-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      border-left: 1px dashed #d5dbe3;
+    }
+
+    .scale-label {
+      position: absolute;
+      top: 0;
+      left: 6px;
       font-size: 12px;
       color: var(--muted);
-      padding: 0 6px 10px;
-      border-right: 1px dashed #e5e7eb;
+      background: #fff;
+      padding-right: 6px;
+      white-space: nowrap;
     }
 
-    .event-row {
-      min-height: 82px;
+    .timeline-row {
+      min-height: 98px;
       border-bottom: 1px solid #eef2f7;
     }
 
-    .event-row:last-child { border-bottom: none; }
+    .timeline-row:last-child {
+      border-bottom: none;
+    }
 
     .event-time {
       padding: 14px 10px;
@@ -199,13 +213,10 @@
 
     .event-track {
       position: relative;
-      display: grid;
-      grid-template-columns: repeat(16, minmax(var(--slot), 1fr));
-      align-items: center;
+      min-height: 98px;
     }
 
-    .event-track::before {
-      content: "";
+    .track-line {
       position: absolute;
       left: 0;
       right: 0;
@@ -215,29 +226,28 @@
       transform: translateY(-50%);
     }
 
-    .event-track-bg {
+    .track-grid {
       position: absolute;
       inset: 0;
-      display: grid;
-      grid-template-columns: repeat(16, minmax(var(--slot), 1fr));
       pointer-events: none;
     }
 
-    .event-track-bg span {
-      border-right: 1px dashed #e5e7eb;
+    .track-grid .scale-line {
+      border-left-color: #d5dbe3;
     }
 
     .event-box {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       z-index: 1;
-      align-self: center;
-      margin: 8px 6px;
       background: #dbeafe;
       border: 1px solid #93c5fd;
       border-radius: 12px;
       padding: 10px 12px;
       box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
       min-height: 52px;
+      min-width: 120px;
     }
 
     .event-box strong {
@@ -259,6 +269,9 @@
 
     .row-actions {
       margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .row-actions button {
@@ -282,10 +295,7 @@
         border: 1px solid #d1d5db;
         margin-bottom: 18px;
       }
-      .timeline {
-        min-width: 0;
-        padding: 10px;
-      }
+      .event-box { box-shadow: none; }
     }
   </style>
 </head>
@@ -293,7 +303,7 @@
   <div class="container">
     <div class="card no-print">
       <h1>Aikatauluohjelma – viivaesitys</h1>
-      <p class="subtitle">Tapahtumat näytetään aikajanalla päivän mukaan. Voit muuttaa näkyvän aikavälin ja tuoda tai viedä CSV-tiedoston.</p>
+      <p class="subtitle">Puhdas versio, jossa tuntiviivat ja tapahtumablokit lasketaan samasta mittakaavasta.</p>
 
       <div style="margin-bottom: 16px;">
         <label for="scheduleTitle">Aikataulun otsikko</label>
@@ -342,7 +352,7 @@
         </div>
 
         <div class="actions">
-          <button type="submit">Lisää aikatauluun</button>
+          <button type="submit" id="submitBtn">Lisää aikatauluun</button>
           <button type="button" class="secondary" id="clearFormBtn">Tyhjennä lomake</button>
         </div>
       </form>
@@ -357,7 +367,7 @@
       <div class="toolbar no-print">
         <div>
           <h2 style="margin-bottom: 4px;">Viivaesitys</h2>
-          <div class="view-note">Aikajanan alkamis- ja päättymisaika ovat muokattavat. Tiedot tallentuvat selaimen localStorageen.</div>
+          <div class="view-note">Tapahtumien alku ja loppu lasketaan minuuttitarkasti samasta aikaskaalasta kuin tuntiviivat.</div>
         </div>
         <div class="search-box">
           <label for="search">Hae tapahtumista</label>
@@ -378,13 +388,15 @@
   </div>
 
   <script>
-    const STORAGE_KEY = 'aikatauluohjelma_timeline_data';
-    const SETTINGS_KEY = 'aikatauluohjelma_timeline_settings';
+    const STORAGE_KEY = 'aikatauluohjelma_timeline_clean_data';
+    const SETTINGS_KEY = 'aikatauluohjelma_timeline_clean_settings';
     const DEFAULT_DAY_START = '06:00';
     const DEFAULT_DAY_END = '22:00';
     const DEFAULT_SCHEDULE_TITLE = 'Aikataulu';
 
     const form = document.getElementById('scheduleForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const clearFormBtn = document.getElementById('clearFormBtn');
     const timelineStartInput = document.getElementById('timelineStart');
     const timelineEndInput = document.getElementById('timelineEnd');
     const searchTitleInput = document.getElementById('scheduleTitle');
@@ -392,7 +404,6 @@
     const printedScheduleSubtitle = document.getElementById('printedScheduleSubtitle');
     const searchInput = document.getElementById('search');
     const timelineContainer = document.getElementById('timelineContainer');
-
     const dateInput = document.getElementById('date');
     const startTimeInput = document.getElementById('startTime');
     const endTimeInput = document.getElementById('endTime');
@@ -400,16 +411,15 @@
     const locationInput = document.getElementById('location');
     const ownerInput = document.getElementById('owner');
     const notesInput = document.getElementById('notes');
-
     const printBtn = document.getElementById('printBtn');
     const exportCsvBtn = document.getElementById('exportCsvBtn');
     const importCsvBtn = document.getElementById('importCsvBtn');
     const csvFileInput = document.getElementById('csvFileInput');
     const clearAllBtn = document.getElementById('clearAllBtn');
-    const clearFormBtn = document.getElementById('clearFormBtn');
 
     let scheduleItems = loadItems();
     let timelineSettings = loadSettings();
+    let editingItemId = null;
 
     function loadItems() {
       try {
@@ -445,10 +455,8 @@
 
     function toMinutes(timeStr) {
       if (!timeStr) return 0;
-      const parts = timeStr.split(':').map(Number);
-      const hours = Number.isFinite(parts[0]) ? parts[0] : 0;
-      const minutes = Number.isFinite(parts[1]) ? parts[1] : 0;
-      return hours * 60 + minutes;
+      const [hours, minutes] = timeStr.split(':').map(Number);
+      return (hours || 0) * 60 + (minutes || 0);
     }
 
     function clamp(value, min, max) {
@@ -459,11 +467,25 @@
       const startMinutes = toMinutes(timelineSettings.timelineStart);
       const endMinutes = toMinutes(timelineSettings.timelineEnd);
       const safeEndMinutes = endMinutes > startMinutes ? endMinutes : startMinutes + 60;
-      return {
-        startMinutes,
-        endMinutes: safeEndMinutes,
-        totalHours: Math.max(1, Math.ceil((safeEndMinutes - startMinutes) / 60))
-      };
+      const totalMinutes = safeEndMinutes - startMinutes;
+      const totalHours = Math.ceil(totalMinutes / 60);
+      return { startMinutes, endMinutes: safeEndMinutes, totalMinutes, totalHours };
+    }
+
+    function getScaleWidthPx() {
+      return getTimelineBounds().totalHours * parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hour-width'), 10);
+    }
+
+    function sortItems(items) {
+      return [...items].sort((a, b) => `${a.date} ${a.startTime}`.localeCompare(`${b.date} ${b.startTime}`));
+    }
+
+    function groupByDate(items) {
+      return items.reduce((acc, item) => {
+        if (!acc[item.date]) acc[item.date] = [];
+        acc[item.date].push(item);
+        return acc;
+      }, {});
     }
 
     function formatDate(dateString) {
@@ -477,14 +499,6 @@
       });
     }
 
-    function sortItems(items) {
-      return [...items].sort((a, b) => {
-        const aKey = `${a.date} ${a.startTime}`;
-        const bKey = `${b.date} ${b.startTime}`;
-        return aKey.localeCompare(bKey);
-      });
-    }
-
     function escapeHtml(value) {
       return String(value ?? '')
         .replace(/&/g, '&amp;')
@@ -494,46 +508,32 @@
         .replace(/'/g, '&#039;');
     }
 
-    function groupByDate(items) {
-      return items.reduce((acc, item) => {
-        if (!acc[item.date]) acc[item.date] = [];
-        acc[item.date].push(item);
-        return acc;
-      }, {});
-    }
+    function buildScaleHtml() {
+      const { totalHours, startMinutes } = getTimelineBounds();
+      const scaleWidth = getScaleWidthPx();
+      let html = `<div class="timeline-scale" style="width:${scaleWidth}px">`;
 
-    function buildHourLabels() {
-      const { startMinutes, totalHours } = getTimelineBounds();
-      let html = '<div class="time-label-spacer"></div>';
-      const startHour = Math.floor(startMinutes / 60);
-
-      for (let i = 0; i < totalHours; i++) {
-        const hour = (startHour + i) % 24;
-        html += `<div class="time-cell">${String(hour).padStart(2, '0')}:00</div>`;
+      for (let i = 0; i <= totalHours; i++) {
+        const left = (i / totalHours) * 100;
+        const labelHour = Math.floor(startMinutes / 60) + i;
+        html += `<div class="scale-line" style="left:${left}%">`;
+        if (i < totalHours) {
+          html += `<span class="scale-label">${String(labelHour % 24).padStart(2, '0')}:00</span>`;
+        }
+        html += `</div>`;
       }
 
+      html += `</div>`;
       return html;
     }
 
-    function buildTrackBackground() {
-      const { totalHours } = getTimelineBounds();
-      return Array.from({ length: totalHours }, () => '<span></span>').join('');
-    }
-
     function getEventPlacement(item) {
-      const { startMinutes: dayStartMinutes, endMinutes: dayEndMinutes, totalHours } = getTimelineBounds();
-      const startMinutes = toMinutes(item.startTime);
-      const endMinutes = toMinutes(item.endTime);
-
-      const start = clamp(startMinutes, dayStartMinutes, dayEndMinutes);
-      const end = clamp(endMinutes, dayStartMinutes, dayEndMinutes);
-      const startRatio = (start - dayStartMinutes) / 60;
-      const endRatio = Math.max(startRatio + 0.5, (end - dayStartMinutes) / 60);
-
-      return {
-        gridColumnStart: Math.floor(startRatio) + 1,
-        gridColumnEnd: Math.min(totalHours + 1, Math.ceil(endRatio) + 1)
-      };
+      const { startMinutes, endMinutes, totalMinutes } = getTimelineBounds();
+      const itemStart = clamp(toMinutes(item.startTime), startMinutes, endMinutes);
+      const itemEnd = clamp(toMinutes(item.endTime), startMinutes, endMinutes);
+      const leftPercent = ((itemStart - startMinutes) / totalMinutes) * 100;
+      const widthPercent = Math.max(((itemEnd - itemStart) / totalMinutes) * 100, 1);
+      return { leftPercent, widthPercent };
     }
 
     function updatePrintedHeader() {
@@ -542,32 +542,10 @@
       printedScheduleSubtitle.textContent = `Tulostettava otsikko: ${title}`;
     }
 
-    function updateTimelineGridStyles() {
-      const { totalHours } = getTimelineBounds();
-      const mainTemplate = `120px repeat(${totalHours}, minmax(var(--slot), 1fr))`;
-      const subTemplate = `repeat(${totalHours}, minmax(var(--slot), 1fr))`;
-
-      document.querySelectorAll('.time-axis, .event-row').forEach((el) => {
-        el.style.gridTemplateColumns = mainTemplate;
-      });
-
-      document.querySelectorAll('.event-track, .event-track-bg').forEach((el) => {
-        el.style.gridTemplateColumns = subTemplate;
-      });
-    }
-
     function renderTimeline() {
       const term = searchInput.value.trim().toLowerCase();
       const filtered = sortItems(scheduleItems).filter((item) => {
-        const haystack = [
-          item.date,
-          item.startTime,
-          item.endTime,
-          item.eventName,
-          item.location,
-          item.owner,
-          item.notes
-        ].join(' ').toLowerCase();
+        const haystack = [item.date, item.startTime, item.endTime, item.eventName, item.location, item.owner, item.notes].join(' ').toLowerCase();
         return haystack.includes(term);
       });
 
@@ -578,6 +556,7 @@
 
       const groups = groupByDate(filtered);
       const dates = Object.keys(groups).sort();
+      const scaleWidth = getScaleWidthPx();
 
       timelineContainer.innerHTML = dates.map((date) => {
         const items = sortItems(groups[date]);
@@ -589,15 +568,17 @@
           const metaText = [locationText, ownerText].filter(Boolean).join('<br>');
 
           return `
-            <div class="event-row">
+            <div class="timeline-row">
               <div class="event-time">${escapeHtml(item.startTime)}–${escapeHtml(item.endTime)}</div>
-              <div class="event-track">
-                <div class="event-track-bg">${buildTrackBackground()}</div>
-                <div class="event-box" style="grid-column: ${placement.gridColumnStart} / ${placement.gridColumnEnd};">
+              <div class="event-track" style="width:${scaleWidth}px">
+                <div class="track-grid">${buildScaleHtml().replace('timeline-scale', 'timeline-scale').replace(/scale-label/g, 'scale-label').replace(/border-bottom: 2px solid var\(--line\);/g, '')}</div>
+                <div class="track-line"></div>
+                <div class="event-box" style="left:${placement.leftPercent}%; width:${placement.widthPercent}%">
                   <strong>${escapeHtml(item.eventName)}</strong>
                   ${metaText ? `<div class="event-meta">${metaText}</div>` : ''}
                   ${item.notes ? `<div class="event-notes">${escapeHtml(item.notes)}</div>` : ''}
                   <div class="row-actions no-print">
+                    <button type="button" class="secondary" onclick="editItem('${item.id}')">Muokkaa</button>
                     <button type="button" class="danger" onclick="removeItem('${item.id}')">Poista</button>
                   </div>
                 </div>
@@ -613,26 +594,46 @@
               <div class="day-subtitle">${items.length} tapahtuma(a)</div>
             </div>
             <div class="timeline">
-              <div class="time-axis">${buildHourLabels()}</div>
+              <div class="timeline-header">
+                <div class="time-header-cell"></div>
+                ${buildScaleHtml()}
+              </div>
               ${rows}
             </div>
           </section>
         `;
       }).join('');
-
-      updateTimelineGridStyles();
     }
 
     function clearForm() {
       form.reset();
+      editingItemId = null;
+      submitBtn.textContent = 'Lisää aikatauluun';
       timelineStartInput.value = timelineSettings.timelineStart;
       timelineEndInput.value = timelineSettings.timelineEnd;
       searchTitleInput.value = timelineSettings.scheduleTitle || DEFAULT_SCHEDULE_TITLE;
       eventNameInput.focus();
     }
 
+    function editItem(id) {
+      const item = scheduleItems.find((entry) => entry.id === id);
+      if (!item) return;
+      editingItemId = id;
+      submitBtn.textContent = 'Tallenna muutokset';
+      dateInput.value = item.date;
+      startTimeInput.value = item.startTime;
+      endTimeInput.value = item.endTime;
+      eventNameInput.value = item.eventName;
+      locationInput.value = item.location || '';
+      ownerInput.value = item.owner || '';
+      notesInput.value = item.notes || '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      eventNameInput.focus();
+    }
+
     function removeItem(id) {
       scheduleItems = scheduleItems.filter((item) => item.id !== id);
+      if (editingItemId === id) clearForm();
       saveItems();
       renderTimeline();
     }
@@ -645,19 +646,8 @@
       }
 
       const header = ['Päivä', 'Alkaa', 'Päättyy', 'Tapahtuma', 'Paikka', 'Vastuuhenkilö', 'Lisätiedot'];
-      const csvRows = [header, ...rows.map((item) => [
-        item.date,
-        item.startTime,
-        item.endTime,
-        item.eventName,
-        item.location,
-        item.owner,
-        item.notes
-      ])];
-
-      const csvContent = csvRows
-        .map((row) => row.map((value) => `"${String(value ?? '').replace(/"/g, '""')}"`).join(';'))
-        .join('\n');
+      const csvRows = [header, ...rows.map((item) => [item.date, item.startTime, item.endTime, item.eventName, item.location, item.owner, item.notes])];
+      const csvContent = csvRows.map((row) => row.map((value) => `"${String(value ?? '').replace(/"/g, '""')}"`).join(';')).join('\n');
 
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
@@ -676,7 +666,6 @@
       for (let i = 0; i < line.length; i++) {
         const char = line[i];
         const next = line[i + 1];
-
         if (char === '"') {
           if (inQuotes && next === '"') {
             current += '"';
@@ -744,8 +733,8 @@
       saveSettings();
       updatePrintedHeader();
 
-      const newItem = {
-        id: crypto.randomUUID(),
+      const item = {
+        id: editingItemId || crypto.randomUUID(),
         date: dateInput.value,
         startTime: startTimeInput.value,
         endTime: endTimeInput.value,
@@ -755,13 +744,24 @@
         notes: notesInput.value.trim()
       };
 
-      scheduleItems.push(newItem);
+      if (editingItemId) {
+        scheduleItems = scheduleItems.map((entry) => entry.id === editingItemId ? item : entry);
+      } else {
+        scheduleItems.push(item);
+      }
+
       saveItems();
       renderTimeline();
       clearForm();
     });
 
     searchInput.addEventListener('input', renderTimeline);
+
+    searchTitleInput.addEventListener('input', () => {
+      timelineSettings.scheduleTitle = searchTitleInput.value.trim() || DEFAULT_SCHEDULE_TITLE;
+      saveSettings();
+      updatePrintedHeader();
+    });
 
     timelineStartInput.addEventListener('change', () => {
       if (timelineEndInput.value <= timelineStartInput.value) {
@@ -772,12 +772,6 @@
       timelineSettings.timelineStart = timelineStartInput.value;
       saveSettings();
       renderTimeline();
-    });
-
-    searchTitleInput.addEventListener('input', () => {
-      timelineSettings.scheduleTitle = searchTitleInput.value.trim() || DEFAULT_SCHEDULE_TITLE;
-      saveSettings();
-      updatePrintedHeader();
     });
 
     timelineEndInput.addEventListener('change', () => {
@@ -812,6 +806,7 @@
     });
 
     window.removeItem = removeItem;
+    window.editItem = editItem;
 
     timelineStartInput.value = timelineSettings.timelineStart;
     timelineEndInput.value = timelineSettings.timelineEnd;
@@ -821,3 +816,4 @@
   </script>
 </body>
 </html>
+
