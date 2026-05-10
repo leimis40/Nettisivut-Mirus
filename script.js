@@ -6,9 +6,34 @@ const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("[data-nav]");
 
 if (toggle && nav) {
+  const closeNav = () => {
+    nav.classList.remove("show");
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
   toggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("show");
     toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.addEventListener("click", (event) => {
+    const clickTarget = event.target;
+
+    if (!nav.classList.contains("show") || !(clickTarget instanceof Node)) {
+      return;
+    }
+
+    if (nav.contains(clickTarget) || toggle.contains(clickTarget)) {
+      return;
+    }
+
+    closeNav();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeNav();
+    }
   });
 }
 
