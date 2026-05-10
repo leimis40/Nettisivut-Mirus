@@ -321,15 +321,14 @@ h1 {
 }
 
 .meta li {
-  position: relative;
-  padding-left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .meta li::before {
   content: "";
-  position: absolute;
-  top: .72em;
-  left: 0;
+  flex: 0 0 auto;
   width: 9px;
   height: 9px;
   border: 2px solid var(--accent);
