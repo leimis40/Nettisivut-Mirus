@@ -849,6 +849,7 @@ article.card img {
 .footer-right {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -857,6 +858,11 @@ article.card img {
   font-size: .95rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+.footer-email,
+.footer-phone {
+  font-weight: 400;
 }
 
 .footer-link:hover {
@@ -1141,7 +1147,7 @@ article.card img {
   }
 
   .footer-right {
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 }
 
