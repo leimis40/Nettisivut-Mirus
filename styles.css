@@ -79,6 +79,39 @@ svg {
   pointer-events: none;
 }
 
+.top-contact {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 0 0;
+  color: var(--muted);
+  font-size: .94rem;
+  font-weight: 720;
+}
+
+.top-contact::before {
+  content: "";
+  width: 17px;
+  height: 17px;
+  background-color: var(--primary-dark);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.top-contact a {
+  color: var(--primary-dark);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.top-contact a:hover,
+.top-contact a:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  outline: none;
+}
+
 .nav {
   position: relative;
   display: flex;
@@ -996,6 +1029,12 @@ article.card img {
 @media (max-width: 760px) {
   .container {
     padding: 0 16px;
+  }
+
+  .top-contact {
+    justify-content: center;
+    padding-top: 12px;
+    font-size: .92rem;
   }
 
   .nav-toggle {
