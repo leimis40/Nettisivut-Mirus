@@ -249,6 +249,18 @@ svg {
   min-width: 0;
 }
 
+@media (min-width: 761px) {
+  .hero-kicker {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-kicker .atom {
+    margin-left: 32px;
+  }
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
