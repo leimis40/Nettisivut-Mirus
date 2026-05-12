@@ -1072,11 +1072,19 @@ article.card img {
     padding: 11px 12px;
   }
 
+  .dropdown > a {
+    display: none;
+  }
+
   .dropdown-menu {
     position: static;
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    margin: 2px 0 6px;
-    border-color: var(--line);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
     box-shadow: none;
   }
 
