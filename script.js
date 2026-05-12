@@ -16,6 +16,14 @@ if (toggle && nav) {
     toggle.setAttribute("aria-expanded", String(isOpen));
   });
 
+  nav.addEventListener("click", (event) => {
+    const link = event.target instanceof Element ? event.target.closest("a") : null;
+
+    if (link && link.getAttribute("href") !== "#") {
+      closeNav();
+    }
+  });
+
   document.addEventListener("click", (event) => {
     const clickTarget = event.target;
 
@@ -35,6 +43,9 @@ if (toggle && nav) {
       closeNav();
     }
   });
+
+  window.addEventListener("pagehide", closeNav);
+  window.addEventListener("pageshow", closeNav);
 }
 
 // Simple "no-backend" contact form: opens user's mail app with prefilled email
