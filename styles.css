@@ -249,6 +249,59 @@ svg {
   min-width: 0;
 }
 
+.training-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.training-fact {
+  min-width: 150px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .84);
+  box-shadow: var(--shadow-soft);
+}
+
+.training-fact strong,
+.training-price {
+  display: block;
+  color: var(--primary-dark);
+  font-size: 1.24rem;
+  font-weight: 850;
+  line-height: 1.1;
+}
+
+.training-fact span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: .92rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.training-layout {
+  align-items: start;
+}
+
+.training-summary {
+  position: sticky;
+  top: 18px;
+  box-shadow: var(--shadow);
+}
+
+.training-summary h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+}
+
+.training-summary .list {
+  margin-bottom: 0;
+}
+
 @media (min-width: 761px) {
   .hero-kicker {
     display: inline-flex;
@@ -1028,6 +1081,10 @@ article.card img {
   .split,
   .contact {
     grid-template-columns: 1fr;
+  }
+
+  .training-summary {
+    position: static;
   }
 
   .hero {
