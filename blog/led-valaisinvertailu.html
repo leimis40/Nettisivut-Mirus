@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>LED-valaisimien sähkönlaatuvertailu | Mirus Electrum Oy</title>
+  <meta name="description" content="LED-valaisimien sähkönlaatuvertailu: puhdas siniaalto, säröytynyt -aaltomuoto ja erittäin säröytynyt -äärikoe. Vertailussa virta, tehokerroin, harmoninen särö ja pätöteho." />
+
+  <link rel="canonical" href="https://mirus-electrum.fi/blog/led-valaisinvertailu.html" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="top-contact">
+        <a href="tel:0408327388" aria-label="Puhelin 0408327388">0408327388</a>
+      </div>
+
+      <nav class="nav">
+        <a class="brand" href="/">Mirus Electrum Oy</a>
+
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" data-nav>
+          <a href="/">Etusivu</a>
+          <div class="dropdown">
+            <a href="#">Palvelut ▾</a>
+            <div class="dropdown-menu">
+              <a href="/varmennustarkastus/">Varmennustarkastus</a>
+              <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
+              <a href="/mittaukset/">Mittaukset</a>
+            </div>
+          </div>
+          <a href="/koulutukset/">Koulutukset</a>
+          <a href="/lomakkeet/">Lomakkeet</a>
+          <a href="/laskurit/">Laskurit</a>
+          <a href="/blog/">Blogi</a>
+          <a href="/#miksi">Miksi me</a>
+          <a href="/#yhteys" class="cta-nav">Yhteys</a>
+        </div>
+      </nav>
+
+      <section class="section" style="padding: 34px 0 10px;">
+        <p class="muted tiny" style="margin:0 0 10px;">1.8.2026</p>
+        <h1 style="margin:0 0 10px;">Yli 25W LED-valaisimien sähkönlaatuvertailu</h1>
+        <p class="muted" style="margin:0; max-width: 75ch;">
+          Vertailussa tarkasteltiin LED-valaisimien sähköverkosta ottamaa virtaa, tehokerrointa,
+          harmonista säröä ja pätötehoa eri syöttöjännitteen aaltomuodoilla.
+        </p>
+
+        <div class="cta" style="margin-top: 16px;">
+          <a class="btn ghost" href="/blog/">← Takaisin blogiin</a>
+          <a class="btn" href="/#yhteys">Pyydä yhteydenotto</a>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <article class="card" style="max-width: 80ch;">
+          <p class="muted">
+            LED-valaisimia vertaillaan tavallisesti valovirran, valotehokkuuden, värintoiston ja käyttöiän
+            perusteella. Tässä vertailussa valotekniset ominaisuudet jätettiin tarkoituksella sivuun.
+            Tarkastelun kohteena olivat valaisimien sähköverkosta ottama virta, tehokerroin, harmoninen
+            särö ja pätöteho. Yli 25W valaisimille on määräyksissä vaatimus, että pitää käyttää tehokertoimen korjainta. 
+            Alle 25W valaisimissa tällaista vaatimusta ei ole, joten siellä tulee huomattavan suuria eroja.
+          </p>
+
+          <figure style="margin:22px 0;">
+            <img
+              src="/blog/kuvat/led-valaisinvertailu/labra.jpg"
+              alt="LED-valaisimien sähkönlaatuvertailun mittausjärjestely laboratoriopöydällä"
+              width="4000"
+              height="3000"
+              loading="lazy"
+              style="display:block; height:auto;"
+            >
+            <figcaption>Labortorio.</figcaption>
+          </figure>
+
+          <p class="muted">Vertailussa olivat mukana:</p>
+          <ul class="list">
+            <li>SNEP X04W110, 26 W</li>
+            <li>SNEP P04MA, 25 W</li>
+            <li>Glamox I40, 38 W</li>
+            <li>NVC Toronto, 38 W</li>
+            <li>NVC Toronto, 60 W</li>
+          </ul>
+
+          <p class="muted">
+            NVC Toronto on tehonvalintakytkimellä varustettu valaisin, joten se mitattiin sekä 38 W:n
+            että 60 W:n asetuksella.
+          </p>
+
+          <figure style="margin:22px 0;">
+            <img
+              src="/blog/kuvat/led-valaisinvertailu/testivalaisimet.jpg"
+              alt="Sähkönlaatuvertailussa mukana olleet LED-valaisimet"
+              width="4000"
+              height="3000"
+              loading="lazy"
+              style="display:block; height:auto;"
+            >
+            <figcaption>Vertailussa mukana olleet LED-valaisimet.</figcaption>
+          </figure>
+
+          <p class="muted">
+            Mittaukset tehtiin OWON OWH9811 -tehoanalysaattorilla. Syöttöjännite tuotettiin
+            ohjelmoitavalla GW Instek APS-7050 -vaihtojännitelähteellä.
+          </p>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin:22px 0;">
+            <figure style="margin:0;">
+              <img
+                src="/blog/kuvat/led-valaisinvertailu/tehoanalysaattori.jpg"
+                alt="OWON OWH9811 -tehoanalysaattori LED-valaisimien mittauksessa"
+                width="4000"
+                height="3000"
+                loading="lazy"
+                style="display:block; height:auto;"
+              >
+              <figcaption>Mittauksissa käytetty OWON OWH9811 -tehoanalysaattori.</figcaption>
+            </figure>
+
+            <figure style="margin:0;">
+              <img
+                src="/blog/kuvat/led-valaisinvertailu/jannitelahde.jpg"
+                alt="GW Instek APS-7050 -vaihtojännitelähde LED-valaisimien syöttöjännitteen tuottamiseen"
+                width="4000"
+                height="3000"
+                loading="lazy"
+                style="display:block; height:auto;"
+              >
+              <figcaption>Syöttöjännite tuotettiin GW Instek APS-7050 -vaihtojännitelähteellä.</figcaption>
+            </figure>
+          </div>
+
+          <h2>Mittausolosuhteet</h2>
+          <p class="muted">
+            Valaisimet mitattiin käyttämällä puhdasta siniaaltoa sekä syöttämällä kahta eritasoista jännitesäröä. Type 5 = UTHD 4,3% ja type 11 UTHD17,8%
+          </p>
+
+          <h3 style="margin-top:18px;">Puhdas siniaalto</h3>
+          <p class="muted">
+            Referenssimittauksessa jännite oli noin 229,8 V, taajuus 50 Hz ja jännitteen kokonaissärö
+            tyypillisesti vain noin 0,1-0,2 %. Syöttöjännite oli siis käytännössä puhdas siniaalto.
+          </p>
+
+          <h3 style="margin-top:18px;">Type 5 -aaltomuoto</h3>
+          <p class="muted">
+            Type 5 -testissä jännite oli noin 227,5-227,6 V ja jännitteen kokonaissärö noin 4,32 %.
+            Aaltomuoto sisälsi erityisesti 3., 5., 7., 9. ja 11. harmonista komponenttia.
+          </p>
+          <p class="muted">
+            Type 5 -mittauksen tarkoituksena oli tutkia, miten LED-liitäntälaitteet käyttäytyvät
+            kohtuullisesti säröytyneessä sähköverkossa. Kyseessä ei ollut standardin mukainen
+            vaatimustenmukaisuustesti, vaan vertaileva laboratoriomittaus.
+          </p>
+          <p class="muted">
+            Vertailun lisäksi valaisimille tehtiin erittäin voimakkaasti säröytyneellä Type 11 -aaltomuodolla
+            äärikoe. Type 11 -tuloksia käsitellään kirjoituksen lopussa erillään varsinaisesta puhtaan
+            siniaallon ja Type 5:n vertailusta.
+          </p>
+
+          <h2>Puhdas siniaalto ja Type 5 - yhteenveto</h2>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Valaisin</th>
+                  <th>Tehoasetus</th>
+                  <th>PF, puhdas</th>
+                  <th>PF, Type 5</th>
+                  <th>ITHD, puhdas</th>
+                  <th>ITHD, Type 5</th>
+                  <th>P puhdas</th>
+                  <th>P Type 5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SNEP X04W110</td>
+                  <td>26 W</td>
+                  <td>0,931</td>
+                  <td>0,933</td>
+                  <td>10,3 %</td>
+                  <td>11,7 %</td>
+                  <td>25,14 W</td>
+                  <td>25,30 W</td>
+                </tr>
+                <tr>
+                  <td>SNEP P04MA</td>
+                  <td>25 W</td>
+                  <td>0,942</td>
+                  <td>0,943</td>
+                  <td>13,7 %</td>
+                  <td>13,4 %</td>
+                  <td>26,25 W</td>
+                  <td>26,26 W</td>
+                </tr>
+                <tr>
+                  <td>Glamox I40</td>
+                  <td>38 W</td>
+                  <td>0,971</td>
+                  <td>0,968</td>
+                  <td>6,5 %</td>
+                  <td>12,8 %</td>
+                  <td>37,82 W</td>
+                  <td>37,84 W</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto</td>
+                  <td>38 W</td>
+                  <td>0,949</td>
+                  <td>0,952</td>
+                  <td>11,9 %</td>
+                  <td>9,8 %</td>
+                  <td>37,51 W</td>
+                  <td>37,60 W</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto</td>
+                  <td>60 W</td>
+                  <td>0,977</td>
+                  <td>0,978</td>
+                  <td>7,7 %</td>
+                  <td>6,4 %</td>
+                  <td>60,00 W</td>
+                  <td>60,00 W</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:18px;">SNEP X04W110</h3>
+          <p class="muted">
+            Puhtaalla siniaallolla valaisimen tehokerroin oli 0,931 ja virran kokonaissärö noin 10,3 %.
+            Type 5 -syötöllä tehokerroin pysyi lähes ennallaan arvossa 0,933, mutta virran THD kasvoi noin
+            11,7 prosenttiin. Pätöteho kasvoi 25,14 watista 25,30 wattiin.
+          </p>
+          <p class="muted">
+            Valaisin sieti 4,3 prosentin jännitesärön hyvin. Muutos näkyi lähinnä virran harmonisissa,
+            ei valaisimen ottamassa pätötehossa tai tehokertoimessa.
+          </p>
+
+          <h3 style="margin-top:18px;">SNEP P04MA</h3>
+          <p class="muted">
+            P04MA:n tehokerroin oli puhtaalla syötöllä 0,942 ja Type 5 -syötöllä 0,943. Virran THD muuttui
+            13,7 prosentista noin 13,4 prosenttiin. Pätötehon ero oli vain noin 0,01 W.
+          </p>
+          <p class="muted">
+            Käytännössä valaisimen toiminta ei muuttunut. Erot ovat niin pieniä, ettei niistä kannata tehdä
+            vahvoja johtopäätöksiä ilman useita toistomittauksia.
+          </p>
+
+          <h3 style="margin-top:18px;">Glamox I40</h3>
+          <p class="muted">
+            Glamox I40 oli puhtaalla siniaallolla vertailun paras 38 W:n valaisin. Tehokerroin oli 0,971
+            ja virran THD vain noin 6,5 %.
+          </p>
+          <p class="muted">
+            Type 5 -syötöllä pätöteho pysyi käytännössä muuttumattomana ja tehokerroin laski vain hieman
+            arvoon 0,968. Virran THD kuitenkin nousi noin 12,8 prosenttiin.
+          </p>
+          <p class="muted">
+            ITHD lähes kaksinkertaistui, mutta absoluuttinen tulos oli edelleen kohtuullinen. Mittaus osoittaa,
+            että puhtaalla siniaallolla erittäin hyvin toimiva aktiivinen PFC-ratkaisu voi reagoida voimakkaasti
+            syöttöjännitteen harmonisiin, vaikka pätöteho ja tehokerroin säilyvät lähes ennallaan.
+          </p>
+
+          <h3 style="margin-top:18px;">NVC Toronto, 38 W</h3>
+          <p class="muted">
+            Puhtaalla siniaallolla NVC:n 38 W asetuksen tehokerroin oli 0,949 ja virran THD noin 11,9 %.
+            Type 5 -syötöllä tehokerroin parani arvoon 0,952 ja ITHD pieneni noin 9,8 prosenttiin.
+            Pätöteho kasvoi 37,51 watista 37,60 wattiin.
+          </p>
+          <p class="muted">
+            Tässä tapauksessa säröytynyt jännite ei suurentanut virran kokonaissäröä, vaan tietyt
+            syöttöjännitteen ja valaisimen ottaman virran harmoniset näyttävät osittain kumonneen toisiaan.
+          </p>
+          <p class="muted">
+            Tästä ei kuitenkaan pidä päätellä, että säröytynyt verkko olisi valaisimelle yleisesti parempi.
+            Kyse on tietyn LED-ajurin ja tietyn jänniteaaltomuodon yhteisvaikutuksesta.
+          </p>
+
+          <h3 style="margin-top:18px;">NVC Toronto, 60 W</h3>
+          <p class="muted">
+            NVC:n 60 W asetus tuotti vertailun parhaat Type 5 -tulokset. Puhtaalla siniaallolla tehokerroin
+            oli 0,977 ja ITHD 7,7 %. Type 5 -syötöllä tehokerroin nousi arvoon 0,978 ja ITHD pieneni noin
+            6,4 prosenttiin. Pätöteho pysyi 60 watissa.
+          </p>
+          <p class="muted">
+            Tulokset osoittavat selvästi, että säädettävän liitäntälaitteen kuormitusaste vaikuttaa
+            sähkönlaatuun. Sama NVC-valaisin toimi 60 W asetuksella paremmin kuin 38 W asetuksella sekä
+            puhtaalla että säröytyneellä syötöllä.
+          </p>
+
+          <h2>Tehokerroin ei yksin kerro koko totuutta</h2>
+          <p class="muted">Tehokerroin kuvaa pätötehon suhdetta näennäistehoon:</p>
+          <p class="muted"><strong>λ = P / S</strong></p>
+          <p class="muted">
+            Mitä lähempänä arvo on yhtä, sitä pienempi RMS-virta tarvitaan saman pätötehon siirtämiseen.
+          </p>
+          <p class="muted">
+            Type 5 -mittauksissa valaisimien tehokertoimet vaihtelivat välillä 0,933-0,978. Yksittäisen
+            valaisimen tehokerroin muuttui puhtaan siniaallon ja Type 5:n välillä vain vähän.
+          </p>
+          <p class="muted">Virran harmoninen särö käyttäytyi kuitenkin eri tavalla:</p>
+          <ul class="list">
+            <li>Glamoxin ITHD kasvoi selvästi.</li>
+            <li>SNEP X04W110:n ITHD kasvoi maltillisesti.</li>
+            <li>SNEP P04MA:n tulos pysyi lähes ennallaan.</li>
+            <li>NVC:n molemmilla tehoasetuksilla ITHD pieneni.</li>
+          </ul>
+          <p class="muted">
+            Pelkkä tehokerroin ei siis kerro, kuinka paljon yksittäisiä harmonisia virtoja valaisin tuottaa.
+          </p>
+
+          <h2>Virran THD:n paremmuusjärjestys</h2>
+          <h3 style="margin-top:18px;">Puhdas siniaalto</h3>
+          <ol class="list">
+            <li>Glamox I40: 6,5 %</li>
+            <li>NVC Toronto 60 W: 7,7 %</li>
+            <li>SNEP X04W110: 10,3 %</li>
+            <li>NVC Toronto 38 W: 11,9 %</li>
+            <li>SNEP P04MA: 13,7 %</li>
+          </ol>
+
+          <h3 style="margin-top:18px;">Type 5</h3>
+          <ol class="list">
+            <li>NVC Toronto 60 W: 6,4 %</li>
+            <li>NVC Toronto 38 W: 9,8 %</li>
+            <li>SNEP X04W110: 11,7 %</li>
+            <li>Glamox I40: 12,8 %</li>
+            <li>SNEP P04MA: 13,4 %</li>
+          </ol>
+
+          <p class="muted">
+            Puhdas siniaalto ja säröytynyt verkko tuottivat siis erilaisen paremmuusjärjestyksen.
+            Erityisen kiinnostavaa on, että Glamox oli puhtaalla syötöllä selvästi paras 38 W:n valaisin,
+            mutta Type 5 -syötöllä NVC 38 W saavutti pienemmän virran THD:n.
+          </p>
+
+          <h2>Voiko sähkönlaatua parantamalla säästää merkittävästi energiaa?</h2>
+          <p class="muted">Mittauksissa Type 5 -syötön vaikutus valaisimien pätötehoon oli hyvin pieni:</p>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Valaisin</th>
+                  <th>Pätötehon muutos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SNEP X04W110</td>
+                  <td>+0,16 W</td>
+                </tr>
+                <tr>
+                  <td>SNEP P04MA</td>
+                  <td>+0,01 W</td>
+                </tr>
+                <tr>
+                  <td>Glamox I40</td>
+                  <td>+0,02 W</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto 38 W</td>
+                  <td>+0,09 W</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto 60 W</td>
+                  <td>0,00 W</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="muted">Tarkastellaan suurta valaistusjärjestelmää:</p>
+          <ul class="list">
+            <li>500 valaisinta</li>
+            <li>käyttö 24 tuntia vuorokaudessa</li>
+            <li>8760 käyttötuntia vuodessa</li>
+            <li>sähkön hinta 0,10 €/kWh</li>
+          </ul>
+
+          <p class="muted">Vuotuinen energiavaikutus lasketaan:</p>
+          <p class="muted"><strong>E = (ΔP × n × t) / 1000</strong></p>
+          <p class="muted">Kustannus:</p>
+          <p class="muted"><strong>C = E × hinta</strong></p>
+
+          <h3 style="margin-top:18px;">Laskennallinen Type 5 -vaikutus 500 valaisimella</h3>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Valaisin</th>
+                  <th>Energiaero</th>
+                  <th>Kustannusero</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SNEP X04W110</td>
+                  <td>700,8 kWh/v</td>
+                  <td>70,08 €/v</td>
+                </tr>
+                <tr>
+                  <td>SNEP P04MA</td>
+                  <td>43,8 kWh/v</td>
+                  <td>4,38 €/v</td>
+                </tr>
+                <tr>
+                  <td>Glamox I40</td>
+                  <td>87,6 kWh/v</td>
+                  <td>8,76 €/v</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto 38 W</td>
+                  <td>394,2 kWh/v</td>
+                  <td>39,42 €/v</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto 60 W</td>
+                  <td>0 kWh/v</td>
+                  <td>0 €/v</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="muted">
+            Suurinkin mitattu ero tarkoittaisi 500 jatkuvasti palavan valaisimen ryhmässä vain noin
+            70 euroa vuodessa.
+          </p>
+          <p class="muted">
+            Jos valaistuksen käyttöaika olisi esimerkiksi 4000 tuntia vuodessa, suurin laskennallinen
+            kustannusvaikutus jäisi noin 32 euroon vuodessa.
+          </p>
+
+          <h3 style="margin-top:18px;">Johtopäätös suorasta energiankulutuksesta</h3>
+          <p class="muted">
+            Tämän mittausaineiston perusteella sähkönlaatua parantamalla ei saavuteta merkittävää suoraa
+            säästöä valaisimien ottamassa pätötehossa.
+          </p>
+          <p class="muted">Erot olivat niin pieniä, että niihin voivat vaikuttaa myös:</p>
+          <ul class="list">
+            <li>mittausarvojen normaali vaihtelu</li>
+            <li>syöttöjännitteen pieni ero</li>
+            <li>valaisimen lämpeneminen</li>
+            <li>tehoanalysaattorin mittausepävarmuus</li>
+            <li>yksittäisen valaisinyksilön toleranssit</li>
+          </ul>
+          <p class="muted">
+            Sähkönlaadun parantamisen taloudellinen hyöty ei tässä tapauksessa synny siitä, että yksittäinen
+            LED-valaisin kuluttaisi huomattavasti vähemmän energiaa.
+          </p>
+
+          <h2>Missä harmonisten taloudellinen merkitys näkyy?</h2>
+          <p class="muted">
+            Vaikka valaisimen pätöteho ei juuri muutu, harmoniset virrat voivat kasvattaa sähköjärjestelmän
+            häviöitä muualla:
+          </p>
+          <ul class="list">
+            <li>kaapeleiden I<sup>2</sup>R-häviöt kasvavat RMS-virran mukana</li>
+            <li>muuntajien pyörrevirta- ja lisähäviöt voivat kasvaa</li>
+            <li>kolmella jaolliset harmoniset voivat summautua nollajohtimeen</li>
+            <li>keskusten ja liitosten lämpötilat voivat nousta</li>
+            <li>suojalaitteiden ja kompensointilaitteiden kuormitus voi kasvaa</li>
+            <li>käytettävissä oleva siirtokapasiteetti pienenee</li>
+            <li>häiriöiden ja yhteensopivuusongelmien riski kasvaa</li>
+          </ul>
+          <p class="muted">
+            Tässä vertailussa mitattiin valaisimen ottamaa pätötehoa. Kaapelien, muuntajien ja keskusten
+            todellisia lisähäviöitä ei mitattu.
+          </p>
+          <p class="muted">Koko järjestelmän energiahäviöiden arviointi edellyttäisi ainakin:</p>
+          <ul class="list">
+            <li>vaihekohtaisia kokonaisvirtoja</li>
+            <li>valaisimien harmonisten vaihekulmia</li>
+            <li>kaapelien ja nollajohtimien resistansseja</li>
+            <li>muuntajan rakennetta ja kuormitusta</li>
+            <li>kuormituksen samanaikaisuutta</li>
+            <li>muiden samassa verkossa olevien epälineaaristen kuormien vaikutusta</li>
+          </ul>
+          <p class="muted">
+            Siksi pelkästä valaisimen ITHD-luvusta ei voida laskea luotettavasti koko rakennuksen energiansäästöä.
+          </p>
+
+          <h2>Type 11 - äärimmäinen rasitustesti</h2>
+          <p class="muted">
+            Type 11 -testi poikkesi olennaisesti puhtaan siniaallon ja Type 5:n mittauksista.
+          </p>
+          <p class="muted">
+            APS-7050:n jänniteasetuksen ollessa 230 V laitteen oma mittaus ja OWON-tehoanalysaattori
+            näyttivät todelliseksi RMS-jännitteeksi noin 269 V. Jännitteen THD oli noin 17,76 %.
+            Testi sisälsi siis samanaikaisesti:
+          </p>
+          <ul class="list">
+            <li>erittäin suuren jännitesärön</li>
+            <li>noin 269 V:n RMS-jännitteen</li>
+            <li>valaisimien 220-240 V:n nimellisalueen ylittävän jännitteen</li>
+          </ul>
+          <p class="muted">
+            Type 11 ei siten kuvaa pelkästään harmonisten vaikutusta. Se on tarkoituksenmukaisempaa nähdä
+            liitäntälaitteiden äärimmäisenä sietokokeena.
+          </p>
+
+          <h3 style="margin-top:18px;">Type 11 -tulokset</h3>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Valaisin</th>
+                  <th>Asetus</th>
+                  <th>Todellinen U RMS</th>
+                  <th>P Type 11</th>
+                  <th>PF</th>
+                  <th>ITHD</th>
+                  <th>Toiminta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SNEP X04W110</td>
+                  <td>26 W</td>
+                  <td>269,3 V</td>
+                  <td>25,48 W</td>
+                  <td>0,880</td>
+                  <td>23,1 %</td>
+                  <td>Vakaa</td>
+                </tr>
+                <tr>
+                  <td>SNEP P04MA</td>
+                  <td>25 W</td>
+                  <td>269,4 V</td>
+                  <td>26,38 W</td>
+                  <td>0,902</td>
+                  <td>20,2 %</td>
+                  <td>Vakaa</td>
+                </tr>
+                <tr>
+                  <td>Glamox I40</td>
+                  <td>38 W</td>
+                  <td>269,4 V</td>
+                  <td>Vaihteli noin 20-37 W</td>
+                  <td>Vaihteli</td>
+                  <td>Vaihteli</td>
+                  <td>Vilkkui</td>
+                </tr>
+                <tr>
+                  <td>Glamox I40</td>
+                  <td>38 W, APS 226 V</td>
+                  <td>264,6 V</td>
+                  <td>37,80 W</td>
+                  <td>0,945</td>
+                  <td>23,1 %</td>
+                  <td>Vakaa</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto</td>
+                  <td>38 W</td>
+                  <td>269,3 V</td>
+                  <td>36,95 W</td>
+                  <td>0,911</td>
+                  <td>25,3 %</td>
+                  <td>Vakaa</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto</td>
+                  <td>60 W</td>
+                  <td>269,3 V</td>
+                  <td>60,20 W</td>
+                  <td>0,959</td>
+                  <td>21,3 %</td>
+                  <td>Vakaa</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="muted">
+            SNEP X04W110:n tehokerroin laski arvoon 0,880 ja virran THD nousi noin 23 prosenttiin,
+            vaikka pätöteho pysyi lähes ennallaan.
+          </p>
+          <p class="muted">
+            SNEP P04MA säilytti pätötehonsa, mutta sen tehokerroin laski arvoon 0,902 ja ITHD nousi noin
+            20 prosenttiin.
+          </p>
+          <p class="muted">
+            NVC Toronto pysyi vakaana molemmilla tehoasetuksilla. Täydellä 60 W teholla sen tehokerroin
+            ja ITHD olivat paremmat kuin 38 W:n osateholla.
+          </p>
+
+          <h3 style="margin-top:18px;">Glamoxin vilkkuminen</h3>
+          <p class="muted">
+            Glamox I40:n toiminta muuttui Type 11 -testissä epävakaaksi APS-7050:n asetuksella 230 V.
+            Valaisin vilkkui ja mittaustulokset vaihtelivat voimakkaasti:
+          </p>
+          <ul class="list">
+            <li>pätöteho noin 20-37 W</li>
+            <li>ITHD noin 16-44 %</li>
+            <li>tehokerroin noin 0,74-0,97</li>
+          </ul>
+          <p class="muted">
+            Valaisin tai sen liitäntälaite ei siis pysynyt jatkuvassa vakaassa toimintapisteessä.
+          </p>
+          <p class="muted">
+            Kun APS-7050:n nimellisasetus laskettiin 226 volttiin, todellinen RMS-jännite laski noin
+            264,6 volttiin ja vilkkuminen loppui. Vakaassa tilassa pätöteho oli 37,8 W, tehokerroin
+            0,945 ja ITHD noin 23,1 %.
+          </p>
+          <p class="muted">
+            Todellinen RMS-jännite pieneni vain noin 4,8 V, mutta toiminta muuttui epävakaasta vakaaksi.
+            Tämä viittaa liitäntälaitteen kynnysmäiseen toimintarajaan.
+          </p>
+          <p class="muted">
+            Havaintoa ei pidä tulkita Glamoxin normaalin verkkojännitteen sietorajaksi. Type 11:n aaltomuoto
+            ja huippuarvot poikkeavat huomattavasti normaalista sinijännitteestä.
+          </p>
+
+          <h2>Type 11:n laskennallinen energiavaikutus</h2>
+          <p class="muted">
+            Seuraava laskelma on vain havainnollistava ääriesimerkki. Se ei kuvaa normaalin sähköverkon
+            sähkönlaadun parantamisen säästöpotentiaalia, koska Type 11 -testissä jännite oli noin 269 V
+            ja samalla erittäin säröytynyt.
+          </p>
+          <p class="muted">Vertailussa käytetään edelleen:</p>
+          <ul class="list">
+            <li>500 valaisinta</li>
+            <li>8760 h/v</li>
+            <li>0,10 €/kWh</li>
+          </ul>
+
+          <h3 style="margin-top:18px;">Vakaina toimineet valaisimet</h3>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Valaisin</th>
+                  <th>Puhdas</th>
+                  <th>Type 11</th>
+                  <th>ΔP</th>
+                  <th>Energiaero 500 kpl</th>
+                  <th>Kustannusero</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SNEP X04W110</td>
+                  <td>25,14 W</td>
+                  <td>25,48 W</td>
+                  <td>+0,34 W</td>
+                  <td>+1489,2 kWh/v</td>
+                  <td>+148,92 €/v</td>
+                </tr>
+                <tr>
+                  <td>SNEP P04MA</td>
+                  <td>26,25 W</td>
+                  <td>26,38 W</td>
+                  <td>+0,13 W</td>
+                  <td>+569,4 kWh/v</td>
+                  <td>+56,94 €/v</td>
+                </tr>
+                <tr>
+                  <td>Glamox I40, APS 226 V</td>
+                  <td>37,82 W</td>
+                  <td>37,80 W</td>
+                  <td>-0,02 W</td>
+                  <td>-87,6 kWh/v</td>
+                  <td>-8,76 €/v</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto 38 W</td>
+                  <td>37,51 W</td>
+                  <td>36,95 W</td>
+                  <td>-0,56 W</td>
+                  <td>-2452,8 kWh/v</td>
+                  <td>-245,28 €/v</td>
+                </tr>
+                <tr>
+                  <td>NVC Toronto 60 W</td>
+                  <td>60,00 W</td>
+                  <td>60,20 W</td>
+                  <td>+0,20 W</td>
+                  <td>+876,0 kWh/v</td>
+                  <td>+87,60 €/v</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="muted">
+            Negatiivinen kustannusero tarkoittaa ainoastaan, että mittarilla mitattu pätöteho oli Type 11
+            -testissä hieman pienempi. Se ei tarkoita, että ylijännite tai jännitesärö olisi energiansäästökeino.
+          </p>
+          <p class="muted">
+            Tulosten vaihteluväli oli noin -245...+149 euroa vuodessa 500 jatkuvasti palavan valaisimen
+            järjestelmässä.
+          </p>
+          <p class="muted">
+            Glamoxin epävakaata 230 V Type 11 -mittausta ei käytetty energialaskennassa, koska valaisin
+            vilkkui eikä pätöteho ollut vakaa.
+          </p>
+
+          <h3 style="margin-top:18px;">Type 11 -testin tärkein havainto</h3>
+          <p class="muted">
+            Äärimmäisen säröytynyt ja samalla liian korkea jännite ei muuttanut useimpien valaisimien
+            keskimääräistä pätötehoa paljon. Sen sijaan vaikutukset näkyivät voimakkaasti:
+          </p>
+          <ul class="list">
+            <li>tehokertoimessa</li>
+            <li>virran harmonisessa särössä</li>
+            <li>loistehossa</li>
+            <li>liitäntälaitteen toimintavarmuudessa</li>
+            <li>Glamoxin tapauksessa näkyvänä vilkkumisena</li>
+          </ul>
+          <p class="muted">
+            Type 11 tukee siten samaa päätelmää kuin Type 5: sähkönlaadun tärkein merkitys ei ole valaisimen
+            suorassa wattikulutuksessa, vaan koko sähköjärjestelmän kuormituksessa ja laitteiden toimintavarmuudessa.
+          </p>
+
+          <h2>Lopputulos</h2>
+          <p class="muted">
+            Vertailun keskeinen havainto on, että LED-valaisimen sähkönlaatua ei voida kuvata yhdellä
+            THD- tai tehokertoimen arvolla.
+          </p>
+          <p class="muted">Eri liitäntälaitteet reagoivat samaan jännitesäröön eri tavoin:</p>
+          <ul class="list">
+            <li>osassa virran THD kasvoi</li>
+            <li>osassa se pysyi lähes ennallaan</li>
+            <li>osassa se pieneni</li>
+            <li>erittäin voimakkaassa Type 11 -testissä yksi valaisin alkoi vilkkua</li>
+          </ul>
+          <p class="muted">
+            Puhdas siniaalto ja Type 5 muuttivat valaisimien pätötehoa vain 0,00-0,16 W valaisinta kohden.
+            Sähkönlaatua parantamalla saavutettava suora säästö valaisimien energiankulutuksessa jäi siten
+            hyvin pieneksi, vaikka valaisimia olisi 500 kappaletta.
+          </p>
+          <p class="muted">Parempi sähkönlaatu on silti tärkeää. Sen merkitys liittyy ennen kaikkea:</p>
+          <ul class="list">
+            <li>kaapelien ja muuntajien häviöihin</li>
+            <li>nollajohtimen kuormitukseen</li>
+            <li>sähköverkon kapasiteettiin</li>
+            <li>laitteiden yhteensopivuuteen</li>
+            <li>käyttövarmuuteen</li>
+            <li>liitäntälaitteiden lämpö- ja jänniterasitukseen</li>
+            <li>häiriöiden ja ennenaikaisten vikojen ehkäisemiseen</li>
+          </ul>
+          <p class="muted">
+            Mittaukset ovat vertailevia laboratoriomittauksia. Ne eivät yksinään osoita valaisimien
+            IEC/SFS-EN 61000-3-2 -standardin mukaista vaatimustenmukaisuutta. Kaikki valaisimet olivat myös yli 25W joten standardi
+            edellyttää niille parempaa sähkönlaatua. Tulokset ovat huomattavan erinlaisia alle 25W valaisimilla. Niistä joskus erillinen blogi.
+          </p>
+
+          <h2>Mittauspöytäkirjat</h2>
+          <p class="muted">
+            Mittauspöytäkirjat kokonaisuutena löytyvät Excel-tiedostosta:
+            <a href="/blog/valaisinvertailu_sahkonlaatu_type11_harmoniset_62_selitteet.xlsx" target="_blank" rel="noopener">
+              valaisinvertailu_sahkonlaatu_type11_harmoniset_62_selitteet.xlsx
+            </a>.
+          </p>
+
+          <div class="cta" style="margin-top: 18px;">
+            <a class="btn" href="/#yhteys">Ota yhteyttä</a>
+            <a class="btn ghost" href="/blog/">Takaisin blogiin</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-left">
+        <small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+        <small class="muted">Sähkölaitteistojen tarkastukset</small>
+      </div>
+
+      <div class="footer-right">
+        <a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+        <span class="divider-dot">|</span>
+        <a href="tel:0408327388" class="footer-link footer-phone" aria-label="Puhelin 0408327388">0408327388</a>
+        <span class="divider-dot">|</span>
+        <a href="/sopimusehdot.pdf" target="_blank" class="footer-link">Sopimusehdot</a>
+        <span class="divider-dot">|</span>
+        <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
