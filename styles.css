@@ -865,6 +865,56 @@ table {
   border-collapse: collapse;
 }
 
+.table-scroll {
+  overflow-x: auto;
+  margin: 18px 0 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll:focus {
+  outline: 3px solid rgba(11, 92, 171, .2);
+  outline-offset: 3px;
+}
+
+.table-scroll table {
+  min-width: max-content;
+}
+
+.table-scroll,
+.table-scroll * {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.table-scroll th,
+.table-scroll td {
+  white-space: nowrap;
+}
+
+.table-scroll th:first-child,
+.table-scroll td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.table-scroll th:first-child {
+  z-index: 2;
+}
+
+.table-scroll td:first-child {
+  background: var(--card);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.table-scroll tr:last-child td {
+  border-bottom: 0;
+}
+
 th,
 td {
   padding: 11px 10px;
@@ -1260,6 +1310,19 @@ article.card img {
 
   .blog-card-content {
     padding: 22px;
+  }
+
+  .table-scroll {
+    margin: 16px -20px 22px;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  .table-scroll th,
+  .table-scroll td {
+    padding: 9px 10px;
+    font-size: .86rem;
   }
 
   .section {
