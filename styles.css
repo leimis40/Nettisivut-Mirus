@@ -249,6 +249,58 @@ svg {
   min-width: 0;
 }
 
+.home-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  padding: 44px 0 56px;
+}
+
+.home-hero h1 {
+  max-width: none;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+  text-wrap: balance;
+}
+
+.hero-photo {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-photo figcaption {
+  display: grid;
+  gap: 8px;
+  padding: 22px 24px;
+  border-top: 3px solid var(--accent);
+  font-size: .94rem;
+}
+
+.hero-photo-label {
+  color: var(--primary-dark);
+  font-size: .8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.hero-photo strong {
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
 .training-facts {
   display: flex;
   flex-wrap: wrap;
