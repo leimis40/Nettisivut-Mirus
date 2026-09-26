@@ -36,8 +36,8 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <div class="top-contact">
-        <a href="tel:0408327388" aria-label="Puhelin 0408327388">0408327388</a>
+      <div class="top-contact top-contact-call">
+        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
       </div>
 
       <nav class="nav">
@@ -71,7 +71,21 @@
       <section class="hero home-hero" id="top">
         <div class="hero-text">
 
-          <p class="eyebrow">Tarkastukset, mittaukset ja koulutukset</p>
+          <div class="home-intro">
+            <div class="atom" aria-hidden="true">
+              <div class="nucleus"></div>
+              <div class="orbit one">
+                <div class="carrier"><div class="electron"></div></div>
+              </div>
+              <div class="orbit two">
+                <div class="carrier"><div class="electron"></div></div>
+              </div>
+              <div class="orbit three">
+                <div class="carrier"><div class="electron"></div></div>
+              </div>
+            </div>
+            <p class="eyebrow">Tarkastukset, mittaukset ja koulutukset</p>
+          </div>
           <h1>Sähkö&shy;laitteistojen tarkastus- ja asian&shy;tuntija&shy;palvelut</h1>
 
           <p class="lead">
@@ -226,10 +240,9 @@
           <div>
             <h2>Miksi Mirus Electrum Oy</h2>
             <p class="muted">
-              Tarkastus on asiakkaalle enemmän kuin lakisääteinen vaihe. Parhaimmillaan se tuo
-              varmuutta, säästää aikaa ja helpottaa päätöksentekoa. Tavoitteena on, että asiakas
-              saa tarkastuksesta selkeän kokonaiskuvan ilman epäselvää viranomaiskieltä tai
-              turhaa byrokratiaa.
+              Tarkastuksessa arvioidaan sähkölaitteiston turvallisuutta ja vaatimustenmukaisuutta.
+              Havaitut puutteet kirjataan tarkastuspöytäkirjaan ja käydään läpi asiakkaan kanssa.
+              Näin asiakkaalla on dokumentoitua tietoa mahdollisten korjausten ja kunnossapidon tueksi.
             </p>
 
             <p class="muted">
@@ -283,6 +296,11 @@
           <div>
             <h2>Yhteys</h2>
             <p class="muted">Riku Leimola VTS 271 <br>Mirus Electrum Oy</p>
+            <p class="muted">
+              Voit lähettää sähköpostia suoraan osoitteeseen
+              <a href="mailto:riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+              tai käyttää oheista lomaketta.
+            </p>
           </div>
 
           <div class="contact-card card">
@@ -292,7 +310,7 @@
             </div>
             <div class="contact-row">
               <span class="label">Puhelin</span>
-              <a class="value" href="tel:0408327388">0408327388</a>
+              <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
             </div>
             <div class="contact-row">
               <span class="label">Toimialue</span>
@@ -319,7 +337,7 @@
 
               <button class="btn" type="submit">Lähetä viesti</button>
               <p class="muted tiny" id="formNote">
-                Tämä lomake avaa sähköpostiohjelman.
+                Lomake avaa sähköpostiohjelmasi ja täyttää viestin valmiiksi. Lähetä viesti sähköpostiohjelmastasi.
               </p>
             </form>
           </div>
@@ -330,11 +348,11 @@
     <section class="section partners" id="yhteistyokumppanit">
       <div class="container">
         <div class="section-head partners-head">
-          <h2>Keskeiset yhteistyökumppanit</h2>
+          <h2>Alan toimijat ja hyödylliset linkit</h2>
           <p class="muted">Alan toimijoita ja hyödyllisiä lisätietolähteitä sähköturvallisuuteen, tarkastuksiin ja teollisuuden palveluihin.</p>
         </div>
 
-        <div class="partner-links" aria-label="Keskeiset yhteistyökumppanit ja linkit">
+        <div class="partner-links" aria-label="Alan toimijat ja hyödylliset linkit">
           <a class="partner-link" href="https://saty.fi/" target="_blank" rel="noopener">
             <span class="partner-name">SÄTY ry</span>
             <span class="partner-topic">Valtuutettujen tarkastajien yhdistys</span>
@@ -371,7 +389,7 @@
       <div class="footer-right">
         <a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
         <span class="divider-dot">|</span>
-        <a href="tel:0408327388" class="footer-link footer-phone" aria-label="Puhelin 0408327388">0408327388</a>
+        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
         <span class="divider-dot">|</span>
         <a href="sopimusehdot.pdf" target="_blank" class="footer-link">Sopimusehdot</a>
         <span class="divider-dot">|</span>

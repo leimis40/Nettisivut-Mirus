@@ -91,7 +91,8 @@ svg {
   font-weight: 720;
 }
 
-.top-contact::before {
+.top-contact::before,
+.call-button::before {
   content: "";
   width: 17px;
   height: 17px;
@@ -261,6 +262,40 @@ svg {
   word-break: normal;
   hyphens: manual;
   text-wrap: balance;
+}
+
+.home-intro {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.home-intro .atom {
+  --s: 48px;
+  flex: 0 0 var(--s);
+  margin: 0;
+}
+
+.home-intro .nucleus {
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 0 4px rgba(11, 92, 171, .08);
+}
+
+.home-intro .electron {
+  width: 5px;
+  height: 5px;
+  box-shadow: 0 0 0 3px rgba(196, 122, 18, .18);
+}
+
+.home-intro .eyebrow {
+  min-width: 0;
+  margin: 0;
+}
+
+.home-intro .eyebrow::before {
+  content: none;
 }
 
 .hero-photo {
@@ -526,6 +561,42 @@ h1 {
   border-color: var(--primary);
   background: #ffffff;
   color: var(--primary-dark);
+}
+
+.top-contact-call::before {
+  content: none;
+}
+
+.call-button,
+.top-contact a.call-button {
+  min-height: 48px;
+  gap: 10px;
+  color: #ffffff;
+  font-weight: 750;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.call-button::before {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+}
+
+.top-contact a.call-button:hover,
+.top-contact a.call-button:focus-visible {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.top-contact a.call-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contact-row .call-button {
+  justify-self: end;
 }
 
 .meta {
@@ -1430,6 +1501,10 @@ article.card img {
 
   .contact-row .value {
     text-align: left;
+  }
+
+  .contact-row .call-button {
+    justify-self: start;
   }
 
   .footer-inner {

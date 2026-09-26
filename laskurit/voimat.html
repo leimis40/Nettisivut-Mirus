@@ -46,7 +46,7 @@
       font-weight: 700;
     }
 
-    .top-contact::before {
+    .top-contact::before, .top-contact a.call-button::before {
       content: "";
       width: 16px;
       height: 16px;
@@ -364,11 +364,51 @@
         font-size: 28px;
       }
     }
+    /* Call button for the standalone calculator header. */
+    .top-contact.top-contact-call::before { content: none; }
+    .top-contact a.call-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 11px 15px;
+      border: 1px solid #083b73;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0b5cab, #083b73);
+      color: #ffffff;
+      box-shadow: 0 12px 22px rgba(8, 59, 115, .18);
+      font: inherit;
+      font-weight: 750;
+      line-height: 1.1;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .top-contact a.call-button::before {
+      flex: 0 0 18px;
+      width: 18px;
+      height: 18px;
+      background-color: currentColor;
+    }
+    .top-contact a.call-button:hover {
+      color: #ffffff;
+      text-decoration: none;
+      box-shadow: 0 16px 28px rgba(8, 59, 115, .22);
+    }
+    .top-contact a.call-button:focus-visible {
+      color: #ffffff;
+      text-decoration: none;
+      outline: 3px solid #c47a12;
+      outline-offset: 3px;
+    }
+    @media (max-width: 520px) {
+      .top-contact a.call-button { width: 100%; }
+    }
   </style>
 </head>
 <body>
-  <div class="top-contact">
-    <a href="tel:0408327388" aria-label="Puhelin 0408327388">0408327388</a>
+  <div class="top-contact top-contact-call">
+    <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
   </div>
 
   <div class="wrap">

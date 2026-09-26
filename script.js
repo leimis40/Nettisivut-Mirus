@@ -57,7 +57,7 @@ form?.addEventListener("submit", (e) => {
   const email = String(data.get("email") || "").trim();
   const message = String(data.get("message") || "").trim();
 
-  const to = "info@miruselectrum.fi";
+  const to = "riku.leimola@mirus-electrum.fi";
   const subject = encodeURIComponent(`Yhteydenotto: ${name || "Asiakas"}`);
   const body = encodeURIComponent(
     `Nimi: ${name}\nSähköposti: ${email}\n\nViesti:\n${message}\n`
