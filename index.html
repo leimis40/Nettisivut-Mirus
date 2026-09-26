@@ -319,23 +319,25 @@
 
             <div class="divider"></div>
 
-            <form class="form" id="contactForm">
+            <form class="form" id="contactForm" aria-describedby="formNote">
+              <p class="muted tiny">Täytä omat yhteystietosi ja viestisi. Kaikki kentät ovat pakollisia. Viestin otsikko muodostuu automaattisesti.</p>
               <label>
-                <span>Nimi</span>
-                <input name="name" autocomplete="name" required />
+                <span>Oma nimesi</span>
+                <input name="name" autocomplete="name" required placeholder="Etunimi Sukunimi" />
               </label>
 
               <label>
-                <span>Sähköposti</span>
-                <input type="email" name="email" autocomplete="email" required />
+                <span>Oma sähköpostiosoitteesi</span>
+                <input type="email" name="email" autocomplete="email" required placeholder="esim. maija@esimerkki.fi" aria-describedby="emailHelp" />
+                <small class="muted" id="emailHelp">Anna osoite, johon haluat vastauksen.</small>
               </label>
 
               <label>
-                <span>Viesti</span>
+                <span>Viestisi</span>
                 <textarea name="message" rows="4" required placeholder="Kerro lyhyesti kohteesta, palvelutarpeesta ja aikataulusta"></textarea>
               </label>
 
-              <button class="btn" type="submit">Lähetä viesti</button>
+              <button class="btn" type="submit">Avaa viesti sähköpostiohjelmassa</button>
               <p class="muted tiny" id="formNote">
                 Lomake avaa sähköpostiohjelmasi ja täyttää viestin valmiiksi. Lähetä viesti sähköpostiohjelmastasi.
               </p>
