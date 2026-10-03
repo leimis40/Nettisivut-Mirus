@@ -1,7 +1,7 @@
 /* Adapt the existing standalone tools to the shared system without changing calculations. */
 .tool-page .tool-container { margin: 0 auto; padding-top: 40px; padding-bottom: 48px; }
 .tool-page .site-header .container { margin: 0 auto; padding: 0 32px; }
-.tool-page .site-header .top-contact { max-width: none; margin: 0; padding: 4px 0; }
+.tool-page .site-header .top-contact { max-width: none; margin: 0; padding: 1px 0; }
 .tool-page .site-header .top-contact a.call-button { min-height: 28px; padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--text); box-shadow: none; }
 .tool-page .card { padding: 28px; border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow-soft); }
 .tool-page .tool-container > .hero { display: block; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: none; margin-bottom: 24px; }
