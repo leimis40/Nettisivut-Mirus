@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Sähköalan koulutus ja työkalut</title>
+  <desc id="desc">Tekninen piirros tarkastuspöytäkirjasta ja siniaaltomittauksesta.</desc>
+  <rect width="800" height="450" fill="#e9edf0"/>
+  <g stroke="#d0d7dd" stroke-width="1"><path d="M0 90H800M0 180H800M0 270H800M0 360H800M100 0V450M200 0V450M300 0V450M400 0V450M500 0V450M600 0V450M700 0V450"/></g>
+  <rect x="140" y="65" width="270" height="330" rx="8" fill="#fff" stroke="#bcc7d0" stroke-width="2"/>
+  <path d="M176 108H280" stroke="#17212b" stroke-width="6"/>
+  <g fill="none" stroke="#a95f2d" stroke-width="3"><path d="M180 157l7 7 14-17M180 215l7 7 14-17M180 273l7 7 14-17"/></g>
+  <g stroke="#bcc7d0" stroke-width="4"><path d="M218 158H370M218 176H332M218 216H370M218 234H345M218 274H370M218 292H325M176 342H370"/></g>
+  <rect x="435" y="126" width="245" height="198" rx="8" fill="#17212b"/>
+  <path d="M459 225H659M559 151V298" stroke="#56636f"/>
+  <path d="M459 225C476 145 493 145 510 225S544 305 561 225S595 145 612 225S646 305 659 225" stroke="#d49560" stroke-width="3" fill="none"/>
+  <circle cx="455" cy="145" r="3" fill="#d49560"/>
+</svg>

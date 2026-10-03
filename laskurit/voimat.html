@@ -405,152 +405,181 @@
       .top-contact a.call-button { width: 100%; }
     }
   </style>
-</head>
-<body>
-  <div class="top-contact top-contact-call">
-    <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
-  </div>
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/laskurit/tool-theme.css"></head>
+<body class="tool-page">
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a><header class="site-header">
+<div class="header-utility">
+<div class="container">
+<div class="top-contact top-contact-call">
+<a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+      </div>
+</div>
+</div>
+<div class="nav-band">
+<div class="container">
+<nav class="nav" aria-label="Päävalikko">
+<a class="brand" href="/" aria-label="Mirus Electrum Oy"><img src="/images/brand-mark.svg" alt="" width="44" height="44"><span>Mirus Electrum Oy</span></a>
 
-  <div class="wrap">
+        <a class="nav-quote btn" href="/#yhteys">Pyydä tarjous</a>
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-controls="site-navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" id="site-navigation" data-nav>
+<a href="/">Etusivu</a>
+
+          <div class="dropdown">
+<a href="#">Palvelut ▾</a>
+            <div class="dropdown-menu">
+<a href="/varmennustarkastus/">Varmennustarkastus</a>
+              <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
+              <a href="/mittaukset/">Mittaukset</a>
+            </div>
+</div>
+<a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
+          <a href="/lomakkeet/">Lomakkeet</a>
+           <a href="/laskurit/">Laskurit</a>
+          <a href="/blog/">Blogi</a>
+          <a href="/#miksi">Miksi me</a>
+          <a href="/#yhteys" class="cta-nav">Pyydä tarjous</a>
+        </div>
+</nav>
+</div>
+</div>
+<div class="container">
+</div>
+</header>
+<main id="main-content">
+<div class="container tool-container">
+<p class="tool-back"><a href="/laskurit/">← Takaisin laskureihin</a></p>
     <section class="hero">
-      <div class="badge"> <a href="/laskurit/">Palaa laskureihin</a></div>
-      <h1>Kolmivaihejärjestelmän yksijohdinkaapeleiden voimlaskuri</h1>
+<div class="badge">
+<a href="/laskurit/">Palaa laskureihin</a></div>
+<h1>Kolmivaihejärjestelmän yksijohdinkaapeleiden voimlaskuri</h1>
       <p>
         Suuntaa-antava laskuri suurvirtajärjestelmien yksijohdinkaapeleiden sähködynaamisille voimille oikosulussa.
         Laskuri näyttää voiman pituusyksikköä kohti, voiman per kiinnike, arvioidun suurimman kiinnitysvälin sekä tarvittavan kiinnikkeiden määrän annetulle reittipituudelle.
       </p>
     </section>
-
-    <div class="layout">
-      <section class="card">
-        <h2>Lähtötiedot</h2>
+<div class="layout">
+<section class="card">
+<h2>Lähtötiedot</h2>
 
         <div class="field">
-          <label>Asennusmuoto</label>
+<label>Asennusmuoto</label>
           <div class="segment" id="arrangementSegment">
-            <button type="button" data-value="flat" class="active">Flat / taso</button>
+<button type="button" data-value="flat" class="active">Flat / taso</button>
             <button type="button" data-value="trefoil">Trefoil</button>
           </div>
-          <input type="hidden" id="arrangement" value="flat" />
+<input type="hidden" id="arrangement" value="flat" />
           <div class="hint">Flat antaa yleensä suuremman sivuttaisvoiman vierekkäisten kaapeleiden välillä. Trefoil on kompaktimpi muodostelma.</div>
-        </div>
-
-        <h3>Sähköiset tiedot</h3>
+</div>
+<h3>Sähköiset tiedot</h3>
         <div class="grid-2">
-          <div class="field">
-            <label for="inputMode">Syöttötapa</label>
+<div class="field">
+<label for="inputMode">Syöttötapa</label>
             <select id="inputMode">
               <option value="peak" selected>Huippuoikosulkuvirta iₚ</option>
               <option value="rms">Alkusymmetrinen oikosulkuvirta Iₖ'' + kerroin</option>
             </select>
           </div>
-          <div class="field">
-            <label for="peakCurrent">Huippuoikosulkuvirta iₚ (kA)</label>
+<div class="field">
+<label for="peakCurrent">Huippuoikosulkuvirta iₚ (kA)</label>
             <input id="peakCurrent" type="number" value="120" min="0" step="0.1" />
           </div>
-        </div>
-
-        <div class="grid-2" id="rmsInputs" style="display:none; margin-top: 14px;">
-          <div class="field">
-            <label for="rmsCurrent">Alkusymmetrinen oikosulkuvirta Iₖ'' (kA)</label>
+</div>
+<div class="grid-2" id="rmsInputs" style="display:none; margin-top: 14px;">
+<div class="field">
+<label for="rmsCurrent">Alkusymmetrinen oikosulkuvirta Iₖ'' (kA)</label>
             <input id="rmsCurrent" type="number" value="50" min="0" step="0.1" />
           </div>
-          <div class="field">
-            <label for="peakFactor">Huippukerroin k</label>
+<div class="field">
+<label for="peakFactor">Huippukerroin k</label>
             <input id="peakFactor" type="number" value="2.5" min="1" step="0.05" />
             <div class="hint">iₚ = k × Iₖ''</div>
-          </div>
-        </div>
-
-        <h3>Geometria ja asennus</h3>
+</div>
+</div>
+<h3>Geometria ja asennus</h3>
         <div class="grid-3">
-          <div class="field">
-            <label for="spacing">Johtimien keskiöetäisyys a (mm)</label>
+<div class="field">
+<label for="spacing">Johtimien keskiöetäisyys a (mm)</label>
             <input id="spacing" type="number" value="120" min="1" step="1" />
           </div>
-          <div class="field">
-            <label for="cableDiameter">Kaapelin ulkohalkaisija (ei käytetä laskentaan) (mm)</label>
+<div class="field">
+<label for="cableDiameter">Kaapelin ulkohalkaisija (ei käytetä laskentaan) (mm)</label>
             <input id="cableDiameter" type="number" value="40" min="1" step="0.1" />
           </div>
-          <div class="field">
-            <label for="routeLength">Tarkasteltava reittipituus (m)</label>
+<div class="field">
+<label for="routeLength">Tarkasteltava reittipituus (m)</label>
             <input id="routeLength" type="number" value="12" min="0.1" step="0.1" />
           </div>
-        </div>
-
-        <div class="grid-3" style="margin-top: 14px;">
-          <div class="field">
-            <label for="currentSpan">Nykyinen kiinnitysväli (m)</label>
+</div>
+<div class="grid-3" style="margin-top: 14px;">
+<div class="field">
+<label for="currentSpan">Nykyinen kiinnitysväli (m)</label>
             <input id="currentSpan" type="number" value="0.35" min="0.01" step="0.01" />
           </div>
-          <div class="field">
-            <label for="cleatForce">Kiinnikkeen / tuennan sallittu voima (kN)</label>
+<div class="field">
+<label for="cleatForce">Kiinnikkeen / tuennan sallittu voima (kN)</label>
             <input id="cleatForce" type="number" value="8" min="0.01" step="0.01" />
           </div>
-          <div class="field">
-            <label for="safetyFactor">Varmuuskerroin</label>
+<div class="field">
+<label for="safetyFactor">Varmuuskerroin</label>
             <input id="safetyFactor" type="number" value="1.5" min="1" step="0.1" />
           </div>
-        </div>
-
-        <div class="actions">
-          <button class="btn btn-primary" type="button" onclick="calculate()">Laske</button>
+</div>
+<div class="actions">
+<button class="btn btn-primary" type="button" onclick="calculate()">Laske</button>
           <button class="btn btn-soft" type="button" onclick="resetForm()">Palauta oletukset</button>
         </div>
-
-        <div id="statusBox" class="status ok">Tulos odottaa laskentaa.</div>
-
-        <div class="formula">
-          <strong>Perusmalli:</strong> F/L = C × iₚ² / a, missä a on johtimien keskiöetäisyys metreinä ja iₚ huippuoikosulkuvirta ampeereina.<br>
+<div id="statusBox" class="status ok">Tulos odottaa laskentaa.</div>
+<div class="formula">
+<strong>Perusmalli:</strong> F/L = C × iₚ² / a, missä a on johtimien keskiöetäisyys metreinä ja iₚ huippuoikosulkuvirta ampeereina.<br>
           Flat-muodolle käytetään konservatiivista kerrointa C = 2 × 10⁻⁷, trefoilille symmetristä arviota C = √3 × 10⁻⁷.
         </div>
-
-        <div class="formula">
-          <strong>Kiinnitysväli:</strong> F<sub>kiinnike</sub> = (F/L) × s ja s<sub>max</sub> = F<sub>sallittu</sub> / (F/L)
+<div class="formula">
+<strong>Kiinnitysväli:</strong> F<sub>kiinnike</sub> = (F/L) × s ja s<sub>max</sub> = F<sub>sallittu</sub> / (F/L)
         </div>
-      </section>
-
-      <section class="card">
-        <h2>Tulokset</h2>
+</section>
+<section class="card">
+<h2>Tulokset</h2>
         <div class="results">
-          <div class="kpi">
-            <div class="kpi-label">Voima per metri</div>
-            <div class="kpi-value" id="forcePerMeter">0,000 kN/m</div>
-            <div class="kpi-note">Laskennallinen sähködynaaminen voima pituusyksikköä kohti</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Voima per kiinnike</div>
-            <div class="kpi-value" id="forcePerCleat">0,000 kN</div>
-            <div class="kpi-note">Nykyisellä kiinnitysvälillä</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Sallittu voima</div>
-            <div class="kpi-value" id="allowableForce">0,000 kN</div>
-            <div class="kpi-note">Kiinnikkeen sallittu voima / varmuuskerroin</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Suurin kiinnitysväli</div>
-            <div class="kpi-value" id="maxSpan">0,000 m</div>
-            <div class="kpi-note">Arvioitu enimmäisväli valitulla kiinnikkeellä</div>
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="box">
-            <div class="label">Suositeltu väli</div>
-            <div class="value" id="recommendedSpan">0,000 m</div>
-          </div>
-          <div class="box">
-            <div class="label">Kiinnikkeitä reitille</div>
-            <div class="value" id="requiredCleats">0 kpl</div>
-          </div>
-          <div class="box">
-            <div class="label">Laskettu iₚ</div>
-            <div class="value" id="usedPeak">0,0 kA</div>
-          </div>
-        </div>
-
-        <table>
+<div class="kpi">
+<div class="kpi-label">Voima per metri</div>
+<div class="kpi-value" id="forcePerMeter">0,000 kN/m</div>
+<div class="kpi-note">Laskennallinen sähködynaaminen voima pituusyksikköä kohti</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Voima per kiinnike</div>
+<div class="kpi-value" id="forcePerCleat">0,000 kN</div>
+<div class="kpi-note">Nykyisellä kiinnitysvälillä</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Sallittu voima</div>
+<div class="kpi-value" id="allowableForce">0,000 kN</div>
+<div class="kpi-note">Kiinnikkeen sallittu voima / varmuuskerroin</div>
+</div>
+<div class="kpi">
+<div class="kpi-label">Suurin kiinnitysväli</div>
+<div class="kpi-value" id="maxSpan">0,000 m</div>
+<div class="kpi-note">Arvioitu enimmäisväli valitulla kiinnikkeellä</div>
+</div>
+</div>
+<div class="mini">
+<div class="box">
+<div class="label">Suositeltu väli</div>
+<div class="value" id="recommendedSpan">0,000 m</div>
+</div>
+<div class="box">
+<div class="label">Kiinnikkeitä reitille</div>
+<div class="value" id="requiredCleats">0 kpl</div>
+</div>
+<div class="box">
+<div class="label">Laskettu iₚ</div>
+<div class="value" id="usedPeak">0,0 kA</div>
+</div>
+</div>
+<table>
           <thead>
             <tr>
               <th>Suure</th>
@@ -582,7 +611,7 @@
         </table>
 
         <div class="svg-wrap">
-          <svg id="arrangementSvg" viewBox="0 0 420 180" aria-label="Kaapeleiden muodostelma">
+<svg id="arrangementSvg" viewBox="0 0 420 180" aria-label="Kaapeleiden muodostelma">
             <rect x="0" y="0" width="420" height="180" rx="16" fill="#fbfdff"></rect>
             <text x="210" y="24" text-anchor="middle" font-size="14" fill="#667085" font-family="Arial">Muodostelma</text>
             <circle cx="110" cy="95" r="26" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"></circle>
@@ -597,14 +626,13 @@
             <text x="260" y="82" text-anchor="middle" font-size="12" fill="#667085" font-family="Arial">a</text>
           </svg>
         </div>
-
-        <p class="subtle" style="margin-top: 14px;">
+<p class="subtle" style="margin-top: 14px;">
           Tämä on esimitoituslaskuri. Lopullinen kiinnikevalinta kannattaa aina varmistaa käytetyn kiinnike- tai cleat-valmistajan testidatasta ja kohdekohtaisista vaatimuksista.
           Huom. johtimen keskiöetäisyys tarkoittaa etäisyyttä johtimen keskipisteestä vierekkäisen johtimen keskipisteeseen. Kaapelin halkaisija on informatiivinen eikä sitä käytetä laskentaan.
         </p>
       </section>
-    </div>
-  </div>
+</div>
+</div>
 
   <script>
     const arrangementSegment = document.getElementById('arrangementSegment');
@@ -762,5 +790,23 @@
     updateArrangementSvg();
     calculate();
   </script>
-</body>
-</html>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<nav class="footer-services" aria-label="Palvelut ja lisätiedot">
+<a href="/varmennustarkastus/">Varmennustarkastus</a><a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a><a href="/mittaukset/">Mittaukset</a><a href="/koulutukset/">SFS 6002 koulutus</a><a href="/lomakkeet/">Lomakkeet</a><a href="/laskurit/">Laskurit</a><a href="/blog/">Blogi</a></nav>
+<div class="footer-left">
+<small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+        <small class="muted">Sähkölaitteistojen tarkastukset</small>
+      </div>
+<div class="footer-right">
+<a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+        <span class="divider-dot">|</span>
+        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+        <span class="divider-dot">|</span>
+        <a href="/sopimusehdot.pdf" target="_blank" class="footer-link">Sopimusehdot</a>
+        <span class="divider-dot">|</span>
+        <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
+      </div>
+</div>
+</footer><script src="/script.js"></script></body></html>

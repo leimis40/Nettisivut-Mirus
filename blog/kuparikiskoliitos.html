@@ -15,59 +15,69 @@
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512">
 </head>
 
-<body>
+<body class="article-page">
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a>
   <header class="site-header">
-    <div class="container">
-      <div class="top-contact top-contact-call">
-        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+<div class="header-utility">
+<div class="container">
+<div class="top-contact top-contact-call">
+<a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
       </div>
+</div>
+</div>
+<div class="nav-band">
+<div class="container">
+<nav class="nav" aria-label="Päävalikko">
+<a class="brand" href="/"><img src="/images/brand-mark.svg" alt="" width="44" height="44"><span>Mirus Electrum Oy</span></a>
 
-      <nav class="nav">
-        <a class="brand" href="/">Mirus Electrum Oy</a>
-
-        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+        <a class="nav-quote btn" href="/#yhteys">Pyydä tarjous</a>
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-controls="site-navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
 
-        <div class="nav-links" data-nav>
-  <a href="/">Etusivu</a>
+        <div class="nav-links" id="site-navigation" data-nav>
+<a href="/">Etusivu</a>
   <div class="dropdown">
-    <a href="#">Palvelut ▾</a>
+<a href="#">Palvelut ▾</a>
     <div class="dropdown-menu">
-      <a href="/varmennustarkastus/">Varmennustarkastus</a>
+<a href="/varmennustarkastus/">Varmennustarkastus</a>
       <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
       <a href="/mittaukset/">Mittaukset</a>
     </div>
-  </div>
-  <a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
+</div>
+<a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
   <a href="/lomakkeet/">Lomakkeet</a>
   <a href="/laskurit/">Laskurit</a>
   <a href="/blog/">Blogi</a>
   <a href="/#miksi">Miksi me</a>
-  <a href="/#yhteys" class="cta-nav">Yhteys</a>
+  <a href="/#yhteys" class="cta-nav">Pyydä tarjous</a>
 
         </div>
-      </nav>
-
-      <section class="section" style="padding: 34px 0 10px;">
-        <p class="muted tiny"><time datetime="2026-10-03">3.10.2026</time></p>
+</nav>
+</div>
+</div>
+<div class="container">
+<section class="section" style="padding: 34px 0 10px;">
+<p class="muted tiny"><time datetime="2026-10-03">3.10.2026</time></p>
         <h1>Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin</h1>
         <p class="muted" style="max-width: 75ch;">Miten sormikireys, 5 Nm, 10 Nm ja 25 Nm näkyvät kuparikiskoliitoksen resistanssissa? Laboratoriomittaus tekee mikro-ohmien eron näkyväksi.</p>
-        <div class="cta"><a class="btn ghost" href="/blog/">← Takaisin blogiin</a><a class="btn" href="/#yhteys">Pyydä yhteydenotto</a></div>
-      </section>
-    </div>
-  </header>
-  <main>
-    <section class="section"><div class="container">
-      <article class="card kiskoliitos-article">
+        <div class="cta">
+<a class="btn ghost" href="/blog/">← Takaisin blogiin</a><a class="btn" href="/#yhteys">Pyydä yhteydenotto</a></div>
+</section>
+</div>
+</header>
+<main id="main-content">
+<section class="section">
+<div class="container">
+<article class="card reading-article kiskoliitos-article">
 <p>Kuinka paljon pulttiliitoksen kiristysmomentti todellisuudessa vaikuttaa kuparikiskoliitoksen sähköiseen resistanssiin?</p>
 
 <p>Asiaa voidaan tarkastella teoriassa kontaktipaineen ja liitospintojen todellisen kosketuspinta-alan kautta, mutta tällä kertaa vaikutus mitattiin käytännössä. Koekappaleena käytettiin 30 × 5 mm kuparikiskoa, jonka poikkipinta-ala on 150 mm². Liitos tehtiin yhdellä M8-pultilla, jonka lujuusluokka oli 8.8.</p>
 
 <p>Liitoksen resistanssi mitattiin neljällä eri kiristystasolla:</p>
 
-<ul class="list"><li>sormikireys</li><li>5 Nm</li><li>10 Nm</li><li>25 Nm</li></ul>
-
+<ul class="list">
+<li>sormikireys</li><li>5 Nm</li><li>10 Nm</li><li>25 Nm</li></ul>
 <p>25 Nm oli tässä kokeessa käytetty liitoksen kiristysmomentin ohjearvo.</p>
 
 <p>Jokaisella kiristysmomentilla mittaus tehtiin kolmella eri testivirralla: 10 A, 50 A ja 100 A.</p>
@@ -84,10 +94,12 @@
 
 <p>Liitosresistanssi määritettiin mitatun jännitehäviön ja virran perusteella.</p>
 
-<figure><a href="/blog/kuvat/kuparikiskoliitos/mittausjarjestely.jpg"><img src="/blog/kuvat/kuparikiskoliitos/mittausjarjestely.jpg" alt="Kuparikiskoliitos, OWON-yleismittari ja mittaustuloksia tallentava tietokone laboratoriossa" width="1200" height="1600" loading="lazy" decoding="async"></a><figcaption>Mittausjärjestely: testivirta johdetaan kuparikiskojen läpi ja jännitehäviö mitataan erillisillä mittausjohdoilla.</figcaption></figure>
-<figure><a href="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg"><img src="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg" alt="M8-pultilla yhdistetyt kuparikiskot, mittausjohdot ja momenttiavain" width="1600" height="1200" loading="lazy" decoding="async"></a><figcaption>Koekappaleena 30 × 5 mm kuparikiskot ja M8-pulttiliitos. Kiristystasot olivat sormikireys, 5 Nm, 10 Nm ja 25 Nm.</figcaption></figure>
-<figure><a href="/blog/kuvat/kuparikiskoliitos/virtalahde.jpg"><img src="/blog/kuvat/kuparikiskoliitos/virtalahde.jpg" alt="Agilent N5741A -tasajännitelähde laboratoriossa" width="1600" height="1200" loading="lazy" decoding="async"></a><figcaption>Testivirta tuotettiin Agilent N5741A -tasajännitelähteellä (kuvassa ylimpänä).</figcaption></figure>
-
+<figure>
+<a href="/blog/kuvat/kuparikiskoliitos/mittausjarjestely.jpg"><img src="/blog/kuvat/kuparikiskoliitos/mittausjarjestely.jpg" alt="Kuparikiskoliitos, OWON-yleismittari ja mittaustuloksia tallentava tietokone laboratoriossa" width="1200" height="1600" loading="lazy" decoding="async"></a><figcaption>Mittausjärjestely: testivirta johdetaan kuparikiskojen läpi ja jännitehäviö mitataan erillisillä mittausjohdoilla.</figcaption></figure>
+<figure>
+<a href="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg"><img src="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg" alt="M8-pultilla yhdistetyt kuparikiskot, mittausjohdot ja momenttiavain" width="1600" height="1200" loading="lazy" decoding="async"></a><figcaption>Koekappaleena 30 × 5 mm kuparikiskot ja M8-pulttiliitos. Kiristystasot olivat sormikireys, 5 Nm, 10 Nm ja 25 Nm.</figcaption></figure>
+<figure>
+<a href="/blog/kuvat/kuparikiskoliitos/virtalahde.jpg"><img src="/blog/kuvat/kuparikiskoliitos/virtalahde.jpg" alt="Agilent N5741A -tasajännitelähde laboratoriossa" width="1600" height="1200" loading="lazy" decoding="async"></a><figcaption>Testivirta tuotettiin Agilent N5741A -tasajännitelähteellä (kuvassa ylimpänä).</figcaption></figure>
 <h2>Mittaustulokset</h2>
 
 <p>Mitattu liitosresistanssi oli:</p>
@@ -137,8 +149,8 @@
 
 <p>Jo 5 Nm:n kiristys pienensi resistanssia noin 88,5 % sormikireään liitokseen verrattuna. Momentin kasvattamisella oli kuitenkin tämän jälkeenkin mitattava vaikutus:</p>
 
-<ul class="list"><li>5 Nm → 25 Nm: resistanssi pieneni noin 35,8 %</li><li>10 Nm → 25 Nm: resistanssi pieneni noin 18,2 %</li></ul>
-
+<ul class="list">
+<li>5 Nm → 25 Nm: resistanssi pieneni noin 35,8 %</li><li>10 Nm → 25 Nm: resistanssi pieneni noin 18,2 %</li></ul>
 <p>Tuloksissa näkyy siten selvästi, että suurin muutos tapahtuu hyvin löysän liitoksen ja ensimmäisen merkittävän puristusvoiman välillä. Resistanssi pienenee edelleen kiristysmomenttia kasvatettaessa, mutta muutos ei ole enää yhtä dramaattinen.</p>
 
 <h2>Miksi kiristäminen pienentää resistanssia?</h2>
@@ -219,8 +231,8 @@
 
 <p>Siksi oikean kiristysmomentin merkitys on kaksijakoinen:</p>
 
-<ul class="list"><li>sillä saavutetaan pieni sähköinen liitosresistanssi</li><li>sillä muodostetaan riittävä ja mahdollisimman pysyvä liitoksen puristusvoima</li></ul>
-
+<ul class="list">
+<li>sillä saavutetaan pieni sähköinen liitosresistanssi</li><li>sillä muodostetaan riittävä ja mahdollisimman pysyvä liitoksen puristusvoima</li></ul>
 <p>Tässä kokeessa 5 Nm tuotti jo sähköisesti huomattavasti paremman liitoksen kuin sormikireys. Tämä ei kuitenkaan tarkoita, että 5 Nm olisi mekaanisesti riittävä kiristysmomentti. Liitoksen luotettavuuden kannalta pultti tulee kiristää rakenteelle määritettyyn oikeaan momenttiin.</p>
 
 <h2>Mitä mittauksesta voidaan päätellä?</h2>
@@ -250,21 +262,22 @@
 <p>Mikro-ohmien mittaaminen tekee näin näkyväksi ilmiön, joka suurivirtaisessa sähkölaitteistossa voi lopulta näkyä lämpenemisenä, energiahäviönä ja pahimmillaan liitoksen vaurioitumisena.</p>
 
 <p>Mirus Electrum Oy tekee sähkölaitteistojen varmennus- ja määräaikaistarkastuksia sekä sähköteknisiä mittauksia ja selvityksiä.</p>
-<div class="cta"><a class="btn" href="/mittaukset/">Tutustu mittauspalveluihin</a><a class="btn ghost" href="/#yhteys">Ota yhteyttä</a></div>
-      </article>
-    </div></section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-
-      <div class="footer-left">
-        <small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+<div class="cta">
+<a class="btn" href="/mittaukset/">Tutustu mittauspalveluihin</a><a class="btn ghost" href="/#yhteys">Ota yhteyttä</a></div>
+</article>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<nav class="footer-services" aria-label="Palvelut ja lisätiedot">
+<a href="/varmennustarkastus/">Varmennustarkastus</a><a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a><a href="/mittaukset/">Mittaukset</a><a href="/koulutukset/">SFS 6002 koulutus</a><a href="/lomakkeet/">Lomakkeet</a><a href="/laskurit/">Laskurit</a><a href="/blog/">Blogi</a></nav>
+<div class="footer-left">
+<small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
         <small class="muted">Sähkölaitteistojen tarkastukset</small>
       </div>
-
-      <div class="footer-right">
-        <a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+<div class="footer-right">
+<a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
         <span class="divider-dot">|</span>
         <a href="tel:0408327388" class="footer-link footer-phone" aria-label="Puhelin 0408327388">0408327388</a>
         <span class="divider-dot">|</span>
@@ -272,9 +285,8 @@
         <span class="divider-dot">|</span>
         <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
       </div>
-
-    </div>
-  </footer>
+</div>
+</footer>
 
   <script src="/script.js"></script>
 </body>

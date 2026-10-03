@@ -15,41 +15,49 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a>
   <header class="site-header">
-    <div class="container">
-      <div class="top-contact top-contact-call">
-        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+<div class="header-utility">
+<div class="container">
+<div class="top-contact top-contact-call">
+<a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
       </div>
+</div>
+</div>
+<div class="nav-band">
+<div class="container">
+<nav class="nav" aria-label="Päävalikko">
+<a class="brand" href="/"><img src="/images/brand-mark.svg" alt="" width="44" height="44"><span>Mirus Electrum Oy</span></a>
 
-      <nav class="nav">
-        <a class="brand" href="/">Mirus Electrum Oy</a>
-
-        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+        <a class="nav-quote btn" href="/#yhteys">Pyydä tarjous</a>
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-controls="site-navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
 
-        <div class="nav-links" data-nav>
-  <a href="/">Etusivu</a>
+        <div class="nav-links" id="site-navigation" data-nav>
+<a href="/">Etusivu</a>
   <div class="dropdown">
-    <a href="#">Palvelut ▾</a>
+<a href="#">Palvelut ▾</a>
     <div class="dropdown-menu">
-      <a href="/varmennustarkastus/">Varmennustarkastus</a>
+<a href="/varmennustarkastus/">Varmennustarkastus</a>
       <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
       <a href="/mittaukset/">Mittaukset</a>
     </div>
-  </div>
-  <a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
+</div>
+<a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
   <a href="/lomakkeet/">Lomakkeet</a>
   <a href="/laskurit/">Laskurit</a>
   <a href="/blog/">Blogi</a>
   <a href="/#miksi">Miksi me</a>
-  <a href="/#yhteys" class="cta-nav">Yhteys</a>
+  <a href="/#yhteys" class="cta-nav">Pyydä tarjous</a>
 
         </div>
-      </nav>
-
-      <section class="section" style="padding: 34px 0 10px;">
-          <h1 style="margin:0 0 10px; display:flex; align-items:center; gap:12px;">
+</nav>
+</div>
+</div>
+<div class="container">
+<section class="section" style="padding: 34px 0 10px;">
+<h1 style="margin:0 0 10px; display:flex; align-items:center; gap:12px;">
     
     <img 
       src="/favicon.svg"
@@ -62,122 +70,82 @@
           Julkaisen tänne käytännönläheisiä kirjoituksia sähköturvallisuudesta, tarkastuksista ja yleisimmistä kysymyksistä.
         </p>
       </section>
-    </div>
-  </header>
-
-  <main>
-    <section class="section">
-      <div class="container">
-
-        <!-- Blogilista -->
-       <div class="grid blog-grid">
-
-          <article class="card blog-card-featured">
-            <a class="blog-card-media" href="/blog/kuparikiskoliitos.html" aria-label="Lue: Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin">
-              <img src="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg" alt="Kuparikiskoliitos, mittausjohdot ja momenttiavain mittauspöydällä" width="1600" height="1200" loading="lazy">
-            </a>
-            <div class="blog-card-content">
-              <p class="muted tiny" style="margin:0 0 8px;"><time datetime="2026-10-03">3.10.2026</time></p>
-              <h2>Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin</h2>
-              <p class="muted">Kuinka paljon kiristysmomentti vaikuttaa liitosresistanssiin? Mittaustulokset neljällä kiristystasolla ja kolmella testivirralla sekä havainnollistava tehohäviövertailu.</p>
-              <a class="btn ghost" href="/blog/kuparikiskoliitos.html">Lue lisää</a>
-            </div>
-          </article>
-
-
-          <!-- Postauskortti -->
-
-          <article class="card blog-card-featured">
-            <a class="blog-card-media" href="/blog/led-valaisinvertailu.html" aria-label="Lue Yli 25w LED-valaisimien sähkönlaatuvertailu">
-              <img
-                src="/blog/kuvat/led-valaisinvertailu/led_testi.jpg"
-                alt="LED-valaisin mittauspöydällä sähkönlaatuvertailussa"
-                width="4000"
-                height="3000"
-                loading="lazy"
-              >
-            </a>
-            <div class="blog-card-content">
-              <p class="muted tiny" style="margin:0 0 8px;">1.8.2026</p>
-              <h2>Yli 25w LED-valaisimien sähkönlaatuvertailu</h2>
-              <p class="muted">Puhdas siniaalto, säröytynyt -aaltomuoto ja erittäin säröytynyt -äärikoe LED-valaisimien sähkönlaadun vertailussa.</p>
-              <a class="btn ghost" href="/blog/led-valaisinvertailu.html">Lue lisää</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <p class="muted tiny" style="margin:0 0 8px;">11.5.2026</p>
-            <h2 style="margin:0 0 10px; font-size: 1.2rem;">Varmennus- ja määräaikaistarkastuksen hinta</h2>
-            <p class="muted" style="margin:0 0 14px;">Mistä tarkastuksen kustannus muodostuu ja mitkä asiat vaikuttavat lopulliseen hintaan?</p>
-            <a class="btn ghost" href="/blog/varmennus-maaraaikaistarkastus-hinta.html">Lue lisää</a>
-          </article>
-
-                   <article class="card">
-            <p class="muted tiny" style="margin:0 0 8px;">31.3.2026</p>
-            <h2 style="margin:0 0 10px; font-size: 1.2rem;">Mikä on Mirus Electrum nimen taustalla?</h2>
-            <p class="muted" style="margin:0 0 14px;">Nyt menemme todella syvälle sähkön historiaan!</p>
-            <a class="btn ghost" href="/blog/electrum.html">Lue lisää</a>
-          </article>
-
-          <article class="card">
-            <p class="muted tiny" style="margin:0 0 8px;">22.3.2026</p>
-            <h2 style="margin:0 0 10px; font-size: 1.2rem;">Alumiiniliitokset</h2>
-            <p class="muted" style="margin:0 0 14px;">Alumiiniliitosten johtimen harjaamisen merkitys liitoksen resistanssiin. Harjauksen poisjäämisen aiheuttama tehohäviö. Se ei ole suuri!</p>
-            <a class="btn ghost" href="/blog/liitokset.html">Lue lisää</a>
-          </article>
-          
-          <article class="card">
-            <p class="muted tiny" style="margin:0 0 8px;">20.2.2026</p>
-            <h2 style="margin:0 0 10px; font-size: 1.2rem;">
-              Uusi SFS 6002:2025 – mitä pitää tietää?
-            </h2>
-            <p class="muted" style="margin:0 0 14px;">
-              Sähköturvallisuus on ottanut jälleen harppauksen eteenpäin uuden SFS 6002:2025 standardin myötä.
-            </p>
-            <a class="btn ghost" href="/blog/sfs6002-2025.html">Lue lisää</a>
-          </article>
-
-
-
-            <article class="card">
-            <p class="muted tiny" style="margin:0 0 8px;">20.2.2026</p>
-            <h2 style="margin:0 0 10px; font-size: 1.2rem;">Valokaarelta suojautuminen</h2>
-            <p class="muted" style="margin:0 0 14px;">Liite S, SFS 6002:2025 -standardiin: Valokaarisuojavaatteiden valinta ja käyttö</p>
-            <a class="btn ghost" href="/blog/valokaari.html">Lue lisää</a>
-          </article>
-
-            <article class="card">
-            <p class="muted tiny" style="margin:0 0 8px;">21.2.2026</p>
-            <h2 style="margin:0 0 10px; font-size: 1.2rem;">Työmaadoitusvälineiden tarkastus</h2>
-            <p class="muted" style="margin:0 0 14px;">Työmaadoitusvälineiden määräaikaistarkastukset – pieni vaiva, suuri merkitys sähköturvallisuudelle</p>
-            <a class="btn ghost" href="/blog/tyomaadoitus.html">Lue lisää</a>
-          </article>
-
-          <!-- Kopioi tästä lisää postauskortteja tulevaisuudessa -->
-          <!--
-          <article class="card">
-            <p class="muted tiny" style="margin:0 0 8px;">PÄIVÄYS</p>
-            <h2 style="margin:0 0 10px; font-size: 1.2rem;">Otsikko</h2>
-            <p class="muted" style="margin:0 0 14px;">Lyhyt kuvaus...</p>
-            <a class="btn ghost" href="/blog/YYYY-MM-DD-slug.html">Lue lisää</a>
-          </article>
-          -->
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-
-      <div class="footer-left">
-        <small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+</div>
+</header>
+<main id="main-content">
+<section class="section">
+<div class="container">
+<div class="grid journal-grid">
+<article class="card journal-card">
+<a class="journal-media" href="/blog/kuparikiskoliitos.html" aria-label="Lue: Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin"><img src="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg" alt="Kuparikiskoliitos ja momenttiavain" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">MITTAUKSET</span><time datetime="2026-10-03">3.10.2026</time></div>
+<h2><a href="/blog/kuparikiskoliitos.html">Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin</a></h2><p class="muted">Kuinka paljon kiristysmomentti vaikuttaa liitosresistanssiin? Mittaustulokset neljällä kiristystasolla ja kolmella testivirralla sekä havainnollistava tehohäviövertailu.</p><a class="article-link" href="/blog/kuparikiskoliitos.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card journal-card">
+<a class="journal-media" href="/blog/led-valaisinvertailu.html" aria-label="Lue: Yli 25w LED-valaisimien sähkönlaatuvertailu"><img src="/blog/kuvat/led-valaisinvertailu/led_testi.jpg" alt="LED-valaisin sähkönlaatumittauksessa" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">SÄHKÖNLAATU</span><time datetime="2026-08-01">1.8.2026</time></div>
+<h2><a href="/blog/led-valaisinvertailu.html">Yli 25w LED-valaisimien sähkönlaatuvertailu</a></h2><p class="muted">Puhdas siniaalto, säröytynyt -aaltomuoto ja erittäin säröytynyt -äärikoe LED-valaisimien sähkönlaadun vertailussa.</p><a class="article-link" href="/blog/led-valaisinvertailu.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card journal-card">
+<a class="journal-media" href="/blog/varmennus-maaraaikaistarkastus-hinta.html" aria-label="Lue: Varmennus- ja määräaikaistarkastuksen hinta"><img src="/images/sahkolaitteiston-tarkastus-600.jpg" alt="Sähkölaitteiston tarkastus" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">TARKASTUKSET</span><time datetime="2026-05-11">11.5.2026</time></div>
+<h2><a href="/blog/varmennus-maaraaikaistarkastus-hinta.html">Varmennus- ja määräaikaistarkastuksen hinta</a></h2><p class="muted">Mistä tarkastuksen kustannus muodostuu ja mitkä asiat vaikuttavat lopulliseen hintaan?</p><a class="article-link" href="/blog/varmennus-maaraaikaistarkastus-hinta.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card journal-card">
+<a class="journal-media" href="/blog/electrum.html" aria-label="Lue: Mikä on Mirus Electrum nimen taustalla?"><img src="/images/tekniset-tyokalut.svg" alt="Sähköalan tekninen kuvitus" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">TEKNIIKKA</span><time datetime="2026-03-31">31.3.2026</time></div>
+<h2><a href="/blog/electrum.html">Mikä on Mirus Electrum nimen taustalla?</a></h2><p class="muted">Nyt menemme todella syvälle sähkön historiaan!</p><a class="article-link" href="/blog/electrum.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card journal-card">
+<a class="journal-media" href="/blog/liitokset.html" aria-label="Lue: Alumiiniliitokset"><img src="/blog/liitin1.jpg" alt="Alumiinijohdinten liitosnäytteet" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">MITTAUKSET</span><time datetime="2026-03-22">22.3.2026</time></div>
+<h2><a href="/blog/liitokset.html">Alumiiniliitokset</a></h2><p class="muted">Alumiiniliitosten johtimen harjaamisen merkitys liitoksen resistanssiin. Harjauksen poisjäämisen aiheuttama tehohäviö. Se ei ole suuri!</p><a class="article-link" href="/blog/liitokset.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card journal-card">
+<a class="journal-media" href="/blog/sfs6002-2025.html" aria-label="Lue: Uusi SFS 6002:2025 – mitä pitää tietää?"><img src="/images/tekniset-tyokalut.svg" alt="Sähköalan koulutuksen ja työkalujen kuvitus" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">STANDARDIT</span><time datetime="2026-02-20">20.2.2026</time></div>
+<h2><a href="/blog/sfs6002-2025.html">Uusi SFS 6002:2025 – mitä pitää tietää?</a></h2><p class="muted">Sähköturvallisuus on ottanut jälleen harppauksen eteenpäin uuden SFS 6002:2025 standardin myötä.</p><a class="article-link" href="/blog/sfs6002-2025.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card journal-card">
+<a class="journal-media" href="/blog/valokaari.html" aria-label="Lue: Valokaarelta suojautuminen"><img src="/images/sahkolaitteiston-tarkastus-600.jpg" alt="Tarkastaja sähkölaitteiston parissa" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">SÄHKÖTURVALLISUUS</span><time datetime="2026-02-20">20.2.2026</time></div>
+<h2><a href="/blog/valokaari.html">Valokaarelta suojautuminen</a></h2><p class="muted">Liite S, SFS 6002:2025 -standardiin: Valokaarisuojavaatteiden valinta ja käyttö</p><a class="article-link" href="/blog/valokaari.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card journal-card">
+<a class="journal-media" href="/blog/tyomaadoitus.html" aria-label="Lue: Työmaadoitusvälineiden tarkastus"><img src="/blog/kuvat/kuparikiskoliitos/mittausjarjestely.jpg" alt="Mikro-ohmimittauksen laboratoriolaitteisto" width="600" height="400" loading="lazy"></a>
+ <div class="journal-content">
+<div class="journal-meta">
+<span class="category">SÄHKÖTURVALLISUUS</span><time datetime="2026-02-21">21.2.2026</time></div>
+<h2><a href="/blog/tyomaadoitus.html">Työmaadoitusvälineiden tarkastus</a></h2><p class="muted">Työmaadoitusvälineiden määräaikaistarkastukset – pieni vaiva, suuri merkitys sähköturvallisuudelle</p><a class="article-link" href="/blog/tyomaadoitus.html">Lue artikkeli <span aria-hidden="true">→</span></a></div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<nav class="footer-services" aria-label="Palvelut ja lisätiedot">
+<a href="/varmennustarkastus/">Varmennustarkastus</a><a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a><a href="/mittaukset/">Mittaukset</a><a href="/koulutukset/">SFS 6002 koulutus</a><a href="/lomakkeet/">Lomakkeet</a><a href="/laskurit/">Laskurit</a><a href="/blog/">Blogi</a></nav>
+<div class="footer-left">
+<small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
         <small class="muted">Sähkölaitteistojen tarkastukset</small>
       </div>
-
-      <div class="footer-right">
-        <a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+<div class="footer-right">
+<a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
         <span class="divider-dot">|</span>
         <a href="tel:0408327388" class="footer-link footer-phone" aria-label="Puhelin 0408327388">0408327388</a>
         <span class="divider-dot">|</span>
@@ -185,9 +153,8 @@
         <span class="divider-dot">|</span>
         <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
       </div>
-
-    </div>
-  </footer>
+</div>
+</footer>
 
   <script src="/script.js"></script>
 </body>

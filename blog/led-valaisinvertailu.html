@@ -14,41 +14,49 @@
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512">
 </head>
 
-<body>
+<body class="article-page">
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a>
   <header class="site-header">
-    <div class="container">
-      <div class="top-contact top-contact-call">
-        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+<div class="header-utility">
+<div class="container">
+<div class="top-contact top-contact-call">
+<a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
       </div>
+</div>
+</div>
+<div class="nav-band">
+<div class="container">
+<nav class="nav" aria-label="Päävalikko">
+<a class="brand" href="/"><img src="/images/brand-mark.svg" alt="" width="44" height="44"><span>Mirus Electrum Oy</span></a>
 
-      <nav class="nav">
-        <a class="brand" href="/">Mirus Electrum Oy</a>
-
-        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+        <a class="nav-quote btn" href="/#yhteys">Pyydä tarjous</a>
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-controls="site-navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
 
-        <div class="nav-links" data-nav>
-          <a href="/">Etusivu</a>
+        <div class="nav-links" id="site-navigation" data-nav>
+<a href="/">Etusivu</a>
           <div class="dropdown">
-            <a href="#">Palvelut ▾</a>
+<a href="#">Palvelut ▾</a>
             <div class="dropdown-menu">
-              <a href="/varmennustarkastus/">Varmennustarkastus</a>
+<a href="/varmennustarkastus/">Varmennustarkastus</a>
               <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
               <a href="/mittaukset/">Mittaukset</a>
             </div>
-          </div>
-          <a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
+</div>
+<a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
           <a href="/lomakkeet/">Lomakkeet</a>
           <a href="/laskurit/">Laskurit</a>
           <a href="/blog/">Blogi</a>
           <a href="/#miksi">Miksi me</a>
-          <a href="/#yhteys" class="cta-nav">Yhteys</a>
+          <a href="/#yhteys" class="cta-nav">Pyydä tarjous</a>
         </div>
-      </nav>
-
-      <section class="section" style="padding: 34px 0 10px;">
-        <p class="muted tiny" style="margin:0 0 10px;">1.8.2026</p>
+</nav>
+</div>
+</div>
+<div class="container">
+<section class="section" style="padding: 34px 0 10px;">
+<p class="muted tiny" style="margin:0 0 10px;">1.8.2026</p>
         <h1 style="margin:0 0 10px;">Yli 25W LED-valaisimien sähkönlaatuvertailu</h1>
         <p class="muted" style="margin:0; max-width: 75ch;">
           Vertailussa tarkasteltiin LED-valaisimien sähköverkosta ottamaa virtaa, tehokerrointa,
@@ -56,19 +64,17 @@
         </p>
 
         <div class="cta" style="margin-top: 16px;">
-          <a class="btn ghost" href="/blog/">← Takaisin blogiin</a>
+<a class="btn ghost" href="/blog/">← Takaisin blogiin</a>
           <a class="btn" href="/#yhteys">Pyydä yhteydenotto</a>
         </div>
-      </section>
-    </div>
-  </header>
-
-  <main>
-    <section class="section">
-      <div class="container">
-
-        <article class="card" style="max-width: 80ch;">
-          <p class="muted">
+</section>
+</div>
+</header>
+<main id="main-content">
+<section class="section">
+<div class="container">
+<article class="card reading-article" style="max-width: 80ch;">
+<p class="muted">
             LED-valaisimia vertaillaan tavallisesti valovirran, valotehokkuuden, värintoiston ja käyttöiän
             perusteella. Tässä vertailussa valotekniset ominaisuudet jätettiin tarkoituksella sivuun.
             Tarkastelun kohteena olivat valaisimien sähköverkosta ottama virta, tehokerroin, harmoninen
@@ -77,7 +83,7 @@
           </p>
 
           <figure style="margin:22px 0;">
-            <img
+<img
               src="/blog/kuvat/led-valaisinvertailu/labra.jpg"
               alt="LED-valaisimien sähkönlaatuvertailun mittausjärjestely laboratoriopöydällä"
               width="4000"
@@ -87,23 +93,21 @@
             >
             <figcaption>Labortorio.</figcaption>
           </figure>
-
-          <p class="muted">Vertailussa olivat mukana:</p>
+<p class="muted">Vertailussa olivat mukana:</p>
           <ul class="list">
-            <li>SNEP X04W110, 26 W</li>
+<li>SNEP X04W110, 26 W</li>
             <li>SNEP P04MA, 25 W</li>
             <li>Glamox I40, 38 W</li>
             <li>NVC Toronto, 38 W</li>
             <li>NVC Toronto, 60 W</li>
           </ul>
-
-          <p class="muted">
+<p class="muted">
             NVC Toronto on tehonvalintakytkimellä varustettu valaisin, joten se mitattiin sekä 38 W:n
             että 60 W:n asetuksella.
           </p>
 
           <figure style="margin:22px 0;">
-            <img
+<img
               src="/blog/kuvat/led-valaisinvertailu/testivalaisimet.jpg"
               alt="Sähkönlaatuvertailussa mukana olleet LED-valaisimet"
               width="4000"
@@ -113,15 +117,14 @@
             >
             <figcaption>Vertailussa mukana olleet LED-valaisimet.</figcaption>
           </figure>
-
-          <p class="muted">
+<p class="muted">
             Mittaukset tehtiin OWON OWH9811 -tehoanalysaattorilla. Syöttöjännite tuotettiin
             ohjelmoitavalla GW Instek APS-7050 -vaihtojännitelähteellä.
           </p>
 
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin:22px 0;">
-            <figure style="margin:0;">
-              <img
+<figure style="margin:0;">
+<img
                 src="/blog/kuvat/led-valaisinvertailu/tehoanalysaattori.jpg"
                 alt="OWON OWH9811 -tehoanalysaattori LED-valaisimien mittauksessa"
                 width="4000"
@@ -131,9 +134,8 @@
               >
               <figcaption>Mittauksissa käytetty OWON OWH9811 -tehoanalysaattori.</figcaption>
             </figure>
-
-            <figure style="margin:0;">
-              <img
+<figure style="margin:0;">
+<img
                 src="/blog/kuvat/led-valaisinvertailu/jannitelahde.jpg"
                 alt="GW Instek APS-7050 -vaihtojännitelähde LED-valaisimien syöttöjännitteen tuottamiseen"
                 width="4000"
@@ -143,9 +145,8 @@
               >
               <figcaption>Syöttöjännite tuotettiin GW Instek APS-7050 -vaihtojännitelähteellä.</figcaption>
             </figure>
-          </div>
-
-          <h2>Mittausolosuhteet</h2>
+</div>
+<h2>Mittausolosuhteet</h2>
           <p class="muted">
             Valaisimet mitattiin käyttämällä puhdasta siniaaltoa sekä syöttämällä kahta eritasoista jännitesäröä. Type 5 = UTHD 4,3% ja type 11 UTHD17,8%
           </p>
@@ -174,7 +175,7 @@
 
           <h2>Puhdas siniaalto ja Type 5 - yhteenveto</h2>
           <div class="table-scroll" tabindex="0" aria-label="Puhdas siniaalto ja Type 5 -yhteenvetotaulukko">
-            <table>
+<table>
               <thead>
                 <tr>
                   <th>Valaisin</th>
@@ -241,8 +242,7 @@
               </tbody>
             </table>
           </div>
-
-          <h3 style="margin-top:18px;">SNEP X04W110</h3>
+<h3 style="margin-top:18px;">SNEP X04W110</h3>
           <p class="muted">
             Puhtaalla siniaallolla valaisimen tehokerroin oli 0,931 ja virran kokonaissärö noin 10,3 %.
             Type 5 -syötöllä tehokerroin pysyi lähes ennallaan arvossa 0,933, mutta virran THD kasvoi noin
@@ -317,12 +317,12 @@
           </p>
           <p class="muted">Virran harmoninen särö käyttäytyi kuitenkin eri tavalla:</p>
           <ul class="list">
-            <li>Glamoxin ITHD kasvoi selvästi.</li>
+<li>Glamoxin ITHD kasvoi selvästi.</li>
             <li>SNEP X04W110:n ITHD kasvoi maltillisesti.</li>
             <li>SNEP P04MA:n tulos pysyi lähes ennallaan.</li>
             <li>NVC:n molemmilla tehoasetuksilla ITHD pieneni.</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Pelkkä tehokerroin ei siis kerro, kuinka paljon yksittäisiä harmonisia virtoja valaisin tuottaa.
           </p>
 
@@ -354,7 +354,7 @@
           <h2>Voiko sähkönlaatua parantamalla säästää merkittävästi energiaa?</h2>
           <p class="muted">Mittauksissa Type 5 -syötön vaikutus valaisimien pätötehoon oli hyvin pieni:</p>
           <div class="table-scroll" tabindex="0" aria-label="Pätötehon muutostaulukko">
-            <table>
+<table>
               <thead>
                 <tr>
                   <th>Valaisin</th>
@@ -385,23 +385,21 @@
               </tbody>
             </table>
           </div>
-
-          <p class="muted">Tarkastellaan suurta valaistusjärjestelmää:</p>
+<p class="muted">Tarkastellaan suurta valaistusjärjestelmää:</p>
           <ul class="list">
-            <li>500 valaisinta</li>
+<li>500 valaisinta</li>
             <li>käyttö 24 tuntia vuorokaudessa</li>
             <li>8760 käyttötuntia vuodessa</li>
             <li>sähkön hinta 0,10 €/kWh</li>
           </ul>
-
-          <p class="muted">Vuotuinen energiavaikutus lasketaan:</p>
+<p class="muted">Vuotuinen energiavaikutus lasketaan:</p>
           <p class="muted"><strong>E = (ΔP × n × t) / 1000</strong></p>
           <p class="muted">Kustannus:</p>
           <p class="muted"><strong>C = E × hinta</strong></p>
 
           <h3 style="margin-top:18px;">Laskennallinen Type 5 -vaikutus 500 valaisimella</h3>
           <div class="table-scroll" tabindex="0" aria-label="Type 5 -vaikutus 500 valaisimella -taulukko">
-            <table>
+<table>
               <thead>
                 <tr>
                   <th>Valaisin</th>
@@ -438,8 +436,7 @@
               </tbody>
             </table>
           </div>
-
-          <p class="muted">
+<p class="muted">
             Suurinkin mitattu ero tarkoittaisi 500 jatkuvasti palavan valaisimen ryhmässä vain noin
             70 euroa vuodessa.
           </p>
@@ -455,13 +452,13 @@
           </p>
           <p class="muted">Erot olivat niin pieniä, että niihin voivat vaikuttaa myös:</p>
           <ul class="list">
-            <li>mittausarvojen normaali vaihtelu</li>
+<li>mittausarvojen normaali vaihtelu</li>
             <li>syöttöjännitteen pieni ero</li>
             <li>valaisimen lämpeneminen</li>
             <li>tehoanalysaattorin mittausepävarmuus</li>
             <li>yksittäisen valaisinyksilön toleranssit</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Sähkönlaadun parantamisen taloudellinen hyöty ei tässä tapauksessa synny siitä, että yksittäinen
             LED-valaisin kuluttaisi huomattavasti vähemmän energiaa.
           </p>
@@ -472,7 +469,7 @@
             häviöitä muualla:
           </p>
           <ul class="list">
-            <li>kaapeleiden I<sup>2</sup>R-häviöt kasvavat RMS-virran mukana</li>
+<li>kaapeleiden I<sup>2</sup>R-häviöt kasvavat RMS-virran mukana</li>
             <li>muuntajien pyörrevirta- ja lisähäviöt voivat kasvaa</li>
             <li>kolmella jaolliset harmoniset voivat summautua nollajohtimeen</li>
             <li>keskusten ja liitosten lämpötilat voivat nousta</li>
@@ -480,20 +477,20 @@
             <li>käytettävissä oleva siirtokapasiteetti pienenee</li>
             <li>häiriöiden ja yhteensopivuusongelmien riski kasvaa</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Tässä vertailussa mitattiin valaisimen ottamaa pätötehoa. Kaapelien, muuntajien ja keskusten
             todellisia lisähäviöitä ei mitattu.
           </p>
           <p class="muted">Koko järjestelmän energiahäviöiden arviointi edellyttäisi ainakin:</p>
           <ul class="list">
-            <li>vaihekohtaisia kokonaisvirtoja</li>
+<li>vaihekohtaisia kokonaisvirtoja</li>
             <li>valaisimien harmonisten vaihekulmia</li>
             <li>kaapelien ja nollajohtimien resistansseja</li>
             <li>muuntajan rakennetta ja kuormitusta</li>
             <li>kuormituksen samanaikaisuutta</li>
             <li>muiden samassa verkossa olevien epälineaaristen kuormien vaikutusta</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Siksi pelkästä valaisimen ITHD-luvusta ei voida laskea luotettavasti koko rakennuksen energiansäästöä.
           </p>
 
@@ -507,18 +504,18 @@
             Testi sisälsi siis samanaikaisesti:
           </p>
           <ul class="list">
-            <li>erittäin suuren jännitesärön</li>
+<li>erittäin suuren jännitesärön</li>
             <li>noin 269 V:n RMS-jännitteen</li>
             <li>valaisimien 220-240 V:n nimellisalueen ylittävän jännitteen</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Type 11 ei siten kuvaa pelkästään harmonisten vaikutusta. Se on tarkoituksenmukaisempaa nähdä
             liitäntälaitteiden äärimmäisenä sietokokeena.
           </p>
 
           <h3 style="margin-top:18px;">Type 11 -tulokset</h3>
           <div class="table-scroll" tabindex="0" aria-label="Type 11 -tulostaulukko">
-            <table>
+<table>
               <thead>
                 <tr>
                   <th>Valaisin</th>
@@ -588,8 +585,7 @@
               </tbody>
             </table>
           </div>
-
-          <p class="muted">
+<p class="muted">
             SNEP X04W110:n tehokerroin laski arvoon 0,880 ja virran THD nousi noin 23 prosenttiin,
             vaikka pätöteho pysyi lähes ennallaan.
           </p>
@@ -608,11 +604,11 @@
             Valaisin vilkkui ja mittaustulokset vaihtelivat voimakkaasti:
           </p>
           <ul class="list">
-            <li>pätöteho noin 20-37 W</li>
+<li>pätöteho noin 20-37 W</li>
             <li>ITHD noin 16-44 %</li>
             <li>tehokerroin noin 0,74-0,97</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Valaisin tai sen liitäntälaite ei siis pysynyt jatkuvassa vakaassa toimintapisteessä.
           </p>
           <p class="muted">
@@ -637,14 +633,13 @@
           </p>
           <p class="muted">Vertailussa käytetään edelleen:</p>
           <ul class="list">
-            <li>500 valaisinta</li>
+<li>500 valaisinta</li>
             <li>8760 h/v</li>
             <li>0,10 €/kWh</li>
           </ul>
-
-          <h3 style="margin-top:18px;">Vakaina toimineet valaisimet</h3>
+<h3 style="margin-top:18px;">Vakaina toimineet valaisimet</h3>
           <div class="table-scroll" tabindex="0" aria-label="Type 11:n laskennallinen energiavaikutus -taulukko">
-            <table>
+<table>
               <thead>
                 <tr>
                   <th>Valaisin</th>
@@ -699,8 +694,7 @@
               </tbody>
             </table>
           </div>
-
-          <p class="muted">
+<p class="muted">
             Negatiivinen kustannusero tarkoittaa ainoastaan, että mittarilla mitattu pätöteho oli Type 11
             -testissä hieman pienempi. Se ei tarkoita, että ylijännite tai jännitesärö olisi energiansäästökeino.
           </p>
@@ -719,13 +713,13 @@
             keskimääräistä pätötehoa paljon. Sen sijaan vaikutukset näkyivät voimakkaasti:
           </p>
           <ul class="list">
-            <li>tehokertoimessa</li>
+<li>tehokertoimessa</li>
             <li>virran harmonisessa särössä</li>
             <li>loistehossa</li>
             <li>liitäntälaitteen toimintavarmuudessa</li>
             <li>Glamoxin tapauksessa näkyvänä vilkkumisena</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Type 11 tukee siten samaa päätelmää kuin Type 5: sähkönlaadun tärkein merkitys ei ole valaisimen
             suorassa wattikulutuksessa, vaan koko sähköjärjestelmän kuormituksessa ja laitteiden toimintavarmuudessa.
           </p>
@@ -737,19 +731,19 @@
           </p>
           <p class="muted">Eri liitäntälaitteet reagoivat samaan jännitesäröön eri tavoin:</p>
           <ul class="list">
-            <li>osassa virran THD kasvoi</li>
+<li>osassa virran THD kasvoi</li>
             <li>osassa se pysyi lähes ennallaan</li>
             <li>osassa se pieneni</li>
             <li>erittäin voimakkaassa Type 11 -testissä yksi valaisin alkoi vilkkua</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Puhdas siniaalto ja Type 5 muuttivat valaisimien pätötehoa vain 0,00-0,16 W valaisinta kohden.
             Sähkönlaatua parantamalla saavutettava suora säästö valaisimien energiankulutuksessa jäi siten
             hyvin pieneksi, vaikka valaisimia olisi 500 kappaletta.
           </p>
           <p class="muted">Parempi sähkönlaatu on silti tärkeää. Sen merkitys liittyy ennen kaikkea:</p>
           <ul class="list">
-            <li>kaapelien ja muuntajien häviöihin</li>
+<li>kaapelien ja muuntajien häviöihin</li>
             <li>nollajohtimen kuormitukseen</li>
             <li>sähköverkon kapasiteettiin</li>
             <li>laitteiden yhteensopivuuteen</li>
@@ -757,7 +751,7 @@
             <li>liitäntälaitteiden lämpö- ja jänniterasitukseen</li>
             <li>häiriöiden ja ennenaikaisten vikojen ehkäisemiseen</li>
           </ul>
-          <p class="muted">
+<p class="muted">
             Mittaukset ovat vertailevia laboratoriomittauksia. Ne eivät yksinään osoita valaisimien
             IEC/SFS-EN 61000-3-2 -standardin mukaista vaatimustenmukaisuutta. Kaikki valaisimet olivat myös yli 25W joten standardi
             edellyttää niille parempaa sähkönlaatua. Tulokset ovat huomattavan erinlaisia alle 25W valaisimilla. Niistä joskus erillinen blogi.
@@ -772,25 +766,23 @@
           </p>
 
           <div class="cta" style="margin-top: 18px;">
-            <a class="btn" href="/#yhteys">Ota yhteyttä</a>
+<a class="btn" href="/#yhteys">Ota yhteyttä</a>
             <a class="btn ghost" href="/blog/">Takaisin blogiin</a>
           </div>
-        </article>
-
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-
-      <div class="footer-left">
-        <small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+</article>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<nav class="footer-services" aria-label="Palvelut ja lisätiedot">
+<a href="/varmennustarkastus/">Varmennustarkastus</a><a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a><a href="/mittaukset/">Mittaukset</a><a href="/koulutukset/">SFS 6002 koulutus</a><a href="/lomakkeet/">Lomakkeet</a><a href="/laskurit/">Laskurit</a><a href="/blog/">Blogi</a></nav>
+<div class="footer-left">
+<small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
         <small class="muted">Sähkölaitteistojen tarkastukset</small>
       </div>
-
-      <div class="footer-right">
-        <a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+<div class="footer-right">
+<a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
         <span class="divider-dot">|</span>
         <a href="tel:0408327388" class="footer-link footer-phone" aria-label="Puhelin 0408327388">0408327388</a>
         <span class="divider-dot">|</span>
@@ -798,9 +790,8 @@
         <span class="divider-dot">|</span>
         <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
       </div>
-
-    </div>
-  </footer>
+</div>
+</footer>
 
   <script src="/script.js"></script>
 </body>

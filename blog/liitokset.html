@@ -14,61 +14,66 @@
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512">
 </head>
 
-<body>
+<body class="article-page">
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a>
   <header class="site-header">
-    <div class="container">
-      <div class="top-contact top-contact-call">
-        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+<div class="header-utility">
+<div class="container">
+<div class="top-contact top-contact-call">
+<a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
       </div>
+</div>
+</div>
+<div class="nav-band">
+<div class="container">
+<nav class="nav" aria-label="Päävalikko">
+<a class="brand" href="/"><img src="/images/brand-mark.svg" alt="" width="44" height="44"><span>Mirus Electrum Oy</span></a>
 
-      <nav class="nav">
-        <a class="brand" href="/">Mirus Electrum Oy</a>
-
-        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+        <a class="nav-quote btn" href="/#yhteys">Pyydä tarjous</a>
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-controls="site-navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
 
-        <div class="nav-links" data-nav>
-          <a href="/">Etusivu</a>
+        <div class="nav-links" id="site-navigation" data-nav>
+<a href="/">Etusivu</a>
           <div class="dropdown">
-            <a href="#">Palvelut ▾</a>
+<a href="#">Palvelut ▾</a>
             <div class="dropdown-menu">
-              <a href="/varmennustarkastus/">Varmennustarkastus</a>
+<a href="/varmennustarkastus/">Varmennustarkastus</a>
               <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
               <a href="/mittaukset/">Mittaukset</a>
             </div>
-          </div>
-          <a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
+</div>
+<a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
           <a href="/lomakkeet/">Lomakkeet</a>
           <a href="/laskurit/">Laskurit</a>
           <a href="/blog/">Blogi</a>
           <a href="/#miksi">Miksi me</a>
-          <a href="/#yhteys" class="cta-nav">Yhteys</a>
+          <a href="/#yhteys" class="cta-nav">Pyydä tarjous</a>
         </div>
-      </nav>
-
-      <section class="section" style="padding: 34px 0 10px;">
-        <p class="muted tiny" style="margin:0 0 10px;">22.3.2026</p>
+</nav>
+</div>
+</div>
+<div class="container">
+<section class="section" style="padding: 34px 0 10px;">
+<p class="muted tiny" style="margin:0 0 10px;">22.3.2026</p>
         <h1 style="margin:0 0 10px;">Alumiiniliitoksen tekeminen ja resistanssi – mittaustulokset</h1>
         <p class="muted" style="margin:0; max-width: 75ch;">
           Mittauspöytäkirjaan perustuva tarkastelu siitä, miten harjaus, rasvaus ja kiristysmomentti vaikuttavat alumiiniliitoksen resistanssiin ja häviötehoon.
         </p>
 
         <div class="cta" style="margin-top: 16px;">
-          <a class="btn ghost" href="/blog/">← Takaisin blogiin</a>
+<a class="btn ghost" href="/blog/">← Takaisin blogiin</a>
           <a class="btn" href="/#yhteys">Pyydä yhteydenotto</a>
         </div>
-      </section>
-    </div>
-  </header>
-
-  <main>
-    <section class="section">
-      <div class="container">
-
-        <article class="card" style="max-width: 80ch;">
-
-          <h2 style="margin-top: 18px;">Tutkimuksen tausta</h2>
+</section>
+</div>
+</header>
+<main id="main-content">
+<section class="section">
+<div class="container">
+<article class="card reading-article" style="max-width: 80ch;">
+<h2 style="margin-top: 18px;">Tutkimuksen tausta</h2>
           <p class="muted">
             Tässä kirjoituksessa käydään läpi mittauspöytäkirjaan perustuva tutkimus alumiiniliitoksen tekemisestä.
             Mittausten tavoitteena oli selvittää, miten oikeaoppinen liitoksen valmistelu verrattuna puutteellisesti
@@ -84,13 +89,12 @@
           <h2 style="margin-top: 18px;">Mitä mitattiin?</h2>
           
           <figure style="margin:18px 0;">
-  <img src="/blog/liitin1.jpg" alt="Mittauksessa käytetyt kolme alumiinijohdinta ja liittimet" style="width:100%; border-radius:16px; display:block;">
+<img src="/blog/liitin1.jpg" alt="Mittauksessa käytetyt kolme alumiinijohdinta ja liittimet" style="width:100%; border-radius:16px; display:block;">
   <figcaption class="muted tiny" style="margin-top:8px;">
     Kuva 1. Mittauksessa käytetyt näytteet ennen varsinaisia mittauksia.
   </figcaption>
 </figure>
-          
-          <p class="muted">
+<p class="muted">
             Tutkimuksessa käytettiin kolmea yhtä pitkää, 0,92 m pituista 70 mm² alumiinijohdinta.
             Molempiin päihin oli liitetty ruuvikaapelikenkä mallia Ouneva OL 25–95 Al/Cu.
             Kiristysmomentti oli 20 Nm, ellei toisin mainita. Johtimille tehtiin esipyöristys.
@@ -101,12 +105,11 @@
           </p>
 
           <ul class="list">
-            <li>Harjattu + rasvattu (oikeaoppinen liitos)</li>
+<li>Harjattu + rasvattu (oikeaoppinen liitos)</li>
             <li>Johdinta ei ole harjattu, liittimessä valmistajan rasvaus (väärin tehty liitos)</li>
             <li>Liitoksia pidetty pari päivää suolaliuoksessa ja pari päivää ulkona, johtimeen ei tehty rasvausta</li>
           </ul>
-
-          <h2 style="margin-top: 18px;">Mittausolosuhteet ja mittalaitteet</h2>
+<h2 style="margin-top: 18px;">Mittausolosuhteet ja mittalaitteet</h2>
           <p class="muted">
             Mittaukset tehtiin sähkölaboratoriossa, jossa ympäristön lämpötila oli 22 °C.
             Mittaus suoritettiin testauspenkillä syöttämällä näytteeseen 100 A testivirta kolmen sekunnin ajan.
@@ -115,19 +118,17 @@
           </p>
 
           <figure style="margin:18px 0;">
-  <img src="/blog/liitin3.jpg" alt="Testipenkki" style="width:50%; border-radius:16px; display:block;">
+<img src="/blog/liitin3.jpg" alt="Testipenkki" style="width:50%; border-radius:16px; display:block;">
   <figcaption class="muted tiny" style="margin-top:8px;">
     Kuva 2. Mittauksessa käytetty testipenkki.
   </figcaption>
 </figure>
-
-          <ul class="list">
-            <li>Virtalähde: Agilent Technologies N5741A</li>
+<ul class="list">
+<li>Virtalähde: Agilent Technologies N5741A</li>
             <li>Jännitemittari: Owon XDM3051, 5½ digit</li>
             <li>Tuloksista laskettiin resistanssi</li>
           </ul>
-
-          <p class="muted">
+<p class="muted">
             Ennen varsinaisia mittauksia testauspenkki validoitiin käyttämällä 100 µΩ, 0,5 % vastusta.
           </p>
 
@@ -155,11 +156,10 @@
           </p>
 
           <ul class="list">
-            <li>Ei harjattu, mutta liittimen valmistajan oma rasva: +11,25 µΩ</li>
+<li>Ei harjattu, mutta liittimen valmistajan oma rasva: +11,25 µΩ</li>
             <li>Suolaliuoksessa ja ulkona pidetty johdin ilman rasvausta: +14,98 µΩ</li>
           </ul>
-
-          <p class="muted">
+<p class="muted">
             Tyypillisessä tämän kokoisen johtimen piirissä, jossa etusulake on esimerkiksi 125 A gG,
             tarkoittaa +11,25 µΩ lisäresistanssi noin 0,09 W lisähäviötehoa. Vastaavasti +14,98 µΩ
             lisäresistanssi tarkoittaa noin 0,12 W lisälämpötehoa.
@@ -171,18 +171,16 @@
           </p>
 
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0;">
-  <figure style="margin:0;">
-    <img src="/blog/liitin2.jpg" alt="Mittauskytkentä" style="width:65%; border-radius:16px; display:block;">
+<figure style="margin:0;">
+<img src="/blog/liitin2.jpg" alt="Mittauskytkentä" style="width:65%; border-radius:16px; display:block;">
     <figcaption class="muted tiny" style="margin-top:8px;">Kuva 3. Mittaus 4w kelvin menetelmä.</figcaption>
   </figure>
-
-  <figure style="margin:0;">
-    <img src="/blog/liitin4.jpg" alt="Harjattu ja rasvattu alumiiniliitos" style="width:65%; border-radius:16px; display:block;">
+<figure style="margin:0;">
+<img src="/blog/liitin4.jpg" alt="Harjattu ja rasvattu alumiiniliitos" style="width:65%; border-radius:16px; display:block;">
     <figcaption class="muted tiny" style="margin-top:8px;">Kuva 4. Harjattu ja rasvattu näyte.</figcaption>
   </figure>
 </div>
-
-          <h2 style="margin-top: 18px;">Mitä tuloksista voidaan päätellä?</h2>
+<h2 style="margin-top: 18px;">Mitä tuloksista voidaan päätellä?</h2>
           <p class="muted">
             Tulosten perusteella harjauksella on resistanssin kannalta hyvin pieni vaikutus.
             Käytännössä vaikutus on tässä tutkimuksessa lähes mitätön. Tämä ei kuitenkaan tarkoita,
@@ -193,7 +191,7 @@
 
 
 
-<div style="overflow-x:auto;">
+<div class="table-scroll" tabindex="0" role="region" aria-label="Taulukko, vieritä tarvittaessa vaakasuunnassa">
 <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
   <thead>
     <tr style="background:#f8fafc; text-align:left;">
@@ -222,28 +220,25 @@
   </tbody>
 </table>
 </div>
-
 <p class="muted" style="margin-top:10px;">
 Taulukossa esitetään mitatut jännitehäviöt ja niistä lasketut resistanssit eri liitostavoilla. Laataa alta täydellinen mittauspöytäkirja tutkiaksesi asiaa lisää.
 Huomioi, että taulukon resistanssiarvot on johtimen resistanssi + 2x liittimen resistanssi. Liitteessä tarkempi erittely kunkin liitoksen aiheuttamalle resistanssille ja tehohäviölle.
 </p>
           <div class="cta" style="margin-top: 18px;">
-  <a class="btn" href="/blog/kaapeliliitos-mittauspoytakirja.xlsx" download>
+<a class="btn" href="/blog/kaapeliliitos-mittauspoytakirja.xlsx" download>
     Lataa mittauspöytäkirja (Excel)
   </a>
 </div>
-
-          <p class="muted">
+<p class="muted">
             Liitoksen oikeaoppiseen tekemiseen vaikuttavat myös muut tekijät:
           </p>
 
           <ul class="list">
-            <li>sektorimuotoisen johtimen esipyöristys</li>
+<li>sektorimuotoisen johtimen esipyöristys</li>
             <li>oikea kiristysmomentti</li>
             <li>valmistajan ohjeen mukainen rasvaus</li>
           </ul>
-
-          <p class="muted">
+<p class="muted">
             Jos näitä ei tehdä oikein, kasvaa riski siihen, että liitos löystyy ajan myötä.
             Tämä on käytännössä selvästi merkittävämpi riski kuin harjauksen vaikutus yksinään.
             Huomioi, että tässä tutkimuksessa ei tutkita eikä opasteta pulttiliitoksen tekemistä. Tee aina
@@ -305,26 +300,23 @@ Huomioi, että taulukon resistanssiarvot on johtimen resistanssi + 2x liittimen 
           </p>
 
           <div class="cta" style="margin-top: 18px;">
-            <a class="btn" href="/#yhteys">Ota yhteyttä</a>
+<a class="btn" href="/#yhteys">Ota yhteyttä</a>
             <a class="btn ghost" href="/blog/">Takaisin blogiin</a>
           </div>
-
-        </article>
-
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-
-      <div class="footer-left">
-        <small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+</article>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<nav class="footer-services" aria-label="Palvelut ja lisätiedot">
+<a href="/varmennustarkastus/">Varmennustarkastus</a><a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a><a href="/mittaukset/">Mittaukset</a><a href="/koulutukset/">SFS 6002 koulutus</a><a href="/lomakkeet/">Lomakkeet</a><a href="/laskurit/">Laskurit</a><a href="/blog/">Blogi</a></nav>
+<div class="footer-left">
+<small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
         <small class="muted">Sähkölaitteistojen tarkastukset</small>
       </div>
-
-      <div class="footer-right">
-        <a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+<div class="footer-right">
+<a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
         <span class="divider-dot">|</span>
         <a href="tel:0408327388" class="footer-link footer-phone" aria-label="Puhelin 0408327388">0408327388</a>
         <span class="divider-dot">|</span>
@@ -332,9 +324,8 @@ Huomioi, että taulukon resistanssiarvot on johtimen resistanssi + 2x liittimen 
         <span class="divider-dot">|</span>
         <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
       </div>
-
-    </div>
-  </footer>
+</div>
+</footer>
 
   <script src="/script.js"></script>
 </body>

@@ -1,0 +1,40 @@
+/* Adapt the existing standalone tools to the shared system without changing calculations. */
+.tool-page .tool-container { margin: 0 auto; padding-top: 40px; padding-bottom: 48px; }
+.tool-page .site-header .container { margin: 0 auto; padding: 0 32px; }
+.tool-page .site-header .top-contact { max-width: none; margin: 0; padding: 4px 0; }
+.tool-page .site-header .top-contact a.call-button { min-height: 28px; padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--text); box-shadow: none; }
+.tool-page .card { padding: 28px; border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow-soft); }
+.tool-page .tool-container > .hero { display: block; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: none; margin-bottom: 24px; }
+.tool-page .grid, .tool-page .grid-2, .tool-page .results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.tool-page .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.tool-page .layout { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+.tool-page .field, .tool-page .layout > *, .tool-page .form-grid > * { min-width: 0; }
+.tool-page input, .tool-page select, .tool-page textarea { border-radius: var(--radius); min-height: 48px; }
+.tool-page .form-grid label, .tool-page .field label { font-size: .9rem; }
+.tool-page button:not(.nav-toggle) { min-height: 44px; padding: 10px 18px; border-radius: var(--radius); font-size: .94rem; }
+.tool-page .btn-primary, .tool-page .actions > button:not(.secondary):not(.btn-secondary):not(.danger), .tool-page .segment button.active { background: var(--color-copper-dark); color: white; }
+.tool-page .result-box, .tool-page .kpi, .tool-page .box, .tool-page .status { border-radius: var(--radius); }
+.tool-page .formula { border-left-color: var(--color-copper-dark); }
+.tool-page .tool-back { margin-bottom: 24px; font-size: .9rem; }
+.tool-page .hero h1 { max-width: none; font-size: clamp(1.9rem, 3vw, 2.7rem); }
+.tool-page table { table-layout: auto; }
+.tool-page td { overflow-wrap: anywhere; }
+@media (max-width: 960px) {
+  .tool-page .layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 800px) {
+  .tool-page .grid, .tool-page .grid-2, .tool-page .grid-3, .tool-page .results { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .tool-page .site-header .container { padding: 0 20px; }
+  .tool-page .card { padding: 22px; }
+  .tool-page .mini { grid-template-columns: 1fr; }
+  .tool-page .toolbar { align-items: stretch; }
+  .tool-page .toolbar > * { min-width: 0; max-width: 100%; }
+  .tool-page .svg-wrap svg { max-width: 100%; }
+}
+@media print {
+  .tool-page .tool-back { display: none; }
+  .tool-page .tool-container { padding: 0; max-width: 100%; }
+  .tool-page .card { border: 0; padding: 0; box-shadow: none; }
+}

@@ -7,43 +7,9 @@
   <title>Virtamuuntajan taakkalaskuri | Mirus Electrum Oy</title>
   <meta name="description" content="Virtamuuntajan taakkalaskuri sähköalan käyttöön." />
 
-  <link rel="stylesheet" href="/styles.css" />
+
   <link rel="icon" href="/favicon.svg">
-</head>
-
-<body>
-<header class="site-header">
-  <div class="container">
-    <div class="top-contact top-contact-call">
-      <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
-    </div>
-
-    <nav class="nav">
-      <a class="brand" href="/">Mirus Electrum Oy</a>
-
-      <div class="nav-links">
-        <a href="/">Etusivu</a>
-        <a href="/laskurit/">Laskurit</a>
-        <a href="/#yhteys" class="cta-nav">Yhteys</a>
-      </div>
-    </nav>
-
-    <section class="section" style="padding:34px 0 10px;">
-      <h1>Virtamuuntajan taakkalaskuri</h1>
-      <p class="muted">
-        Tarkista täyttyykö vaatimus: 25–100 % nimellistaakasta
-      </p>
-
-      <div class="cta">
-        <a class="btn ghost" href="/laskurit/">← Takaisin laskureihin</a>
-
-<!DOCTYPE html>
-<html lang="fi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Virtamuuntajan taakkalaskuri</title>
-  <style>
+<style>
     :root {
       --bg: #f4f7fb;
       --card: #ffffff;
@@ -226,145 +192,168 @@
       }
     }
   </style>
-</head>
-<body>
-  <div class="container">
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/laskurit/tool-theme.css"></head>
+<body class="tool-page">
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a><header class="site-header">
+<div class="header-utility">
+<div class="container">
+<div class="top-contact top-contact-call">
+<a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+      </div>
+</div>
+</div>
+<div class="nav-band">
+<div class="container">
+<nav class="nav" aria-label="Päävalikko">
+<a class="brand" href="/" aria-label="Mirus Electrum Oy"><img src="/images/brand-mark.svg" alt="" width="44" height="44"><span>Mirus Electrum Oy</span></a>
+
+        <a class="nav-quote btn" href="/#yhteys">Pyydä tarjous</a>
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-controls="site-navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" id="site-navigation" data-nav>
+<a href="/">Etusivu</a>
+
+          <div class="dropdown">
+<a href="#">Palvelut ▾</a>
+            <div class="dropdown-menu">
+<a href="/varmennustarkastus/">Varmennustarkastus</a>
+              <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
+              <a href="/mittaukset/">Mittaukset</a>
+            </div>
+</div>
+<a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
+          <a href="/lomakkeet/">Lomakkeet</a>
+           <a href="/laskurit/">Laskurit</a>
+          <a href="/blog/">Blogi</a>
+          <a href="/#miksi">Miksi me</a>
+          <a href="/#yhteys" class="cta-nav">Pyydä tarjous</a>
+        </div>
+</nav>
+</div>
+</div>
+<div class="container">
+</div>
+</header>
+<main id="main-content">
+<div class="container tool-container">
+<p class="tool-back"><a href="/laskurit/">← Takaisin laskureihin</a></p>
 
     <div class="card">
-      <h1>Virtamuuntajan taakkalaskuri</h1>
+<h1>Virtamuuntajan taakkalaskuri</h1><p class="muted">Tarkista täyttyykö vaatimus: 25–100 % nimellistaakasta</p>
       <p class="subtitle">
         Tarkista täyttyykö vaatimus: kokonais­taakan tulee olla 25–100 % virtamuuntajan nimellistaakasta.
       </p>
 
       <div class="grid">
-        <div class="field">
-          <label for="secondaryCurrent">Virtamuuntajan toisiovirta</label>
+<div class="field">
+<label for="secondaryCurrent">Virtamuuntajan toisiovirta</label>
           <select id="secondaryCurrent">
             <option value="1">1 A</option>
             <option value="5" selected>5 A</option>
           </select>
         </div>
-
-        <div class="field">
-          <label for="ratedBurden">Virtamuuntajan nimellistaakka (VA)</label>
+<div class="field">
+<label for="ratedBurden">Virtamuuntajan nimellistaakka (VA)</label>
           <input id="ratedBurden" type="number" value="5" min="0" step="0.1" />
         </div>
-      </div>
-
-      <h2>Johdotus</h2>
+</div>
+<h2>Johdotus</h2>
       <div class="grid-3">
-        <div class="field">
-          <label for="length">Johdon pituus, yhteen suuntaan (m)</label>
+<div class="field">
+<label for="length">Johdon pituus, yhteen suuntaan (m)</label>
           <input id="length" type="number" value="20" min="0" step="0.1" />
         </div>
-
-        <div class="field">
-          <label for="area">Johdinpoikkipinta-ala (mm²)</label>
+<div class="field">
+<label for="area">Johdinpoikkipinta-ala (mm²)</label>
           <input id="area" type="number" value="2.5" min="0.1" step="0.1" />
         </div>
-
-        <div class="field">
-          <label for="resistivity">Johtimen resistiivisyys (Ω·mm²/m)</label>
+<div class="field">
+<label for="resistivity">Johtimen resistiivisyys (Ω·mm²/m)</label>
           <input id="resistivity" type="number" value="0.0175" min="0" step="0.0001" />
         </div>
-      </div>
-
-      <h2>Muut huomioitavat taakat</h2>
+</div>
+<h2>Muut huomioitavat taakat</h2>
       <div class="grid-3">
-        <div class="field">
-          <label for="relayBurden">Mahdollinen rele / muu laite (VA)</label>
+<div class="field">
+<label for="relayBurden">Mahdollinen rele / muu laite (VA)</label>
           <input id="relayBurden" type="number" value="0" min="0" step="0.1" />
         </div>
-
-        <div class="field">
-          <label for="otherBurden">Muut taakat yhteensä (VA)</label>
+<div class="field">
+<label for="otherBurden">Muut taakat yhteensä (VA)</label>
           <input id="otherBurden" type="number" value="0" min="0" step="0.1" />
         </div>
-
-        <div class="field">
-          <label for="meterBurden">Mittarin taakka (VA)</label>
+<div class="field">
+<label for="meterBurden">Mittarin taakka (VA)</label>
           <input id="meterBurden" type="number" value="0" min="0" step="0.01" />
         </div>
-      </div>
-
-      <h2>Lisävastus</h2>
+</div>
+<h2>Lisävastus</h2>
       <div class="grid">
-        <div class="field">
-          <label for="extraResistanceInput">Lisävastus (Ω)</label>
+<div class="field">
+<label for="extraResistanceInput">Lisävastus (Ω)</label>
           <input id="extraResistanceInput" type="number" value="0" min="0" step="0.001" />
         </div>
-
-        <div class="field">
-          <label for="extraResistanceBurdenDisplay">Lisävastuksen aiheuttama taakka (VA)</label>
+<div class="field">
+<label for="extraResistanceBurdenDisplay">Lisävastuksen aiheuttama taakka (VA)</label>
           <input id="extraResistanceBurdenDisplay" type="text" value="0,000 VA" readonly />
         </div>
-      </div>
-
-      <p class="small">
+</div>
+<p class="small">
         Huom.: Nykyaikaisten staattisten energiamittareiden virtapiirin taakka on yleensä hyvin pieni, joten sen voi monissa tapauksissa jättää käytännössä huomioimatta.
       </p>
 
       <div class="actions">
-        <button class="btn-primary" onclick="calculateBurden()">Laske</button>
+<button class="btn-primary" onclick="calculateBurden()">Laske</button>
         <button class="btn-secondary" onclick="resetForm()">Palauta oletukset</button>
       </div>
-    </div>
-
-    <div class="card">
-      <h2>Tulokset</h2>
+</div>
+<div class="card">
+<h2>Tulokset</h2>
 
       <div class="results">
-        <div class="result-box">
-          <div class="result-label">Johtimien silmukkaresistanssi</div>
-          <div class="result-value" id="loopResistance">0.000 Ω</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Johtimien aiheuttama taakka</div>
-          <div class="result-value" id="cableBurdenResult">0.000 VA</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Laitteiden taakka yhteensä</div>
-          <div class="result-value" id="devicesBurdenResult">0.000 VA</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Lisävastuksen taakka</div>
-          <div class="result-value" id="extraResistanceBurdenResult">0.000 VA</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Kokonais­taakka</div>
-          <div class="result-value" id="totalBurdenResult">0.000 VA</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Osuus nimellistaakasta</div>
-          <div class="result-value" id="utilizationResult">0.0 %</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Hyväksytty alue</div>
-          <div class="result-value" id="targetRangeResult">0.000–0.000 VA</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Tarvittava lisätaakka minimiin</div>
-          <div class="result-value" id="extraBurdenNeededResult">0.000 VA</div>
-        </div>
-
-        <div class="result-box">
-          <div class="result-label">Tarvittava lisävastus minimiin</div>
-          <div class="result-value" id="extraResistanceNeededResult">0.000 Ω</div>
-        </div>
-      </div>
-
-      <div id="statusBox" class="status good">
+<div class="result-box">
+<div class="result-label">Johtimien silmukkaresistanssi</div>
+<div class="result-value" id="loopResistance">0.000 Ω</div>
+</div>
+<div class="result-box">
+<div class="result-label">Johtimien aiheuttama taakka</div>
+<div class="result-value" id="cableBurdenResult">0.000 VA</div>
+</div>
+<div class="result-box">
+<div class="result-label">Laitteiden taakka yhteensä</div>
+<div class="result-value" id="devicesBurdenResult">0.000 VA</div>
+</div>
+<div class="result-box">
+<div class="result-label">Lisävastuksen taakka</div>
+<div class="result-value" id="extraResistanceBurdenResult">0.000 VA</div>
+</div>
+<div class="result-box">
+<div class="result-label">Kokonais­taakka</div>
+<div class="result-value" id="totalBurdenResult">0.000 VA</div>
+</div>
+<div class="result-box">
+<div class="result-label">Osuus nimellistaakasta</div>
+<div class="result-value" id="utilizationResult">0.0 %</div>
+</div>
+<div class="result-box">
+<div class="result-label">Hyväksytty alue</div>
+<div class="result-value" id="targetRangeResult">0.000–0.000 VA</div>
+</div>
+<div class="result-box">
+<div class="result-label">Tarvittava lisätaakka minimiin</div>
+<div class="result-value" id="extraBurdenNeededResult">0.000 VA</div>
+</div>
+<div class="result-box">
+<div class="result-label">Tarvittava lisävastus minimiin</div>
+<div class="result-value" id="extraResistanceNeededResult">0.000 Ω</div>
+</div>
+</div>
+<div id="statusBox" class="status good">
         Tulos odottaa laskentaa.
       </div>
-
-      <table>
+<table>
         <thead>
           <tr>
             <th>Suure</th>
@@ -383,42 +372,35 @@
         </tbody>
       </table>
     </div>
-
-    <div class="card">
-      <h2>Käytetyt kaavat</h2>
+<div class="card">
+<h2>Käytetyt kaavat</h2>
 
       <div class="formula">
-        <strong>Johtimien silmukkaresistanssi:</strong><br>
+<strong>Johtimien silmukkaresistanssi:</strong><br>
         R = 2 × L × ρ / A
       </div>
-
-      <div class="formula">
-        <strong>Johtimien taakka:</strong><br>
+<div class="formula">
+<strong>Johtimien taakka:</strong><br>
         S = I² × R
       </div>
-
-      <div class="formula">
-        <strong>Lisävastuksen taakka:</strong><br>
+<div class="formula">
+<strong>Lisävastuksen taakka:</strong><br>
         S<sub>lisävastus</sub> = I² × R<sub>lisä</sub>
       </div>
-
-      <div class="formula">
-        <strong>Kokonais­taakka:</strong><br>
+<div class="formula">
+<strong>Kokonais­taakka:</strong><br>
         S<sub>kok</sub> = S<sub>johdot</sub> + S<sub>laitteet</sub> + S<sub>lisävastus</sub>
       </div>
-
-      <div class="formula">
-        <strong>Hyväksyttävä alue tarkkuusluokan säilymiselle:</strong><br>
+<div class="formula">
+<strong>Hyväksyttävä alue tarkkuusluokan säilymiselle:</strong><br>
         0,25 × S<sub>n</sub> ≤ S<sub>kok</sub> ≤ 1,00 × S<sub>n</sub>
       </div>
-
-      <div class="formula">
-        <strong>Tarvittava lisävastus, jos taakka on liian pieni:</strong><br>
+<div class="formula">
+<strong>Tarvittava lisävastus, jos taakka on liian pieni:</strong><br>
         R<sub>tarv</sub> = S<sub>puuttuva</sub> / I²
       </div>
-    </div>
-
-  </div>
+</div>
+</div>
 
   <script>
     function formatNumber(value, decimals = 3) {
@@ -511,10 +493,23 @@
 
     calculateBurden();
   </script>
-</body>
-</html>
-        
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<nav class="footer-services" aria-label="Palvelut ja lisätiedot">
+<a href="/varmennustarkastus/">Varmennustarkastus</a><a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a><a href="/mittaukset/">Mittaukset</a><a href="/koulutukset/">SFS 6002 koulutus</a><a href="/lomakkeet/">Lomakkeet</a><a href="/laskurit/">Laskurit</a><a href="/blog/">Blogi</a></nav>
+<div class="footer-left">
+<small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+        <small class="muted">Sähkölaitteistojen tarkastukset</small>
       </div>
-    </section>
-  </div>
-</header>
+<div class="footer-right">
+<a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+        <span class="divider-dot">|</span>
+        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+        <span class="divider-dot">|</span>
+        <a href="/sopimusehdot.pdf" target="_blank" class="footer-link">Sopimusehdot</a>
+        <span class="divider-dot">|</span>
+        <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
+      </div>
+</div>
+</footer><script src="/script.js"></script></body></html>
