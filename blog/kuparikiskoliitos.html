@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin | Mirus Electrum Oy</title>
+  <meta name="description" content="Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin: mittaukset 10, 50 ja 100 A virroilla sekä laskennalliset tehohäviöt." />
+
+  <link rel="canonical" href="https://mirus-electrum.fi/blog/kuparikiskoliitos.html" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/blog/kiskoliitos.css" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="top-contact top-contact-call">
+        <a class="btn call-button" href="tel:+358408327388">Soita 040 832 7388</a>
+      </div>
+
+      <nav class="nav">
+        <a class="brand" href="/">Mirus Electrum Oy</a>
+
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" data-nav>
+  <a href="/">Etusivu</a>
+  <div class="dropdown">
+    <a href="#">Palvelut ▾</a>
+    <div class="dropdown-menu">
+      <a href="/varmennustarkastus/">Varmennustarkastus</a>
+      <a href="/maaraaikaistarkastus/">Määräaikaistarkastus</a>
+      <a href="/mittaukset/">Mittaukset</a>
+    </div>
+  </div>
+  <a href="/koulutukset/">SFS 6002 sähköturvallisuuskoulutus</a>
+  <a href="/lomakkeet/">Lomakkeet</a>
+  <a href="/laskurit/">Laskurit</a>
+  <a href="/blog/">Blogi</a>
+  <a href="/#miksi">Miksi me</a>
+  <a href="/#yhteys" class="cta-nav">Yhteys</a>
+
+        </div>
+      </nav>
+
+      <section class="section" style="padding: 34px 0 10px;">
+        <p class="muted tiny"><time datetime="2026-10-03">3.10.2026</time></p>
+        <h1>Kuparikiskoliitoksen kiristysmomentin vaikutus liitosresistanssiin</h1>
+        <p class="muted" style="max-width: 75ch;">Miten sormikireys, 5 Nm, 10 Nm ja 25 Nm näkyvät kuparikiskoliitoksen resistanssissa? Laboratoriomittaus tekee mikro-ohmien eron näkyväksi.</p>
+        <div class="cta"><a class="btn ghost" href="/blog/">← Takaisin blogiin</a><a class="btn" href="/#yhteys">Pyydä yhteydenotto</a></div>
+      </section>
+    </div>
+  </header>
+  <main>
+    <section class="section"><div class="container">
+      <article class="card kiskoliitos-article">
+<p>Kuinka paljon pulttiliitoksen kiristysmomentti todellisuudessa vaikuttaa kuparikiskoliitoksen sähköiseen resistanssiin?</p>
+
+<p>Asiaa voidaan tarkastella teoriassa kontaktipaineen ja liitospintojen todellisen kosketuspinta-alan kautta, mutta tällä kertaa vaikutus mitattiin käytännössä. Koekappaleena käytettiin 30 × 5 mm kuparikiskoa, jonka poikkipinta-ala on 150 mm². Liitos tehtiin yhdellä M8-pultilla, jonka lujuusluokka oli 8.8.</p>
+
+<p>Liitoksen resistanssi mitattiin neljällä eri kiristystasolla:</p>
+
+<ul class="list"><li>sormikireys</li><li>5 Nm</li><li>10 Nm</li><li>25 Nm</li></ul>
+
+<p>25 Nm oli tässä kokeessa käytetty liitoksen kiristysmomentin ohjearvo.</p>
+
+<p>Jokaisella kiristysmomentilla mittaus tehtiin kolmella eri testivirralla: 10 A, 50 A ja 100 A.</p>
+
+<h2>Mittausjärjestely</h2>
+
+<p>Mittauksessa käytettiin laboratoriolaitteistoa, jossa testivirta tuotettiin Agilent N5741A -tasajännitelähteellä ja liitoksen yli syntyvä jännitehäviö mitattiin OWON XDM3051 -yleismittarilla.</p>
+
+<p>Mittalaitteita ohjattiin SCPI-komennoilla Python-skriptistä. Näin eri mittauspisteet voitiin suorittaa samalla tavalla ja mittaustulokset tallentaa automaattisesti myöhempää tarkastelua varten.</p>
+
+<p>Yhden mittauspisteen mittausaika oli kolme sekuntia. Raportoitu tulos muodostettiin viimeisen kahden sekunnin mittausten keskiarvosta, jolloin virran kytkemisen ja mittauksen käynnistymisen alkuvaihe jätettiin pois lopullisesta tuloksesta.</p>
+
+<p>Ennen varsinaisia mittauksia mittausketjun toimintaa tarkistettiin 100 µΩ vertailuvastuksella. Mittausjärjestelmän tulos poikkesi vertailuarvosta noin 0,17 %.</p>
+
+<p>Liitosresistanssi määritettiin mitatun jännitehäviön ja virran perusteella.</p>
+
+<figure><a href="/blog/kuvat/kuparikiskoliitos/mittausjarjestely.jpg"><img src="/blog/kuvat/kuparikiskoliitos/mittausjarjestely.jpg" alt="Kuparikiskoliitos, OWON-yleismittari ja mittaustuloksia tallentava tietokone laboratoriossa" width="1200" height="1600" loading="lazy" decoding="async"></a><figcaption>Mittausjärjestely: testivirta johdetaan kuparikiskojen läpi ja jännitehäviö mitataan erillisillä mittausjohdoilla.</figcaption></figure>
+<figure><a href="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg"><img src="/blog/kuvat/kuparikiskoliitos/kiskoliitos.jpg" alt="M8-pultilla yhdistetyt kuparikiskot, mittausjohdot ja momenttiavain" width="1600" height="1200" loading="lazy" decoding="async"></a><figcaption>Koekappaleena 30 × 5 mm kuparikiskot ja M8-pulttiliitos. Kiristystasot olivat sormikireys, 5 Nm, 10 Nm ja 25 Nm.</figcaption></figure>
+<figure><a href="/blog/kuvat/kuparikiskoliitos/virtalahde.jpg"><img src="/blog/kuvat/kuparikiskoliitos/virtalahde.jpg" alt="Agilent N5741A -tasajännitelähde laboratoriossa" width="1600" height="1200" loading="lazy" decoding="async"></a><figcaption>Testivirta tuotettiin Agilent N5741A -tasajännitelähteellä (kuvassa ylimpänä).</figcaption></figure>
+
+<h2>Mittaustulokset</h2>
+
+<p>Mitattu liitosresistanssi oli:</p>
+
+<table class="measurement-table" role="table"><caption>Mitattu liitosresistanssi (µΩ)</caption><thead role="rowgroup"><tr role="row">
+<th scope="col" role="columnheader">Kiristys</th>
+<th scope="col" role="columnheader">10 A</th>
+<th scope="col" role="columnheader">50 A</th>
+<th scope="col" role="columnheader">100 A</th>
+<th scope="col" role="columnheader">Keskiarvo</th>
+</tr></thead><tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">Sormikireys</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">10 A</span><span class="measurement-value">122,75 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">50 A</span><span class="measurement-value">121,98 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">100 A</span><span class="measurement-value">121,71 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Keskiarvo</span><span class="measurement-value">122,15 µΩ</span></td>
+</tr>
+<tr role="row"><th scope="row" role="rowheader">5 Nm</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">10 A</span><span class="measurement-value">14,55 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">50 A</span><span class="measurement-value">13,93 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">100 A</span><span class="measurement-value">13,79 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Keskiarvo</span><span class="measurement-value">14,09 µΩ</span></td>
+</tr>
+<tr role="row"><th scope="row" role="rowheader">10 Nm</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">10 A</span><span class="measurement-value">11,50 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">50 A</span><span class="measurement-value">10,90 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">100 A</span><span class="measurement-value">10,78 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Keskiarvo</span><span class="measurement-value">11,06 µΩ</span></td>
+</tr>
+<tr role="row"><th scope="row" role="rowheader">25 Nm</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">10 A</span><span class="measurement-value">9,46 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">50 A</span><span class="measurement-value">8,91 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">100 A</span><span class="measurement-value">8,78 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Keskiarvo</span><span class="measurement-value">9,05 µΩ</span></td>
+</tr>
+</tbody></table>
+
+<p class="muted tiny">Keskiarvo on kolmen testivirran resistanssiarvojen aritmeettinen keskiarvo. Excelin milliohmit (mΩ) on muunnettu mikro-ohmeiksi (µΩ), ja arvot on pyöristetty kahteen desimaaliin.</p>
+
+<p><a class="btn ghost" href="/blog/kiskoliitos-mittauspoytakirja.xlsx" download>Lataa mittauspöytäkirja (Excel)</a></p>
+
+<p>Ero sormikireän ja asianmukaisesti kiristetyn liitoksen välillä oli erittäin suuri.</p>
+
+<p>Sormikireän liitoksen keskimääräinen resistanssi oli noin <strong>122 µΩ</strong>, kun 25 Nm momenttiin kiristetyn liitoksen resistanssi oli noin <strong>9,05 µΩ</strong>.</p>
+
+<p>Resistanssi pieneni siis tässä mittauksessa noin <strong>92,6 %</strong>.</p>
+
+<p>Jo 5 Nm:n kiristys pienensi resistanssia noin 88,5 % sormikireään liitokseen verrattuna. Momentin kasvattamisella oli kuitenkin tämän jälkeenkin mitattava vaikutus:</p>
+
+<ul class="list"><li>5 Nm → 25 Nm: resistanssi pieneni noin 35,8 %</li><li>10 Nm → 25 Nm: resistanssi pieneni noin 18,2 %</li></ul>
+
+<p>Tuloksissa näkyy siten selvästi, että suurin muutos tapahtuu hyvin löysän liitoksen ja ensimmäisen merkittävän puristusvoiman välillä. Resistanssi pienenee edelleen kiristysmomenttia kasvatettaessa, mutta muutos ei ole enää yhtä dramaattinen.</p>
+
+<h2>Miksi kiristäminen pienentää resistanssia?</h2>
+
+<p>Vaikka kaksi kuparikiskoa näyttäisivät silmämääräisesti olevan tiiviisti toisiaan vasten, niiden pinnat eivät mikroskooppisella tasolla ole tasaisia.</p>
+
+<p>Sähkövirta ei kulje koko näennäisen kosketuspinta-alan läpi tasaisesti, vaan todellinen sähköinen kontakti muodostuu lukuisista pienistä kosketuspisteistä.</p>
+
+<p>Pultin kiristäminen kasvattaa liitospintojen välistä puristusvoimaa. Tällöin pinnan epätasaisuudet painuvat toisiaan vasten, todellinen sähköinen kosketuspinta kasvaa ja kontaktien kokonaisresistanssi pienenee.</p>
+
+<p>Mittauksen tulokset havainnollistavat tätä hyvin.</p>
+
+<h2>Mitä mikro-ohmien ero tarkoittaa käytännössä?</h2>
+
+<p>30 × 5 mm kuparikiskon poikkipinta-ala on 150 mm². Vastaavan kokoisen kuparikiskon jatkuva kuormitettavuus voi käytännön rakenteessa olla useita satoja ampeereja. Tässä tarkastelussa käytetään 450 A virtaa havainnollistamaan liitosresistanssin merkitystä käytännön suurvirtasovelluksessa.</p>
+
+<p>Kiskon todellinen sallittu kuormitus riippuu aina muun muassa asennustavasta, ympäristön lämpötilasta, koteloinnista, kiskojen sijoittelusta ja pintakäsittelystä. 450 A ei siten ole yleispätevä kuormitettavuusarvo kaikille 30 × 5 mm kuparikiskoille.</p>
+
+<p>Kun laskennassa käytetään 100 A mittauksessa saatuja resistanssiarvoja ja oletetaan niiden säilyvän samoina myös 450 A virralla, saadaan:</p>
+
+<table class="measurement-table" role="table"><caption>Laskennallinen esimerkki 450 A virralla</caption><thead role="rowgroup"><tr role="row">
+<th scope="col" role="columnheader">Kiristys</th>
+<th scope="col" role="columnheader">Resistanssi (100 A)</th>
+<th scope="col" role="columnheader">Jännitehäviö (450 A)</th>
+<th scope="col" role="columnheader">Tehohäviö (450 A)</th>
+</tr></thead><tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">Sormikireys</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Resistanssi (100 A)</span><span class="measurement-value">121,71 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Jännitehäviö (450 A)</span><span class="measurement-value">54,77 mV</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Tehohäviö (450 A)</span><span class="measurement-value">24,65 W</span></td>
+</tr>
+<tr role="row"><th scope="row" role="rowheader">5 Nm</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Resistanssi (100 A)</span><span class="measurement-value">13,79 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Jännitehäviö (450 A)</span><span class="measurement-value">6,21 mV</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Tehohäviö (450 A)</span><span class="measurement-value">2,79 W</span></td>
+</tr>
+<tr role="row"><th scope="row" role="rowheader">10 Nm</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Resistanssi (100 A)</span><span class="measurement-value">10,78 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Jännitehäviö (450 A)</span><span class="measurement-value">4,85 mV</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Tehohäviö (450 A)</span><span class="measurement-value">2,18 W</span></td>
+</tr>
+<tr role="row"><th scope="row" role="rowheader">25 Nm</th>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Resistanssi (100 A)</span><span class="measurement-value">8,78 µΩ</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Jännitehäviö (450 A)</span><span class="measurement-value">3,95 mV</span></td>
+<td role="cell"><span class="measurement-label" aria-hidden="true">Tehohäviö (450 A)</span><span class="measurement-value">1,78 W</span></td>
+</tr>
+</tbody></table>
+
+<p class="measurement-note">Laskenta: U = I × R ja P = I² × R. Taulukon 450 A arvot ovat laskennallisia esimerkkejä, eivät mitattuja tuloksia. Laskennassa käytetään Excelin pyöristämättömiä 100 A resistanssiarvoja.</p>
+
+<p>Nyt mikro-ohmien merkitys muuttuu huomattavasti konkreettisemmaksi.</p>
+
+<p>Sormikireässä liitoksessa tehohäviö olisi 450 A virralla laskennallisesti noin <strong>24,6 wattia</strong>, kun 25 Nm momenttiin kiristetyssä liitoksessa häviö olisi noin <strong>1,8 wattia</strong>.</p>
+
+<p>Ero on lähes <strong>23 wattia yhdessä ainoassa liitoksessa</strong>.</p>
+
+<p>Sormikireä liitos tuottaisi siis tässä vertailussa noin <strong>14 kertaa enemmän lämpöä</strong> kuin 25 Nm momenttiin kiristetty liitos.</p>
+
+<p>Lisäksi lämpö syntyy hyvin pienellä alueella juuri liitospintojen ympäristössä. Kyse ei siten ole samalla tavalla jakautuneesta lämmöstä kuin pitkän johtimen resistiivisessä häviössä, vaan paikallisesta lämpölähteestä liitoksessa.</p>
+
+<p>Tämä auttaa ymmärtämään, miksi löysä suurivirtaliitos voi lämmetä voimakkaasti.</p>
+
+<p>On kuitenkin huomattava, että 450 A arvoja ei tässä kokeessa mitattu. Ne ovat 100 A mittauksessa määritetyistä liitosresistansseista laskettuja esimerkkejä. Todellisessa jatkuvassa 450 A kuormituksessa liitoksen lämpötila ja sen myötä resistanssi voivat muuttua.</p>
+
+<h2>Pieni liitosresistanssi ei yksin riitä</h2>
+
+<p>Mittauksessa jo suhteellisen pieni 5 Nm kiristys pienensi liitosresistanssia erittäin voimakkaasti. Keskimääräinen resistanssi putosi sormikireän liitoksen noin 122 µΩ arvosta noin 14 µΩ tasolle.</p>
+
+<p>Pelkästään sähköistä resistanssia tarkastelemalla voisi tästä saada vaikutelman, että jo kevyt kiristys olisi riittävä.</p>
+
+<p>Näin ei kuitenkaan ole.</p>
+
+<p>Pulttiliitoksen kiristämisessä tavoitteena ei ole ainoastaan hetkellisesti pieni kontaktivastus. Kiristettäessä pultti venyy elastisesti ja muodostaa liitokseen esikiristysvoiman, joka puristaa liitospintoja toisiaan vasten.</p>
+
+<p>Jos kiristysmomentti jää liian pieneksi, myös pultin elastinen venymä ja liitoksen esikiristysvoima jäävät pieniksi. Tällainen liitos on herkempi puristusvoiman menettämiselle esimerkiksi lämpötilavaihteluiden, materiaalien painumisen, tärinän ja muun käytönaikaisen mekaanisen rasituksen seurauksena.</p>
+
+<p>Liitos, jonka resistanssi on asennushetkellä pieni, ei siis välttämättä pysy hyvänä koko käyttöikäänsä, jos pulttiliitoksessa ei ole riittävää esikiristysvoimaa.</p>
+
+<p>Siksi oikean kiristysmomentin merkitys on kaksijakoinen:</p>
+
+<ul class="list"><li>sillä saavutetaan pieni sähköinen liitosresistanssi</li><li>sillä muodostetaan riittävä ja mahdollisimman pysyvä liitoksen puristusvoima</li></ul>
+
+<p>Tässä kokeessa 5 Nm tuotti jo sähköisesti huomattavasti paremman liitoksen kuin sormikireys. Tämä ei kuitenkaan tarkoita, että 5 Nm olisi mekaanisesti riittävä kiristysmomentti. Liitoksen luotettavuuden kannalta pultti tulee kiristää rakenteelle määritettyyn oikeaan momenttiin.</p>
+
+<h2>Mitä mittauksesta voidaan päätellä?</h2>
+
+<p>Koe osoitti hyvin konkreettisesti, että pulttiliitoksen mekaaninen toteutus vaikuttaa suoraan sen sähköisiin ominaisuuksiin.</p>
+
+<p>Erityisesti löysän liitoksen resistanssi oli moninkertainen asianmukaisesti kiristettyyn liitokseen verrattuna.</p>
+
+<p>Samalla tuloksista näkyy kiinnostava yksityiskohta: suurin sähköinen parannus tapahtui jo suhteellisen pienellä kiristysmomentilla. Tämä ei kuitenkaan tarkoita, että pieni kiristysmomentti olisi riittävä liitoksen käytönaikaisen luotettavuuden kannalta.</p>
+
+<p>Oikealla kiristysmomentilla saavutetaan riittävä pultin esikiristys ja elastinen venymä, joiden avulla liitoksen puristusvoima säilyy paremmin myös käytön aikana. Liian pienellä momentilla tehty liitos voi menettää puristusvoimaansa ja löystyä helpommin, jolloin myös liitosresistanssi alkaa kasvaa.</p>
+
+<p>Tämä on yksi syy siihen, miksi sähkölaitteiden ja kiskostojen liitoksissa valmistajan määrittämää kiristysmomenttia tulee noudattaa. Kiristysmomentissa ei ole kyse vain hyvän kontaktin muodostamisesta asennushetkellä, vaan myös siitä, että kontakti säilyy luotettavana koko liitoksen käyttöiän.</p>
+
+<p>On kuitenkin tärkeää huomata, että tämän mittauksen tulokset koskevat kyseistä koejärjestelyä. Liitosresistanssiin vaikuttavat kiristysmomentin lisäksi esimerkiksi liitospintojen kunto, hapettuminen, pintakäsittely, aluslevyrakenne, pulttiliitoksen kitka sekä kiskojen materiaali ja geometria.</p>
+
+<p>25 Nm ei siten ole yleinen M8-kiskoliitosten kiristysmomentti, vaan oikea momentti tulee aina määrittää kyseisen laitteen tai liitosrakenteen valmistajan ohjeen perusteella.</p>
+
+<h2>Mittaaminen tekee näkymättömän näkyväksi</h2>
+
+<p>Kuparikiskoliitoksen resistanssia ei voida arvioida silmämääräisesti. Liitos voi näyttää täysin normaalilta ja silti sen sähköiset ominaisuudet voivat olla olennaisesti erilaiset riippuen siitä, millainen kontaktipaine liitoksessa todellisuudessa on.</p>
+
+<p>Tässä kokeessa ero sormikireän ja 25 Nm momenttiin kiristetyn liitoksen välillä oli yli kymmenkertainen.</p>
+
+<p>Kun ero muutetaan tehohäviöksi 450 A kuormituksella, puhutaan laskennallisesti noin <strong>24,6 watin ja 1,8 watin</strong> erosta.</p>
+
+<p>Mikro-ohmien mittaaminen tekee näin näkyväksi ilmiön, joka suurivirtaisessa sähkölaitteistossa voi lopulta näkyä lämpenemisenä, energiahäviönä ja pahimmillaan liitoksen vaurioitumisena.</p>
+
+<p>Mirus Electrum Oy tekee sähkölaitteistojen varmennus- ja määräaikaistarkastuksia sekä sähköteknisiä mittauksia ja selvityksiä.</p>
+<div class="cta"><a class="btn" href="/mittaukset/">Tutustu mittauspalveluihin</a><a class="btn ghost" href="/#yhteys">Ota yhteyttä</a></div>
+      </article>
+    </div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-left">
+        <small>© <span id="year"></span> Mirus Electrum Oy - Y-tunnus 3583733-7</small><br>
+        <small class="muted">Sähkölaitteistojen tarkastukset</small>
+      </div>
+
+      <div class="footer-right">
+        <a href="mailto:riku.leimola@mirus-electrum.fi" class="footer-link footer-email" aria-label="Sähköposti riku.leimola@mirus-electrum.fi">riku.leimola@mirus-electrum.fi</a>
+        <span class="divider-dot">|</span>
+        <a href="tel:0408327388" class="footer-link footer-phone" aria-label="Puhelin 0408327388">0408327388</a>
+        <span class="divider-dot">|</span>
+        <a href="/sopimusehdot.pdf" target="_blank" class="footer-link">Sopimusehdot</a>
+        <span class="divider-dot">|</span>
+        <a href="/hinnasto.pdf" target="_blank" class="footer-link">Hinnasto</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
