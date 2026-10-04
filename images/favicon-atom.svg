@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Mirus Electrum Oy – atomikuvake</title>
+  <rect width="512" height="512" fill="#fff"/>
+  <g fill="none" stroke-width="15" stroke-linecap="round">
+    <ellipse cx="256" cy="256" rx="208" ry="112" transform="rotate(32 256 256)" stroke="#9aaabd"/>
+    <ellipse cx="256" cy="256" rx="114" ry="208" stroke="#0c2b3e"/>
+    <ellipse cx="256" cy="256" rx="208" ry="112" transform="rotate(-32 256 256)" stroke="#9aaabd"/>
+  </g>
+  <circle cx="256" cy="256" r="47" fill="#0c2b3e"/>
+  <g fill="#e8780a" stroke="#fff" stroke-width="9">
+    <circle cx="78" cy="227" r="24"/>
+    <circle cx="429" cy="271" r="24"/>
+    <circle cx="268" cy="463" r="23"/>
+  </g>
+</svg>
