@@ -237,6 +237,8 @@ tr:last-child td { border-bottom: 0; }
 .closing-layout p:last-child { margin-bottom: 0; }
 .closing-layout .cta { margin: 0; flex-shrink: 0; }
 .contact { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 80px; align-items: start; }
+.quote-request { margin-top: 32px; border-top: 3px solid var(--accent); }
+.quote-request-note { margin: 16px 0 0; font-size: .95rem; }
 .contact-card { padding: 32px; }
 .contact-row { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: center; gap: 16px; padding: 14px 0; }
 .contact-row + .contact-row { border-top: 1px solid var(--line); }
