@@ -205,6 +205,11 @@ p { margin: 0 0 1.25rem; }
 .blog-card-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; padding: 0; overflow: hidden; }
 .blog-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .blog-card-content { padding: 28px; }
+.measurement-articles { margin-top: 36px; }
+.measurement-articles h4 { margin: 0 0 16px; font-size: 1.24rem; line-height: 1.35; }
+.measurement-articles h4 a { color: var(--text); text-decoration: none; }
+.measurement-articles h4 a:hover { color: var(--color-copper-dark); }
+.measurement-articles .blog-card-media img { height: 280px; object-position: center 60%; }
 .reading-article, article.card[style*="max-width"] { width: 100%; max-width: 860px !important; padding: 44px !important; margin: 0 auto; box-shadow: none; }
 .reading-article h2, article.card[style*="max-width"] h2 { margin: 38px 0 16px !important; font-size: 1.55rem; line-height: 1.3; }
 .reading-article h2:first-child { margin-top: 0 !important; }
